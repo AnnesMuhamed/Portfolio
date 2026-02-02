@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { HeroComponent } from './components/hero.component/hero.component';
+
 
 @Component({
   selector: 'app-portfolio.component',
-  imports: [],
+  standalone: true,
+  imports: [HeroComponent],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss',
+  styleUrls: ['./portfolio.component.scss'],
 })
+
 export class PortfolioComponent {
 
 }
