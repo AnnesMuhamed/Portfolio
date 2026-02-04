@@ -1,0 +1,91 @@
+.why-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1920px;  
+}
+
+.headline {
+    font-family: 'Anta', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    text-align: center;
+    color: #89BCD9;
+    margin-top: 76px;
+}
+
+.information-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 860px;
+    height: 176px;
+    opacity: 1;
+}
+
+.location-web {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+img {
+    width: 74.42605590820312px;
+    height: 63.2833251953125px;
+}
+
+.im {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 30px;
+    line-height: 120%;
+    color: #89BCD9;
+}
+
+.lic {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 30px;
+    line-height: 120%;
+    color: #F8F5EC;
+}
+
+.about-me-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.about-me {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    width: 379px;
+    height: 104px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #F8F5EC;
+    line-height: 120%;
+}
+
+button {
+    width: 134px;
+    height: 48px;
+    opacity: 1;
+    gap: 10px;
+    border-radius: 30px;
+    border-width: 1px;
+    padding-top: 13px;
+    padding-right: 30px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    border: 1px solid #89BCD9;
+    color: #89BCD9;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #262E34;
+    cursor: pointer;
+}

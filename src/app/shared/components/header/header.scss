@@ -1,5 +1,6 @@
 .header {
     width: 100%;
+    max-width: 1920px;
     height: 104px;
     background-color: #89BCD9;
     display: flex;
@@ -7,8 +8,10 @@
     justify-content: space-between;
     padding: 16px 109px 16px 109px;
     box-sizing: border-box;
-    position: fixed;
+    position: sticky;
     top: 705px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logo-container {
