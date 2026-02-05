@@ -1,0 +1,130 @@
+.skill-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1920px;
+    height: 556px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'Anta', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: #89BCD9;
+}
+
+.skill-contents {
+    display: flex;
+    width: 910px;
+    height: 404px;
+    gap: 79px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    height: 404px;
+    gap: 40px;
+    color: #89BCD9;
+
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.skill-item span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    color: #89BCD9;
+    width: 84px;
+    height: 22px;
+}
+
+.icons {
+    width: 59.945430755615234px;
+    height: 60px;
+}
+
+.currently-learning {
+    position: relative;
+}
+
+.learning-skills-span {
+    width: 194px;
+    height: 23px;
+    top: 81px;
+    left: 91px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+
+}
+
+.learning-skills {
+    position: absolute;
+    left: 36px;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    color: #F8F5EC;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.learning-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.learning-icons-container {
+    display: flex;
+    width: 96px;
+    gap: 24px;
+} 
+
+.learning-icons {
+    width: 96px;
+    height: 54px;
+    left: 135px;
+    gap: 24px;
+}
+
+.learning-icon {
+    display: flex;
+    width: 32px;
+    height: 32px;
+}
+
+.learning-motivation-container {
+    width: 307px;
+    height: 105px;
+    display: flex;
+}
+
+.skill-name {
+
+}
+
+.learning-motivation {
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+}
