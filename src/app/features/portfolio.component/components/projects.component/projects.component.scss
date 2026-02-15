@@ -86,3 +86,53 @@ h1 {
   line-height: 120%;
   color: #F8F5EC;
 }
+
+.project-technologies-label {
+  width: 179px;
+  height: 22px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  text-align: center;
+  color: #F8F5EC;
+}
+
+.project-technologies-icons-container {
+  width: 179px;
+  height: 36px;
+  padding-right: 6px;
+  padding-left: 6px;
+  gap: 32px;
+  display: flex;
+}
+
+.project-technologies-icons {
+  width: 36px;
+  height: 36px;
+}
+
+.project-actions {
+  width: 292px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.project-action-button {
+  width: 132px;
+  height: 48px;
+  padding-top: 13px;
+  padding-right: 26px;
+  padding-bottom: 13px;
+  padding-left: 26px;
+  border-radius: 30px;
+  background: #89BCD9;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: #262E34;
+}
