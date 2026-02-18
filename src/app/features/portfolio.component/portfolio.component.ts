@@ -4,13 +4,14 @@ import { Header } from '../../shared/components/header/header';
 import { WhyMeComponent } from './components/why-me.component/why-me.component';
 import { ProjectsComponent } from './components/projects.component/projects.component';
 import { SkillComponent } from "./components/skill.component/skill.component";
+import { ReferencesComponent } from "./components/references/references"; 
 
 
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [HeroComponent, Header, WhyMeComponent, ProjectsComponent, SkillComponent],
+  imports: [HeroComponent, Header, WhyMeComponent, ProjectsComponent, SkillComponent, ReferencesComponent],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
 })

@@ -1,0 +1,100 @@
+.references {
+    width: 100%;
+    max-width: 1920px;
+    height: 479px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+    text-align: center;
+    color: #89BCD9;
+    width: 1209px;
+    height: 38px;
+}
+
+.reference {
+    color: #F8F5EC;
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 120%;
+    display: flex;
+    justify-content: space-around;
+    width: 1209px;
+    height: 385px;
+    gap: 14px;
+}
+
+.reference--text-block {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.reference--text-block img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.reference--overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    text-align: center;
+    width: 314.28570556640625px;
+    height: 250.65274047851562px;
+    opacity: 1;
+    gap: 19px;
+
+}
+
+.reference-name {
+    width: 100%;
+    color: #F8F5EC; 
+    font-size: 26px; 
+    text-align: center; 
+    font-weight: 600;
+}
+
+.project-name {
+    width: 100%;
+    color: #F8F5EC;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.reference--overlay p {
+    width: 100%;
+    opacity: 1;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: #F8F5EC;
+}
+
+.reference--overlay a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: underline;
+    color: #89BCD9;
+}
