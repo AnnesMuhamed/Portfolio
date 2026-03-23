@@ -6,13 +6,14 @@ import { ProjectsComponent } from './components/projects.component/projects.comp
 import { SkillComponent } from "./components/skill.component/skill.component";
 import { ReferencesComponent } from "./components/references/references"; 
 import { ContactComponent } from "./components/contact.component/contact.component";
+import { Footer } from "../../shared/components/footer/footer";
 
 
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [HeroComponent, Header, WhyMeComponent, ProjectsComponent, SkillComponent, ReferencesComponent, ContactComponent],
+  imports: [HeroComponent, Header, WhyMeComponent, ProjectsComponent, SkillComponent, ReferencesComponent, ContactComponent, Footer],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
 })
