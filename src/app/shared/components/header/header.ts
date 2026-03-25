@@ -9,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.scss'],
 })
 export class Header {
+  selectedLanguage = 'EN';
+  activeSection = '';
 
+  scrollTo(id: string, event: Event) {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    this.activeSection = id;
+  }
 }

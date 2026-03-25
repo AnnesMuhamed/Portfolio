@@ -21,7 +21,6 @@ h1 {
   line-height: 120%;
   font-family: 'Anta', sans-serif;
   color: #89BCD9;
-
 }
 
 .tabs {
@@ -50,6 +49,10 @@ h1 {
 
 .tabs button.active {
   background: #89BCD912;
+  color: #F8F5EC;
+}
+
+.tabs button:not(.active):hover {
   color: #F8F5EC;
 }
 
@@ -120,13 +123,15 @@ h1 {
   gap: 10px;
 }
 
-.project-action-button {
+.project-action-button-lt {
   width: 132px;
   height: 48px;
   padding-top: 13px;
   padding-right: 26px;
   padding-bottom: 13px;
   padding-left: 26px;
+  background: #89BCD9;
+  color: #262E34;
   border-radius: 30px;
   border: 1px solid #89BCD9;
   font-family: 'Josefin Sans', sans-serif;
@@ -136,14 +141,24 @@ h1 {
   cursor: pointer;
 }
 
-// .comming-soon {
-//   width: 218px;
-//   height: 36px;
-//   font-weight: 500;
-//   font-size: 30px;
-//   line-height: 120%;
-//   color: #89BCD9;
-//   font-family: 'Josefin Sans', sans-serif;
-//   position: relative;
-//   bottom: 169px;
-// }
+.project-action-button {
+  width: 132px;
+  height: 48px;
+  padding-top: 13px;
+  padding-right: 26px;
+  padding-bottom: 13px;
+  padding-left: 26px;
+  background: #262E34;
+  color: #89BCD9;
+  border-radius: 30px;
+  border: 1px solid #89BCD9;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  cursor: pointer;
+
+    &:hover {
+      background-color: #3f454a;
+    }
+}

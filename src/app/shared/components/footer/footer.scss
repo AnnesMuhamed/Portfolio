@@ -63,18 +63,43 @@
     color: inherit;
 }
 
+a:hover .legal-notice-link {
+    color: #F8F5EC;
+}
+
 .social-media {
   display: flex;
   gap: 12px;
 }
 
-.social-media a {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.icon-btn {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
 }
 
-.social-media img {
-  width: 32px;  
-  height: 32px;
+.icon-btn img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.icon-default {
+  opacity: 1;
+}
+
+.icon-hover {
+  opacity: 0;
+}
+
+.icon-btn:hover .icon-default {
+  opacity: 0;
+}
+
+.icon-btn:hover .icon-hover {
+  opacity: 1;
 }

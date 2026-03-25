@@ -5,13 +5,13 @@
       <span class="developer">developer</span>
     </div>
     <nav>
-        <a routerLink="/home" routerLinkActive="active-link">Why me</a>
-        <a routerLink="/about" routerLinkActive="active-link">Skills</a>
-        <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
-        <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
+        <a href="#why-me" (click)="scrollTo('why-me', $event)" [class.active-link]="activeSection === 'why-me'">Why me</a>
+        <a href="#skills" (click)="scrollTo('skills', $event)" [class.active-link]="activeSection === 'skills'">Skills</a>
+        <a href="#projects" (click)="scrollTo('projects', $event)" [class.active-link]="activeSection === 'projects'">Projects</a>
+        <a href="#contact" (click)="scrollTo('contact', $event)" [class.active-link]="activeSection === 'contact'">Contact</a>
     </nav>
     <div class="language-switcher">
-        <span>DE</span>
-        <span>EN</span>
+        <span [class.active]="selectedLanguage === 'DE'" (click)="selectedLanguage = 'DE'">DE</span>
+        <span [class.active]="selectedLanguage === 'EN'" (click)="selectedLanguage = 'EN'">EN</span>
     </div>
 </section>

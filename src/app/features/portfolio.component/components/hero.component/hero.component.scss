@@ -14,21 +14,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 654px;
+  height: auto;
+  background-image: url(/images/bg-shape.png);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-position: center -50px;
+  transition: background-position 1.5s ease;
+
+    &:hover {
+      background-image: url('/images/shape-hover.png');
+      background-position: center 100px;
+    }
 }
 
 .profil-picture {
-  position: absolute;
   width: 535px;
   height: 683px;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-}
-
-.bg-shape {
-  width: 594px;
-  height: 710px;
   object-fit: cover;
 }
 
@@ -44,6 +46,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.logo-container img {
+  width: 56px;
+  height: auto;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.logo-container img:hover {
+  transform: scaleX(1.25);
 }
 
 .name-container {
@@ -96,4 +109,31 @@
   height: 122px;
   opacity: 1;
   gap: 16px;
+}
+
+.socialmedia a {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.socialmedia img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.icon-hover {
+  opacity: 0;
+}
+
+.icon-btn:hover .icon-default {
+  opacity: 0;
+}
+
+.icon-btn:hover .icon-hover {
+  opacity: 1;
 }

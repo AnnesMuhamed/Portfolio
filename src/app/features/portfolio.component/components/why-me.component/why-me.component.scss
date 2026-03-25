@@ -89,4 +89,8 @@ button {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #262E34;
     cursor: pointer;
+
+        &:hover {
+            background-color: #3f454a;
+        }
 }
