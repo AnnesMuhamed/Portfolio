@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     gap: 48px;
-    width: 911px;
+    width: 941px;
 }
 
 .contact-header {
@@ -73,6 +73,14 @@ p {
     color: inherit;
     text-decoration: none;
     color: #F8F5EC;
+
+    &:hover {
+      color: #89BCD9;
+    } 
+}
+
+.contact-links a:hover img {
+    filter: brightness(0) saturate(100%) invert(82%) sepia(4%) saturate(4587%) hue-rotate(172deg) brightness(93%) contrast(81%);
 }
 
 .icon {
@@ -86,7 +94,6 @@ p {
   display: block;
 }
 
-/* contact form structure */
 .contact-form {
   width: 100%;
   max-width: 911px;
@@ -114,7 +121,6 @@ p {
   flex-direction: column;
   font-family: 'Josefin Sans', sans-serif;
   width: 100%;
-  max-width: 445px;
   color: #89BCD9;
   font-weight: 400;
   font-size: 14px;
@@ -132,10 +138,15 @@ p {
   border-width: 1px;
   border: 1px solid #89BCD9;
   background-color: #262E34;
-  color: #89BCD9;
   font-size: 16px;
   outline: none;
   box-shadow: inset 0 0 0 1px rgba(248,245,236,0.15);
+  color: #FFFDFD;
+  padding: 0px 16px 0px 26px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
 }
 
 .contact-form-row input[type="text"]:focus,
@@ -143,28 +154,30 @@ p {
 .contact-form-row textarea:focus {
   border-color: #89BCD9;
   box-shadow: 0 0 0 2px rgba(137,188,217,0.25);
+  background-color: #313F48;
+  transition: background-color 0.2s ease; 
 }
 
 .contact-form-row textarea {
-    width: 911px;
-    height: 164px;
-    border-radius: 30px;
-    border-width: 1px;
-    border: 1px solid #89BCD9;
-    background-color: #262E34;
-    color: #89BCD9;
-    font-size: 16px;
-    outline: none;
-    box-shadow: inset 0 0 0 1px rgba(248,245,236,0.15);
-}
-
-.contact-form-row textarea {
-  min-height: 110px;
-  resize: vertical;
+  resize: none;
+  min-height: 120px;
+  height: 164px;
+  border-radius: 30px;
+  border-width: 1px;
+  border: 1px solid #89BCD9;
+  background-color: #262E34;
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(248,245,236,0.15);
+  color: #FFFDFD;
+  padding: 20px 26px 20px 26px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
 }
 
 .contact-form-row--submit label {
-    display: flex;
+  display: flex;
   align-items: center;
   flex-direction: row;
   gap: 8px;
@@ -177,6 +190,10 @@ p {
   height: 32px;
   background: url('/images/Ellipse 32.png') no-repeat center;
   cursor: pointer;
+
+    &:hover {
+      background: url('/images/checkbox-hover.png') no-repeat center;
+    }
 }
 
 .contact-form-row--submit input[type="checkbox"]:checked {
@@ -204,20 +221,69 @@ p {
 
 .contact-form-row--submit {
   display: flex;
+  height: 80px;
+  align-items: flex-start;
+  padding-left: 22px;
+}
+
+.privacy-policy-link:hover {
+  color: #F8F5EC !important;
 }
 
 .send {
-    width: 101px;
-    height: 48px;
-    gap: 10px;
-    border-radius: 30px;
-    border-width: 1px;
-    padding-top: 13px;
-    padding-right: 30px;
-    padding-bottom: 13px;
-    padding-left: 30px;
-    border: 1px solid #89BCD9;
-    background: #262E34;
-    color: #89BCD9;
-    cursor: pointer;
+  position: relative;
+  top: 30px;
+  width: 101px;
+  height: 48px;
+  border-radius: 30px;
+  border-width: 1px;
+  padding-top: 13px;
+  padding-right: 30px;
+  padding-bottom: 13px;
+  padding-left: 30px;
+  border: 1px solid #89BCD9;
+  background: #262E34;
+  color: #89BCD9;
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+
+
+    &:hover {
+      background-color: #3f454a;
+    }
+}
+
+textarea {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #89BCD9 transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #89BCD9;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #67a8c7;
+  }
+
+  &::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
