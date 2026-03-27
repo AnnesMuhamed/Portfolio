@@ -2,9 +2,15 @@
     <h1 class="headline">Why me</h1>
     <div class="information-container">
         <div class="location-web">
-            <img src="/images/location.png" alt="location-button">
+
+            <img [src]="items[currentIndex]?.icon">
+
             <span class="im">I am</span>
-            <span class="lic">located in Cologne...|</span>
+
+            <span class="lic">
+                {{ currentText }}<span class="cursor">|</span>
+            </span>
+
         </div>
         <div class="about-me-container">
             <p class="about-me">Why are you passionate about coding?  

@@ -34,15 +34,28 @@ h1 {
 }
 
 .reference--text-block {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-image: url('/images/ellipse02.png');
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease;
+}
+
+.reference--text-block:hover {
+  background-image: url('/images/Ellipse 02.png');
+}
+
+.reference--text-block {
     position: relative;
     width: 400px;
     height: 400px;
 }
 
-.reference--text-block img {
+.reference--text-block {
     display: block;
     width: 100%;
-    height: auto;
 }
 
 .reference--overlay {
@@ -60,7 +73,10 @@ h1 {
     height: 250.65274047851562px;
     opacity: 1;
     gap: 19px;
+}
 
+.reference--overlay a:hover {
+    color: #F8F5EC !important;
 }
 
 .reference-name {

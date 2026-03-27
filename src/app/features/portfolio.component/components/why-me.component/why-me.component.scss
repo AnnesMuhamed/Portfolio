@@ -21,17 +21,19 @@
 
 .information-container {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    width: 860px;
+    width: 100%;
+    max-width: 949px;
     height: 176px;
     opacity: 1;
+    justify-content: center;
 }
 
 .location-web {
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
 }
 
 img {
@@ -55,6 +57,16 @@ img {
     font-size: 30px;
     line-height: 120%;
     color: #F8F5EC;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .about-me-container {
