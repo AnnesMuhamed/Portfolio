@@ -1,4 +1,23 @@
 <section class="hero">
+  <div class="mobile-topbar">
+    <div class="logo-container mobile-logo">
+      <img src="/images/logo-icon.png" alt="Hero Icon">
+      <span class="a-name">A.Muhamed</span>
+      <span class="developer">developer</span>
+    </div>
+    <button class="burger-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="mobile-nav" [class.open]="menuOpen">
+      <a href="#why-me" (click)="scrollTo('why-me', $event)">Why me</a>
+      <a href="#skills" (click)="scrollTo('skills', $event)">Skills</a>
+      <a href="#projects" (click)="scrollTo('projects', $event)">Projects</a>
+      <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
+    </nav>
+  </div>
+
   <div class="hero-img">
     <img class="profil-picture" src="/images/profilbild.png" alt="">
   </div>

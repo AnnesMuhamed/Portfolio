@@ -12,6 +12,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class Header {
   selectedLanguage = 'EN';
   activeSection = '';
+  menuOpen = false;
   private readonly isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) platformId: object) {
@@ -23,5 +24,14 @@ export class Header {
     if (!this.isBrowser) return;
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     this.activeSection = id;
+    this.menuOpen = false;
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 }

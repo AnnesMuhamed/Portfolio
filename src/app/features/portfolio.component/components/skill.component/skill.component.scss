@@ -5,7 +5,9 @@
     align-items: center;
     width: 100%;
     max-width: 1920px;
-    height: 556px;
+    min-height: 556px;
+    padding: 40px 16px 0;
+    box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
 }
@@ -23,15 +25,16 @@ h1 {
 
 .skill-contents {
     display: flex;
-    width: 910px;
-    height: 404px;
+    width: 100%;
+    max-width: 910px;
+    min-height: 404px;
     gap: 79px;
 }
 
 .skills {
     display: flex;
     flex-wrap: wrap;
-    height: 404px;
+    min-height: 404px;
     gap: 40px;
     color: #89BCD9;
 
@@ -77,7 +80,7 @@ h1 {
 
 .currently-learning-img-wrapper {
     position: relative;
-    width: 100%;
+    width: min(375px, 100%);
     height: 391px;
 }
 
@@ -167,4 +170,40 @@ h1 {
     font-size: 18px;
     line-height: 120%;
     text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .skill-contents {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .skills {
+    justify-content: center;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-section {
+    padding: 32px 12px 0;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .skill-item span {
+    font-size: 16px;
+  }
+
+  .learning-skills {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .learning-motivation-container {
+    width: 260px;
+  }
 }

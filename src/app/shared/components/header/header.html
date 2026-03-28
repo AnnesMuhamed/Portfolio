@@ -4,13 +4,18 @@
       <span class="a-name">A.Muhamed</span>
       <span class="developer">developer</span>
     </div>
-    <nav>
+    <button class="burger-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav [class.open]="menuOpen">
         <a href="#why-me" (click)="scrollTo('why-me', $event)" [class.active-link]="activeSection === 'why-me'">Why me</a>
         <a href="#skills" (click)="scrollTo('skills', $event)" [class.active-link]="activeSection === 'skills'">Skills</a>
         <a href="#projects" (click)="scrollTo('projects', $event)" [class.active-link]="activeSection === 'projects'">Projects</a>
         <a href="#contact" (click)="scrollTo('contact', $event)" [class.active-link]="activeSection === 'contact'">Contact</a>
     </nav>
-    <div class="language-switcher">
+    <div class="language-switcher" [class.open]="menuOpen">
         <span [class.active]="selectedLanguage === 'DE'" (click)="selectedLanguage = 'DE'">DE</span>
         <span [class.active]="selectedLanguage === 'EN'" (click)="selectedLanguage = 'EN'">EN</span>
     </div>

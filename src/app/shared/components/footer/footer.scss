@@ -1,12 +1,12 @@
 .footer {
     width: 100%;
     max-width: 1920px;
-    height: 214px;
+    min-height: 214px;
     background: #89BCD9;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 90px 20px 90px;
+    padding: 20px 24px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -103,4 +103,21 @@ a:hover .legal-notice-link {
 
 .icon-btn:hover .icon-hover {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 16px 12px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 16px;
+  }
+
+  .legal-notice-container {
+    align-items: center;
+  }
 }

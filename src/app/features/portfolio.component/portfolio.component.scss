@@ -1,4 +1,27 @@
-/* Add margin between Contact and Footer */
 app-contact {
   margin-bottom: 80px;
+}
+
+@media (max-width: 1024px) {
+  app-why-me,
+  app-skill,
+  app-projects,
+  app-references,
+  app-contact {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  app-hero {
+    display: block;
+  }
+
+  app-header {
+    display: none;
+  }
+
+  app-contact {
+    margin-bottom: 60px;
+  }
 }

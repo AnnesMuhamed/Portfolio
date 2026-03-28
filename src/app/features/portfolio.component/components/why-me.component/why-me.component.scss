@@ -6,8 +6,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 1920px;  
-    height: 507px;
+    max-width: 1920px;
+    min-height: 507px;
+    padding: 40px 16px 0;
+    box-sizing: border-box;
 }
 
 .headline {
@@ -24,7 +26,7 @@
     align-items: flex-start;
     width: 100%;
     max-width: 949px;
-    height: 176px;
+    min-height: 176px;
     opacity: 1;
     justify-content: center;
 }
@@ -78,8 +80,9 @@ img {
 .about-me {
     margin-block-start: 0;
     margin-block-end: 0;
-    width: 379px;
-    height: 104px;
+    width: 100%;
+    max-width: 379px;
+    min-height: 104px;
     font-family: 'Josefin Sans', sans-serif;
     color: #F8F5EC;
     line-height: 120%;
@@ -105,4 +108,40 @@ button {
         &:hover {
             background-color: #3f454a;
         }
+}
+
+@media (max-width: 1024px) {
+  .information-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .location-web {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-me-container {
+    align-items: center;
+  }
+
+  .about-me {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-me {
+    padding: 32px 12px 0;
+  }
+
+  .headline {
+    font-size: 42px;
+  }
+
+  .im,
+  .lic {
+    font-size: 24px;
+  }
 }
