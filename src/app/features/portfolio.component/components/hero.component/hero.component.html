@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero" id="hero">
   <div class="mobile-topbar">
     <div class="logo-container mobile-logo">
       <img src="/images/logo-icon.png" alt="Hero Icon">
@@ -34,6 +34,11 @@
     <div class="name-container">
       <span class="fullname">Annes Muhamed</span>
       <span class="f-developer">{{ 'hero.role' | translate }}</span>
+    </div>
+    <div>
+      <button class="arrow-button" type="button" (click)="scrollTo('contact', $event)" aria-label="Scroll to contact section">
+        <img src="/images/arrow-down.png" alt="">
+      </button>
     </div>
   </div>
   <div class="socialmedia">

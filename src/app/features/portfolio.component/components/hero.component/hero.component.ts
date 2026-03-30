@@ -21,8 +21,8 @@ export class HeroComponent {
     this.menuOpen = !this.menuOpen;
   }
 
-  scrollTo(id: string, event: Event) {
-    event.preventDefault();
+  scrollTo(id: string, event?: Event) {
+    event?.preventDefault();
     if (!this.isBrowser) return;
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     this.menuOpen = false;

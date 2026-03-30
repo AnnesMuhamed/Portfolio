@@ -1,15 +1,22 @@
 .contact {
-    width: 100%;
-    max-width: 1920px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
-    margin-bottom: 80px;
-    padding: 0 16px;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.arrow-container {
+  position: relative;
+  left: 200px;
+  align-self: flex-start;
+  top: 60px;
 }
 
 .contact-wrapper {
@@ -372,6 +379,25 @@ textarea {
   margin-top: 5px;
   font-weight: 400;
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.arrow-button {
+  width: 38px;
+  height: 89px;
+  border-radius: 30px;
+  border-width: 1px;
+  border: 1px solid #89BCD9;
+  color: #89BCD9;
+  background-color: #262E34;
+  cursor: pointer;
+
+    &:hover {
+      background-color: #3f454a;
+    }
+  // On click
+  // Scroll to: "Ancor 01";
+  // Animate: Animate;
+  // Spring: { mass: 1, stiffness: 100, damping: 15 };
 }
 
 @media (max-width: 1024px) {

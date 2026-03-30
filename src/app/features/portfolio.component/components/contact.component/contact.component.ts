@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -17,8 +17,17 @@ type ContactApiResponse = { ok: boolean; error?: string };
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-
   private readonly http = inject(HttpClient);
+  private readonly isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+  scrollToHero() {
+    if (!this.isBrowser) return;
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+  }
 
   submitAttempted = false;
   submitting = false;
