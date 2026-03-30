@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "whyMe": "Why me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "aria": {
+    "toggleNav": "Toggle navigation"
+  },
+  "brand": {
+    "developer": "developer"
+  },
+  "hero": {
+    "role": "FRONTEND DEVELOPER"
+  },
+  "whyMe": {
+    "title": "Why me",
+    "iAm": "I am",
+    "about": "Why are you passionate about coding? You can include some key traits like: analytical thinking, creativity, persistence and collaboration. A problem-solving mindset is always nice to have.",
+    "cta": "Let´s talk",
+    "typing": {
+      "location": "located in Cologne...",
+      "remote": "open to work remote...",
+      "relocate": "open to relocate..."
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "learning": "I am currently learning",
+    "motivation": "Show that you are motivated to continually improve your skills, implement innovative solutions and stay abreast of new technologies.",
+    "materialDesign": "Material<br>Design"
+  },
+  "projects": {
+    "title": "My Projects",
+    "tabs": {
+      "ongoing": "Ongoing Project"
+    },
+    "subtitle": {
+      "about": "About the project",
+      "process": "How I have organised my work process",
+      "group": "My group work experience"
+    },
+    "technologies": "Technologies",
+    "github": "GitHub",
+    "bubble": {
+      "about": "This App is a Slack Clone App. <br> It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+      "process": "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules or components? Focus on documentation, naming files, variables, classes and testing.",
+      "group": "How many people were in the team and what was your role? Describe your tasks in 1-2 sentences, for example: login form, dashboard or chat functionality. What technologies did you use? It is nice to mention good teamwork and cooperation."
+    },
+    "pollo": {
+      "about": "A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and poison bottles to fight against the killer Chicken.",
+      "process": "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules or components? Focus on documentation, naming files, variables, classes and testing.",
+      "group": "As someone who is always trying to learn new technologies, you may have enjoyed working on this project because it allowed you to delve deep into a particular technology. Give details, such as the name of the framework or language you mean."
+    },
+    "join": {
+      "about": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+      "process": "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules or components? Focus on documentation, naming files, variables, classes and testing.",
+      "group": "How many people were in the team and what was your role? Describe your tasks in 1-2 sentences, for example: login form, dashboard or chat functionality. What technologies did you use? It is nice to mention good teamwork and cooperation."
+    },
+    "ongoing": {
+      "about": "What are you currently working on and what features are you implementing? What is the key to success in your projects? You can mention good planning, code quality and execution.",
+      "about2": "Show a desire to learn new technologies and continually improve your skills."
+    }
+  },
+  "references": {
+    "title": "Need a teamplayer? Here what my colleagues said about me",
+    "project": "Project",
+    "linkedIn": "Linked In Profile",
+    "bubble": {
+      "quote": "‘’Claudia had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person.’’"
+    },
+    "join": {
+      "quote": "‘’Claudia is a reliable and friendly person. Works in a structured way and write a clear code. I recommend her as a colleague.’’"
+    },
+    "pollo": {
+      "quote": "‘’ She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code. ‘’"
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work. Example: Feel free to get in touch with job offers or opportunities such as: ...",
+    "emailLine": "E-mail aernnest89@gmail.com",
+    "phoneLine": "Tel: +49 163 221 6668",
+    "success": "Your message has been sent. You will receive a confirmation email shortly.",
+    "error": "Something went wrong. Please try again later or use the email link above.",
+    "nameLabel": "Your name",
+    "nameError": "Your name is required",
+    "emailLabel": "Your Email",
+    "emailRequired": "Your email is required",
+    "emailInvalid": "Your email looks invalid. Check that @ and a domain ending (e.g. .com, .de) are present.",
+    "messageLabel": "Your Message",
+    "messageError": "Message must be at least 10 characters long",
+    "privacyCheckbox": "I've read the <span class=\"privacy-policy-link\">privacy policy</span> and agree to the processing of my data as outlined.",
+    "privacyError": "Please accept the privacy policy."
+  },
+  "footer": {
+    "legal": "Legal notice",
+    "copyright": "© Annes Muhamed 2026"
+  }
+}

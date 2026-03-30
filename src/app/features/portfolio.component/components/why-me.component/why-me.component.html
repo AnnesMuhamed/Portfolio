@@ -1,11 +1,11 @@
 <section class="why-me" id="why-me">
-    <h1 class="headline">Why me</h1>
+    <h1 class="headline">{{ 'whyMe.title' | translate }}</h1>
     <div class="information-container">
         <div class="location-web">
 
             <img [src]="items[currentIndex]?.icon">
 
-            <span class="im">I am</span>
+            <span class="im">{{ 'whyMe.iAm' | translate }}</span>
 
             <span class="lic">
                 {{ currentText }}<span class="cursor">|</span>
@@ -13,12 +13,8 @@
 
         </div>
         <div class="about-me-container">
-            <p class="about-me">Why are you passionate about coding?  
-                You can include some key traits like: analytical thinking, 
-                creativity, persistence and  collaboration.
-                A problem-solving mindset is always nice to have.
-            </p>
-            <button>Let´s talk</button>
+            <p class="about-me">{{ 'whyMe.about' | translate }}</p>
+            <button>{{ 'whyMe.cta' | translate }}</button>
         </div>
     </div>
 </section>

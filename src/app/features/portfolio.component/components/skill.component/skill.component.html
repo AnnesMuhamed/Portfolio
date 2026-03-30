@@ -1,5 +1,5 @@
 <section class="skill-section" id="skills">
-    <h1>My Skills</h1>
+    <h1>{{ 'skills.title' | translate }}</h1>
     <div class="skill-contents">
         <div class="skills">
 
@@ -45,7 +45,7 @@
 
             <div class="skill-item">
                 <img class="icons" src="/images/material-logo.png" alt="Material-Design">
-                <span>Material <br> Design</span>
+                <span [innerHTML]="'skills.materialDesign' | translate"></span>
             </div>
 
             <div class="skill-item">
@@ -57,7 +57,7 @@
                     <img src="/images/ellipse25.png" class="base-img" alt="Ellipse">
                     <img src="/images/property-1hover.png" class="hover-img" alt="Hover Ellipse">
                     <div class="learning-skills">
-                        <span class="learning-skills-span">I am currently learning</span>
+                        <span class="learning-skills-span">{{ 'skills.learning' | translate }}</span>
                         <div class="learning-contents">
                             <div class="learning-icons-container">
                                 <div class="learning-icons">
@@ -70,10 +70,7 @@
                                 </div>
                             </div>
                             <div class="learning-motivation-container">
-                                <span class="learning-motivation">
-                                    Show that you are motivated to continually improve your skills,
-                                    implement innovative solutions and stay abreast of new technologies.
-                                </span>
+                                <span class="learning-motivation">{{ 'skills.motivation' | translate }}</span>
                             </div>
                         </div>
                     </div>

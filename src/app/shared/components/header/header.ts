@@ -1,22 +1,34 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
 })
 export class Header {
-  selectedLanguage = 'EN';
+  currentLang = 'en';
   activeSection = '';
   menuOpen = false;
   private readonly isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) platformId: object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: object,
+    private readonly translate: TranslateService,
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
+    this.currentLang = this.translate.getCurrentLang() || 'en';
+    this.translate.onLangChange.subscribe((e) => {
+      this.currentLang = e.lang;
+    });
+  }
+
+  selectLanguage(lang: 'de' | 'en', event?: Event) {
+    event?.stopPropagation();
+    this.translate.use(lang).subscribe();
   }
 
   scrollTo(id: string, event: Event) {

@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
+    padding: 16px 109px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -46,7 +46,7 @@ nav {
     cursor: pointer;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.65rem;
     line-height: 120%;
     text-align: center;
     color: #262E34; 
@@ -68,7 +68,7 @@ a.active-link {
   }
 }
 
-nav a, .language-switcher span {
+nav a, .language-switcher .lang-btn {
   display: inline-block;
 }
 
@@ -76,7 +76,10 @@ nav a, .language-switcher span {
   display: flex;
   gap: 1rem;
 
-  span {
+  .lang-btn {
+    margin: 0;
+    border: none;
+    background: transparent;
     cursor: pointer;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
@@ -84,7 +87,7 @@ nav a, .language-switcher span {
     line-height: 120%;
     text-align: center;
     padding: 4px 8px;
-    transition: color 0.3s ease, background 0.3s ease; 
+    transition: color 0.3s ease, background 0.3s ease;
     color: #262E34;
 
     &:hover {
@@ -101,7 +104,7 @@ nav a, .language-switcher span {
   }
 }
 
-nav a, .language-switcher span {
+nav a, .language-switcher .lang-btn {
   display: inline-block;
 }
 

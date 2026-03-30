@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { TranslatePipe } from '@ngx-translate/core';
 
 /** Nach dem Upload: gleiche Domain wie die Seite, Datei aus /public → Webroot. */
 const CONTACT_ENDPOINT = '/contact.php';
@@ -11,7 +12,7 @@ type ContactApiResponse = { ok: boolean; error?: string };
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })

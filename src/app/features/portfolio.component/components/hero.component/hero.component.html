@@ -3,33 +3,37 @@
     <div class="logo-container mobile-logo">
       <img src="/images/logo-icon.png" alt="Hero Icon">
       <span class="a-name">A.Muhamed</span>
-      <span class="developer">developer</span>
+      <span class="developer">{{ 'brand.developer' | translate }}</span>
     </div>
-    <button class="burger-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation">
+    <button class="burger-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" [attr.aria-label]="'aria.toggleNav' | translate">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <nav class="mobile-nav" [class.open]="menuOpen">
-      <a href="#why-me" (click)="scrollTo('why-me', $event)">Why me</a>
-      <a href="#skills" (click)="scrollTo('skills', $event)">Skills</a>
-      <a href="#projects" (click)="scrollTo('projects', $event)">Projects</a>
-      <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
+      <a href="#why-me" (click)="scrollTo('why-me', $event)">{{ 'nav.whyMe' | translate }}</a>
+      <a href="#skills" (click)="scrollTo('skills', $event)">{{ 'nav.skills' | translate }}</a>
+      <a href="#projects" (click)="scrollTo('projects', $event)">{{ 'nav.projects' | translate }}</a>
+      <a href="#contact" (click)="scrollTo('contact', $event)">{{ 'nav.contact' | translate }}</a>
     </nav>
   </div>
 
   <div class="hero-img">
+    <div class="hero-shape-stack" aria-hidden="true">
+      <img class="hero-shape-base" src="/images/bg-shape.png" alt="">
+      <img class="hero-shape-hover" src="/images/shape-hover.png" alt="">
+    </div>
     <img class="profil-picture" src="/images/profilbild.png" alt="">
   </div>
   <div class="hero-name">
     <div class="logo-container">
       <img src="/images/logo-icon.png" alt="Hero Icon">
       <span class="a-name">A.Muhamed</span>
-      <span class="developer">developer</span>
+      <span class="developer">{{ 'brand.developer' | translate }}</span>
     </div>
     <div class="name-container">
       <span class="fullname">Annes Muhamed</span>
-      <span class="f-developer">FRONTEND DEVELOPER</span>
+      <span class="f-developer">{{ 'hero.role' | translate }}</span>
     </div>
   </div>
   <div class="socialmedia">

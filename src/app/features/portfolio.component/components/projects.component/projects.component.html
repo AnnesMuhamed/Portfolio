@@ -1,12 +1,12 @@
 <section class="projects" id="projects">
-  <h1>My Projects</h1>
+  <h1>{{ 'projects.title' | translate }}</h1>
 
   <nav class="tabs">
     @for (project of projects; track project.id; let index = $index) {
       <button
         (click)="setActiveProject(project.id)"
         [class.active]="activeProjectId === project.id">
-        {{ index + 1 }}. {{ project.title }}
+        {{ index + 1 }}. {{ project.titleKey ? (project.titleKey | translate) : project.title }}
       </button>
     }
   </nav>
@@ -21,13 +21,8 @@
           <div style="display: flex; gap: 20px; align-items: flex-start;">
             <img src="/images/ellipse8.png" alt="">
             <div class="project-info">
-              <span class="project-subtitle">About the project</span>
-              <p class="project-text">
-                This App is a Slack Clone App. <br>
-                It revolutionizes team communication 
-                and collaboration with its intuitive interface, 
-                real-time messaging, and robust channel organization.
-              </p>
+              <span class="project-subtitle">{{ 'projects.subtitle.about' | translate }}</span>
+              <p class="project-text" [innerHTML]="$any('projects.bubble.about' | translate)"></p>
             </div>
           </div>
 
@@ -35,33 +30,23 @@
             <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">How I have organised my work process</span>
-                <p class="project-text">
-                  How do you keep your code clean and maintainable? 
-                  Have you broken the project down into reusable modules or components? 
-                  Focus on documentation, naming files, variables, classes and testing.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.process' | translate }}</span>
+                <p class="project-text">{{ 'projects.bubble.process' | translate }}</p>
               </div>
             </div>
 
           <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">My group work experience</span>
-                <p class="project-text">
-                  How many people were in the team and what was your role? 
-                  Describe your tasks in 1-2 sentences, for example: 
-                  login form, dashboard or chat functionality.
-                  What technologies did you use?
-                  It is nice to mention good teamwork and cooperation.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.group' | translate }}</span>
+                <p class="project-text">{{ 'projects.bubble.group' | translate }}</p>
               </div>
           </div>
         </div>
 
 
           <div style="display: flex; flex-direction: column; width: 453px; align-items: center; gap: 18px;">
-            <span class="project-technologies-label">Technologies</span>
+            <span class="project-technologies-label">{{ 'projects.technologies' | translate }}</span>
             <div class="project-technologies-icons-container">
               <img src="/images/angular-logo.png" class="project-technologies-icons" alt="Angular Logo">
               <img src="/images/ts-logo.png" class="project-technologies-icons" alt="TypeScript Logo">
@@ -69,8 +54,8 @@
             </div>
             <img src="/images/screenshot-project.png" style="width: 453px; height: 312px;" alt="">
             <div class="project-actions">
-              <button class="project-action-button-lt">Live Test</button>
-              <button class="project-action-button">GitHub</button>
+              <button class="project-action-button-lt" type="button">Live Test</button>
+              <button class="project-action-button">{{ 'projects.github' | translate }}</button>
             </div>
           </div>
 
@@ -85,13 +70,8 @@
           <div style="display: flex; gap: 20px; align-items: flex-start;">
             <img src="/images/ellipse8.png" alt="">
             <div class="project-info">
-              <span class="project-subtitle">About the project</span>
-              <p class="project-text">
-                This App is a Slack Clone App. <br>
-                It revolutionizes team communication 
-                and collaboration with its intuitive interface, 
-                real-time messaging, and robust channel organization.
-              </p>
+              <span class="project-subtitle">{{ 'projects.subtitle.about' | translate }}</span>
+              <p class="project-text">{{ 'projects.pollo.about' | translate }}</p>
             </div>
           </div>
 
@@ -99,33 +79,23 @@
             <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">How I have organised my work process</span>
-                <p class="project-text">
-                  How do you keep your code clean and maintainable? 
-                  Have you broken the project down into reusable modules or components? 
-                  Focus on documentation, naming files, variables, classes and testing.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.process' | translate }}</span>
+                <p class="project-text">{{ 'projects.pollo.process' | translate }}</p>
               </div>
             </div>
 
           <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">My group work experience</span>
-                <p class="project-text">
-                  How many people were in the team and what was your role? 
-                  Describe your tasks in 1-2 sentences, for example: 
-                  login form, dashboard or chat functionality.
-                  What technologies did you use?
-                  It is nice to mention good teamwork and cooperation.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.group' | translate }}</span>
+                <p class="project-text">{{ 'projects.pollo.group' | translate }}</p>
               </div>
           </div>
         </div>
 
 
           <div style="display: flex; flex-direction: column; width: 453px; align-items: center; gap: 18px;">
-            <span class="project-technologies-label">Technologies</span>
+            <span class="project-technologies-label">{{ 'projects.technologies' | translate }}</span>
             <div class="project-technologies-icons-container">
               <img src="/images/html-logo.png" class="project-technologies-icons" alt="Angular Logo">
               <img src="/images/js-logo.png" class="project-technologies-icons" alt="TypeScript Logo">
@@ -133,8 +103,8 @@
             </div>
             <img src="/images/el-pollo-loco.png" style="width: 453px; height: 312px; border-radius: 30px;" alt="">
             <div class="project-actions">
-              <button class="project-action-button-lt">Live Test</button>
-              <button class="project-action-button">GitHub</button>
+              <button class="project-action-button-lt" type="button">Live Test</button>
+              <button class="project-action-button">{{ 'projects.github' | translate }}</button>
             </div>
           </div>
 
@@ -149,13 +119,8 @@
           <div style="display: flex; gap: 20px; align-items: flex-start;">
             <img src="/images/ellipse8.png" alt="">
             <div class="project-info">
-              <span class="project-subtitle">About the project</span>
-              <p class="project-text">
-                This App is a Slack Clone App. <br>
-                It revolutionizes team communication 
-                and collaboration with its intuitive interface, 
-                real-time messaging, and robust channel organization.
-              </p>
+              <span class="project-subtitle">{{ 'projects.subtitle.about' | translate }}</span>
+              <p class="project-text">{{ 'projects.join.about' | translate }}</p>
             </div>
           </div>
 
@@ -163,33 +128,23 @@
             <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">How I have organised my work process</span>
-                <p class="project-text">
-                  How do you keep your code clean and maintainable? 
-                  Have you broken the project down into reusable modules or components? 
-                  Focus on documentation, naming files, variables, classes and testing.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.process' | translate }}</span>
+                <p class="project-text">{{ 'projects.join.process' | translate }}</p>
               </div>
             </div>
 
           <div style="display: flex; gap: 20px; align-items: flex-start;">
               <img src="/images/ellipse8.png" alt="">
               <div class="project-info">
-                <span class="project-subtitle">My group work experience</span>
-                <p class="project-text">
-                  How many people were in the team and what was your role? 
-                  Describe your tasks in 1-2 sentences, for example: 
-                  login form, dashboard or chat functionality.
-                  What technologies did you use?
-                  It is nice to mention good teamwork and cooperation.
-                </p>
+                <span class="project-subtitle">{{ 'projects.subtitle.group' | translate }}</span>
+                <p class="project-text">{{ 'projects.join.group' | translate }}</p>
               </div>
           </div>
         </div>
 
 
           <div style="display: flex; flex-direction: column; width: 453px; align-items: center; gap: 18px;">
-            <span class="project-technologies-label">Technologies</span>
+            <span class="project-technologies-label">{{ 'projects.technologies' | translate }}</span>
             <div class="project-technologies-icons-container">
               <img src="/images/html-logo.png" class="project-technologies-icons" alt="Angular Logo">
               <img src="/images/js-logo.png" class="project-technologies-icons" alt="TypeScript Logo">
@@ -197,8 +152,8 @@
             </div>
             <img src="/images/join.png" style="width: 453px; height: 312px; border-radius: 30px;" alt="">
             <div class="project-actions">
-              <button class="project-action-button-lt">Live Test</button>
-              <button class="project-action-button">GitHub</button>
+              <button class="project-action-button-lt" type="button">Live Test</button>
+              <button class="project-action-button">{{ 'projects.github' | translate }}</button>
             </div>
           </div>
 
@@ -212,48 +167,18 @@
 
           <div style="display: flex; gap: 20px; align-items: flex-start;">
             <img src="/images/ellipse8.png" alt="">
-            <div class="project-info">
-              <span class="project-subtitle">About the project</span>
-              <p class="project-text">
-                This App is a Slack Clone App. <br>
-                It revolutionizes team communication 
-                and collaboration with its intuitive interface, 
-                real-time messaging, and robust channel organization.
-              </p>
+            <div class="project-info" style="width: 343px;">
+              <span class="project-subtitle">{{ 'projects.subtitle.about' | translate }}</span>
+              <p class="project-text">{{ 'projects.ongoing.about' | translate }}</p>
+                <p class="project-text">{{ 'projects.ongoing.about2' | translate }}</p>
+              
             </div>
-          </div>
-
-          
-            <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px;">
-              <img src="/images/ellipse8.png" alt="">
-              <div>
-                <span class="project-subtitle">How I have organised my work process</span>
-                <p class="project-text">
-                  How do you keep your code clean and maintainable? 
-                  Have you broken the project down into reusable modules or components? 
-                  Focus on documentation, naming files, variables, classes and testing.
-                </p>
-              </div>
-            </div>
-
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-              <img src="/images/ellipse8.png" alt="">
-              <div>
-                <span class="project-subtitle">My group work experience</span>
-                <p class="project-text">
-                  How many people were in the team and what was your role? 
-                  Describe your tasks in 1-2 sentences, for example: 
-                  login form, dashboard or chat functionality.
-                  What technologies did you use?
-                  It is nice to mention good teamwork and cooperation.
-                </p>
-              </div>
           </div>
         </div>
 
 
           <div style="display: flex; flex-direction: column; width: 453px; align-items: center; gap: 18px; justify-content: center;">
-            <span class="project-technologies-label">Technologies</span>
+            <span class="project-technologies-label">{{ 'projects.technologies' | translate }}</span>
             <div class="project-technologies-icons-container">
               <img src="/images/angular-logo.png" class="project-technologies-icons" alt="Angular Logo">
               <img src="/images/ts-logo.png" class="project-technologies-icons" alt="TypeScript Logo">
@@ -264,7 +189,6 @@
             </div>
             <div>
               <img src="/images/image.png" style="width: 453px; height: 312px;" alt="">
-              <!-- <span class="comming-soon">Comming soon...</span> -->
             </div>
           </div>
 

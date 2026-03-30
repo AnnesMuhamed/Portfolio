@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "whyMe": "Warum ich",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "aria": {
+    "toggleNav": "Navigation umschalten"
+  },
+  "brand": {
+    "developer": "Entwickler"
+  },
+  "hero": {
+    "role": "FRONTEND-ENTWICKLER"
+  },
+  "whyMe": {
+    "title": "Warum ich",
+    "iAm": "Ich bin",
+    "about": "Warum brennst du für Programmierung? Du kannst Eigenschaften nennen wie analytisches Denken, Kreativität, Durchhaltevermögen und Teamarbeit. Eine lösungsorientierte Denkweise ist immer hilfreich.",
+    "cta": "Lass uns sprechen",
+    "typing": {
+      "location": "ansässig in Köln...",
+      "remote": "offen für Remote-Arbeit...",
+      "relocate": "offen für einen Umzug..."
+    }
+  },
+  "skills": {
+    "title": "Meine Skills",
+    "learning": "Aktuell lerne ich",
+    "motivation": "Zeige, dass du motiviert bist, deine Fähigkeiten kontinuierlich zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten.",
+    "materialDesign": "Material<br>Design"
+  },
+  "projects": {
+    "title": "Meine Projekte",
+    "tabs": {
+      "ongoing": "Laufendes Projekt"
+    },
+    "subtitle": {
+      "about": "Über das Projekt",
+      "process": "Wie ich meinen Arbeitsprozess organisiert habe",
+      "group": "Meine Erfahrung in der Gruppenarbeit"
+    },
+    "technologies": "Technologien",
+    "github": "GitHub",
+    "bubble": {
+      "about": "Diese App ist ein Slack-Klon. <br> Sie revolutioniert Teamkommunikation und Zusammenarbeit mit intuitiver Oberfläche, Echtzeit-Nachrichten und klarer Kanal-Organisation.",
+      "process": "Wie hältst du Code sauber und wartbar? Hast du das Projekt in wiederverwendbare Module oder Komponenten zerlegt? Achte auf Dokumentation, Namen von Dateien, Variablen, Klassen und Tests.",
+      "group": "Wie viele Personen waren im Team und welche Rolle hattest du? Beschreibe deine Aufgaben in 1–2 Sätzen, z. B.: Login-Formular, Dashboard oder Chat. Welche Technologien hast du genutzt? Gute Zusammenarbeit zu erwähnen ist immer sinnvoll."
+    },
+    "pollo": {
+      "about": "Ein einfaches Jump-and-Run-Spiel mit objektorientiertem Ansatz. Hilf Pepe, Münzen und Giftflaschen zu finden, um gegen das Killer-Huhn zu kämpfen.",
+      "process": "Wie hältst du Code sauber und wartbar? Hast du das Projekt in wiederverwendbare Module oder Komponenten zerlegt? Achte auf Dokumentation, Namen von Dateien, Variablen, Klassen und Tests.",
+      "group": "Wenn du immer neue Technologien lernen willst, kann dieses Projekt spannend sein, weil du tief in eine Technologie einsteigen konntest. Nenne Details wie Framework oder Programmiersprache."
+    },
+    "join": {
+      "about": "Aufgabenmanager inspiriert vom Kanban-System. Aufgaben per Drag-and-Drop erstellen und sortieren, Nutzer und Kategorien zuweisen.",
+      "process": "Wie hältst du Code sauber und wartbar? Hast du das Projekt in wiederverwendbare Module oder Komponenten zerlegt? Achte auf Dokumentation, Namen von Dateien, Variablen, Klassen und Tests.",
+      "group": "Wie viele Personen waren im Team und welche Rolle hattest du? Beschreibe deine Aufgaben in 1–2 Sätzen, z. B.: Login-Formular, Dashboard oder Chat. Welche Technologien hast du genutzt? Gute Zusammenarbeit zu erwähnen ist immer sinnvoll."
+    },
+    "ongoing": {
+      "about": "Woran arbeitest du gerade und welche Features implementierst du? Was ist der Schlüssel zum Erfolg in deinen Projekten? Du kannst gute Planung, Code-Qualität und Umsetzung nennen.",
+      "about2": "Zeige den Willen, neue Technologien zu lernen und deine Fähigkeiten weiterzuentwickeln."
+    }
+  },
+  "references": {
+    "title": "Suchst du eine Teamplayerin? Das sagen Kolleginnen und Kollegen",
+    "project": "Projekt",
+    "linkedIn": "LinkedIn-Profil",
+    "bubble": {
+      "quote": "„Claudia musste Inhalte gemeinsam mit dem Team entwickeln, formatieren und ausliefern. Sie ist zuverlässig und freundlich.“"
+    },
+    "join": {
+      "quote": "„Claudia ist zuverlässig und freundlich. Sie arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin.“"
+    },
+    "pollo": {
+      "quote": "„Sie ist eine vertrauenswürdige Teamplayerin und kann mit Deadline-Stress umgehen. Strukturierte Arbeit und klarer Code.“"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "intro": "Lade Besucher ein, dich zu kontaktieren, und beschreibe, welche Rolle du suchst. Zeige, dass du Projekte durch deine Arbeit bereicherst. Beispiel: Melde dich gern bei Jobangeboten oder Chancen wie …",
+    "emailLine": "E-Mail aernnest89@gmail.com",
+    "phoneLine": "Tel.: +49 163 221 6668",
+    "success": "Deine Nachricht wurde gesendet. Du erhältst in Kürze eine Bestätigung per E-Mail.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es später erneut oder nutze den E-Mail-Link oben.",
+    "nameLabel": "Dein Name",
+    "nameError": "Name ist erforderlich",
+    "emailLabel": "Deine E-Mail",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Die E-Mail-Adresse sieht ungültig aus. Prüfe @ und eine Domain-Endung (z. B. .com, .de).",
+    "messageLabel": "Deine Nachricht",
+    "messageError": "Die Nachricht muss mindestens 10 Zeichen lang sein",
+    "privacyCheckbox": "Ich habe die <span class=\"privacy-policy-link\">Datenschutzerklärung</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+    "privacyError": "Bitte akzeptiere die Datenschutzerklärung."
+  },
+  "footer": {
+    "legal": "Impressum",
+    "copyright": "© Annes Muhamed 2026"
+  }
+}
