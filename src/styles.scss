@@ -22,11 +22,57 @@
   font-display: swap;
 }
 
-html, body {
+html {
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
     background-color: #262E34;
+}
+
+app-root {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* Per [innerHTML] eingefügte Knoten haben keine Angular-Encapsulation — Komponenten-SCSS greift dort nicht */
+app-contact a.privacy-policy-link {
+    cursor: pointer;
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    color: inherit;
+}
+
+app-contact a.privacy-policy-link:is(:visited, :hover, :active, :focus, :focus-visible) {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    color: inherit;
+}
+
+app-contact a.privacy-policy-link:focus-visible {
+    outline: 2px solid #89bcd9;
+    outline-offset: 2px;
+}
+
+app-contact .privacy-policy-link__text {
+    color: #89bcd9 !important;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    text-decoration: none !important;
 }

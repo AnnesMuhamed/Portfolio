@@ -6,20 +6,23 @@
     </div>
 
     <div class="contact-content">
-      <p>
-        {{ 'contact.intro' | translate }}
-      </p>
-
-      <div class="contact-links">
-        <a href="mailto:aernnest89@gmail.com">
-          <img src="/images/email.png" alt="" class="icon" aria-hidden="true">
-          {{ 'contact.emailLine' | translate }}
-        </a>
-
-        <a href="tel:+491632216668">
-          <img src="/images/phone.png" alt="" class="icon" aria-hidden="true">
-          {{ 'contact.phoneLine' | translate }}
-        </a>
+      <div class="contact-content__links">
+        <div class="contact-links">
+          <a href="tel:+491632216668">
+            <img src="/images/phone.png" alt="" class="icon" aria-hidden="true">
+            {{ 'contact.phoneLine' | translate }}
+          </a>
+          <a href="mailto:aernnest89@gmail.com">
+            <img src="/images/email.png" alt="" class="icon" aria-hidden="true">
+            {{ 'contact.emailLine' | translate }}
+          </a>
+        </div>
+      </div>
+      <div class="contact-content__body">
+        <p class="contact-intro">
+          {{ 'contact.intro' | translate }}
+        </p>
+        <h2 class="contact-form-lead">{{ 'contact.formLead' | translate }}</h2>
       </div>
     </div>
 
@@ -46,6 +49,7 @@
               id="name"
               name="name"
               [(ngModel)]="contactData.name"
+              [attr.placeholder]="showPlaceholders ? ('contact.nameLabel' | translate) : null"
               required>
             @if (submitAttempted && contactForm.controls['name']?.invalid) {
               <span class="error-message">{{ 'contact.nameError' | translate }}</span>
@@ -59,6 +63,7 @@
               id="email"
               name="email"
               [(ngModel)]="contactData.email"
+              [attr.placeholder]="showPlaceholders ? ('contact.emailLabel' | translate) : null"
               required
               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
             @if (submitAttempted && contactForm.controls['email']?.invalid) {
@@ -76,7 +81,13 @@
 
           <label for="message">
             {{ 'contact.messageLabel' | translate }}
-            <textarea id="message" minlength="10" name="message" [(ngModel)]="contactData.message" required></textarea>
+            <textarea
+              id="message"
+              minlength="10"
+              name="message"
+              [(ngModel)]="contactData.message"
+              [attr.placeholder]="showPlaceholders ? ('contact.messageLabel' | translate) : null"
+              required></textarea>
             @if (submitAttempted && contactForm.controls['message']?.invalid) {
               <span class="error-message">{{ 'contact.messageError' | translate }}</span>
             }

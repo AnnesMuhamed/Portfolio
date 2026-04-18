@@ -107,17 +107,46 @@ a:hover .legal-notice-link {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 16px 12px;
+    padding: clamp(20px, 5vw, 28px) clamp(12px, 4vw, 20px);
   }
 
   .footer-content {
     flex-direction: column;
     align-items: center;
     height: auto;
-    gap: 16px;
+    gap: clamp(18px, 4vw, 24px);
+    width: 100%;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  .logo-container {
+    order: 1;
+    height: auto;
+  }
+
+  .social-media {
+    order: 2;
+    justify-content: center;
   }
 
   .legal-notice-container {
+    order: 3;
+    align-items: stretch;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
+    gap: 8px 12px;
+  }
+
+  .legal-notice-container a {
+    width: auto;
+  }
+
+  .legal-notice-container span {
+    font-size: clamp(14px, 3.5vw, 18px);
+    text-align: right;
   }
 }

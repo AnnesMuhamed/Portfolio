@@ -28,6 +28,7 @@
   "skills": {
     "title": "My Skills",
     "learning": "I am currently learning",
+    "learningNarrow": "What I am currently learning",
     "motivation": "Show that you are motivated to continually improve your skills, implement innovative solutions and stay abreast of new technologies.",
     "materialDesign": "Material<br>Design"
   },
@@ -79,6 +80,7 @@
   },
   "contact": {
     "title": "Contact me",
+    "formLead": "Let us work together!",
     "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work. Example: Feel free to get in touch with job offers or opportunities such as: ...",
     "emailLine": "E-mail aernnest89@gmail.com",
     "phoneLine": "Tel: +49 163 221 6668",
@@ -91,7 +93,7 @@
     "emailInvalid": "Your email looks invalid. Check that @ and a domain ending (e.g. .com, .de) are present.",
     "messageLabel": "Your Message",
     "messageError": "Message must be at least 10 characters long",
-    "privacyCheckbox": "I've read the <span class=\"privacy-policy-link\">privacy policy</span> and agree to the processing of my data as outlined.",
+    "privacyCheckbox": "I've read the <a class=\"privacy-policy-link\" href=\"#\"><span class=\"privacy-policy-link__text\">privacy policy</span></a> and agree to the processing of my data as outlined.",
     "privacyError": "Please accept the privacy policy."
   },
   "footer": {

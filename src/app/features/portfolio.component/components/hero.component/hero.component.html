@@ -5,25 +5,60 @@
       <span class="a-name">A.Muhamed</span>
       <span class="developer">{{ 'brand.developer' | translate }}</span>
     </div>
-    <button class="burger-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" [attr.aria-label]="'aria.toggleNav' | translate">
+    <button
+      class="burger-button"
+      type="button"
+      [class.burger-button--open]="menuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      [attr.aria-label]="'aria.toggleNav' | translate">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <nav class="mobile-nav" [class.open]="menuOpen">
-      <a href="#why-me" (click)="scrollTo('why-me', $event)">{{ 'nav.whyMe' | translate }}</a>
-      <a href="#skills" (click)="scrollTo('skills', $event)">{{ 'nav.skills' | translate }}</a>
-      <a href="#projects" (click)="scrollTo('projects', $event)">{{ 'nav.projects' | translate }}</a>
-      <a href="#contact" (click)="scrollTo('contact', $event)">{{ 'nav.contact' | translate }}</a>
-    </nav>
+  </div>
+
+  <div
+    class="mobile-menu"
+    [class.mobile-menu--open]="menuOpen"
+    [attr.aria-hidden]="!menuOpen"
+    (click)="onMobileMenuBackdropClick($event)">
+    <div class="mobile-menu__circle" (click)="$event.stopPropagation()">
+      <nav class="mobile-menu__nav" aria-label="Navigation">
+        <a href="#why-me" (click)="scrollTo('why-me', $event)">{{ 'nav.whyMe' | translate }}</a>
+        <a href="#skills" (click)="scrollTo('skills', $event)">{{ 'nav.skills' | translate }}</a>
+        <a href="#projects" (click)="scrollTo('projects', $event)">{{ 'nav.projects' | translate }}</a>
+        <a href="#contact" (click)="scrollTo('contact', $event)">{{ 'nav.contact' | translate }}</a>
+      </nav>
+      <div class="mobile-menu__lang">
+        <button
+          type="button"
+          class="mobile-menu__lang-btn"
+          [class.mobile-menu__lang-btn--active]="currentLang === 'de'"
+          (click)="selectLanguage('de', $event)">
+          DE
+        </button>
+        <button
+          type="button"
+          class="mobile-menu__lang-btn"
+          [class.mobile-menu__lang-btn--active]="currentLang === 'en'"
+          (click)="selectLanguage('en', $event)">
+          EN
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="hero-img">
-    <div class="hero-shape-stack" aria-hidden="true">
-      <img class="hero-shape-base" src="/images/bg-shape.png" alt="">
-      <img class="hero-shape-hover" src="/images/shape-hover.png" alt="">
+    <div class="hero-visual">
+      <div class="hero-shape-stack" aria-hidden="true">
+        <img class="hero-shape-base" src="/images/bg-shape.png" alt="">
+        <img class="hero-shape-hover" src="/images/shape-hover.png" alt="">
+      </div>
+      <div class="hero-profil">
+        <img class="profil-picture" src="/images/profilbild.png" alt="">
+      </div>
     </div>
-    <img class="profil-picture" src="/images/profilbild.png" alt="">
   </div>
   <div class="hero-name">
     <div class="logo-container">

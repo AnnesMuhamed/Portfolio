@@ -53,27 +53,59 @@
                 <span>Scrum</span>
             </div>
         </div>
-                <div class="currently-learning-img-wrapper">
-                    <img src="/images/ellipse25.png" class="base-img" alt="Ellipse">
-                    <img src="/images/property-1hover.png" class="hover-img" alt="Hover Ellipse">
-                    <div class="learning-skills">
-                        <span class="learning-skills-span">{{ 'skills.learning' | translate }}</span>
-                        <div class="learning-contents">
-                            <div class="learning-icons-container">
-                                <div class="learning-icons">
-                                    <img class="learning-icon" src="/images/react-logo.png" alt="React">
-                                    <span class="skill-name">React</span>
-                                </div>
-                                <div class="learning-icons">
-                                    <img class="learning-icon" src="/images/vue.js-logo.png" alt="Vue.js">
-                                    <span class="skill-name">Vue.js</span>
-                                </div>
-                            </div>
-                            <div class="learning-motivation-container">
-                                <span class="learning-motivation">{{ 'skills.motivation' | translate }}</span>
-                            </div>
+
+        @if (narrowLearningLayout()) {
+        <div class="currently-learning-img-wrapper">
+            <h2 class="learning-skills-span">{{ 'skills.learningNarrow' | translate }}</h2>
+            <div class="currently-learning-inner">
+                <div class="learning-skills">
+                    <span class="learning-motivation">{{ 'skills.motivation' | translate }}</span>
+                </div>
+                <div class="learning-img-layer">
+                    <img src="/images/ellipse25.png" class="base-img" alt="">
+                    <img src="/images/property-1hover.png" class="hover-img" alt="">
+                    <img src="/images/ellipse24-mobile.png" class="learning-ellipse-mobile" alt="">
+                    <div class="learning-icons-container">
+                        <div class="learning-icons">
+                            <img class="learning-icon" src="/images/react-logo.png" alt="React">
+                            <span class="skill-name">React</span>
+                        </div>
+                        <div class="learning-icons">
+                            <img class="learning-icon" src="/images/vue.js-logo.png" alt="Vue.js">
+                            <span class="skill-name">Vue.js</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        } @else {
+        <div class="currently-learning-desktop">
+            <div class="currently-learning-inner">
+                <div class="learning-img-layer">
+                    <img src="/images/ellipse25.png" class="base-img" alt="">
+                    <img src="/images/property-1hover.png" class="hover-img" alt="">
+                    <div class="learning-desktop-stack">
+                        <h2 class="learning-skills-span">{{ 'skills.learning' | translate }}</h2>
+                        <div class="learning-icons-container">
+                            <div class="learning-icons">
+                                <img class="learning-icon" src="/images/react-logo.png" alt="React">
+                                <span class="skill-name">React</span>
+                            </div>
+                            <div class="learning-icons">
+                                <img class="learning-icon" src="/images/vue.js-logo.png" alt="Vue.js">
+                                <span class="skill-name">Vue.js</span>
+                            </div>
+                        </div>
+                        <div class="learning-skills">
+                            <span class="learning-motivation">{{ 'skills.motivation' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
     </div>
+    <button type="button" class="skill-section__cta" (click)="scrollToContact()">
+        {{ 'whyMe.cta' | translate }}
+    </button>
 </section>

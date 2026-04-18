@@ -1,46 +1,50 @@
 .references {
-    width: 100%;
-    max-width: 1920px;
-    min-height: 479px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 56px;
-    margin-top: 100px;
-    padding: 0 16px;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 1920px;
+  min-height: 479px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+  margin-top: 100px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 120%;
-    text-align: center;
-    color: #89BCD9;
-    width: 100%;
-    max-width: 1209px;
-    min-height: 38px;
+  font-family: 'Anta', sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 130%;
+  text-align: center;
+  color: #89bcd9;
+  width: 100%;
+  max-width: 1209px;
+  min-height: 0;
+  margin-block: 0;
 }
 
 .reference {
-    color: #F8F5EC;
-    font-family: 'Josefin Sans', sans-serif;
-    line-height: 120%;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1209px;
-    min-height: 385px;
-    gap: 14px;
+  color: #f8f5ec;
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 120%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1209px;
+  min-height: 385px;
+  gap: 14px;
 }
 
 .reference--text-block {
   position: relative;
+  display: block;
   width: min(400px, 100%);
-  height: 400px;
+  max-width: 400px;
+  aspect-ratio: 1;
+  height: auto;
   background-image: url('/images/ellipse02.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -52,72 +56,89 @@ h1 {
   background-image: url('/images/Ellipse 02.png');
 }
 
-.reference--text-block {
-    position: relative;
-    width: 400px;
-    height: 400px;
-}
-
-.reference--text-block {
-    display: block;
-    width: 100%;
-}
-
 .reference--overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 0 10px;
-    text-align: center;
-    width: 314.28570556640625px;
-    height: 250.65274047851562px;
-    opacity: 1;
-    gap: 19px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  padding: 11% 13% 11% 15%;
+  gap: clamp(10px, 2.2vw, 18px);
 }
 
 .reference--overlay a:hover {
-    color: #F8F5EC !important;
+  color: #f8f5ec !important;
 }
 
 .reference-name {
-    width: 100%;
-    color: #F8F5EC; 
-    font-size: 26px; 
-    text-align: center; 
-    font-weight: 600;
+  width: 100%;
+  color: #f8f5ec;
+  font-size: clamp(22px, 4.5vw, 28px);
+  text-align: left;
+  font-weight: 600;
+  line-height: 120%;
 }
 
 .project-name {
-    width: 100%;
-    color: #F8F5EC;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    text-align: center;
+  width: 100%;
+  color: #f8f5ec;
+  font-weight: 400;
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.project-name-accent {
+  color: #89bcd9;
 }
 
 .reference--overlay p {
-    width: 100%;
-    opacity: 1;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-    text-align: center;
-    color: #F8F5EC;
+  width: 100%;
+  margin: 0;
+  opacity: 1;
+  font-weight: 400;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 140%;
+  text-align: left;
+  color: #f8f5ec;
 }
 
 .reference--overlay a {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-    text-decoration: underline;
-    color: #89BCD9;
+  display: inline-block;
+  font-weight: 400;
+  font-size: clamp(15px, 2vw, 16px);
+  line-height: 140%;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #89bcd9;
+  margin-top: clamp(2px, 1vw, 8px);
+}
+
+@media (min-width: 769px) {
+  .reference--overlay {
+    align-items: center;
+    text-align: center;
+  }
+
+  .reference-name {
+    text-align: center;
+  }
+
+  .project-name {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1180px) {
+  .reference-name {
+    font-size: clamp(20px, 4.2vw, 25px);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -130,12 +151,13 @@ h1 {
 @media (max-width: 768px) {
   .references {
     margin-top: 70px;
-    gap: 24px;
+    gap: clamp(20px, 5vw, 32px);
     padding: 0 12px;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: clamp(22px, 5.5vw, 30px);
+    line-height: 130%;
   }
 
   .reference {
@@ -150,33 +172,32 @@ h1 {
   }
 
   .reference--text-block {
-    flex: 0 0 290px;
-    width: 290px;
-    max-width: 290px;
-    height: 360px;
+    flex: 0 0 min(88vw, 320px);
+    width: min(88vw, 320px);
+    max-width: min(88vw, 320px);
+    aspect-ratio: 1;
     background-image: url('/images/ellipseBG02.png');
     scroll-snap-align: start;
   }
 
   .reference--overlay {
-    width: 86%;
-    height: auto;
-    align-items: flex-start;
-    text-align: left;
+    padding: 12% 11% 12% 13%;
+    gap: clamp(8px, 2.5vw, 14px);
   }
 
   .reference-name {
-    font-size: 24px;
-    text-align: left;
+    font-size: clamp(20px, 5.2vw, 24px);
   }
 
   .project-name {
-    font-size: 18px;
-    text-align: left;
+    font-size: clamp(14px, 3.6vw, 17px);
   }
 
   .reference--overlay p {
-    font-size: 16px;
-    text-align: left;
+    font-size: clamp(13px, 3.4vw, 16px);
+  }
+
+  .reference--overlay a {
+    font-size: clamp(13px, 3.2vw, 15px);
   }
 }

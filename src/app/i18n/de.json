@@ -28,6 +28,7 @@
   "skills": {
     "title": "Meine Skills",
     "learning": "Aktuell lerne ich",
+    "learningNarrow": "Was ich aktuell lerne",
     "motivation": "Zeige, dass du motiviert bist, deine Fähigkeiten kontinuierlich zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten.",
     "materialDesign": "Material<br>Design"
   },
@@ -79,6 +80,7 @@
   },
   "contact": {
     "title": "Kontakt",
+    "formLead": "Lass uns zusammenarbeiten!",
     "intro": "Lade Besucher ein, dich zu kontaktieren, und beschreibe, welche Rolle du suchst. Zeige, dass du Projekte durch deine Arbeit bereicherst. Beispiel: Melde dich gern bei Jobangeboten oder Chancen wie …",
     "emailLine": "E-Mail aernnest89@gmail.com",
     "phoneLine": "Tel.: +49 163 221 6668",
@@ -91,7 +93,7 @@
     "emailInvalid": "Die E-Mail-Adresse sieht ungültig aus. Prüfe @ und eine Domain-Endung (z. B. .com, .de).",
     "messageLabel": "Deine Nachricht",
     "messageError": "Die Nachricht muss mindestens 10 Zeichen lang sein",
-    "privacyCheckbox": "Ich habe die <span class=\"privacy-policy-link\">Datenschutzerklärung</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+    "privacyCheckbox": "Ich habe die <a class=\"privacy-policy-link\" href=\"#\"><span class=\"privacy-policy-link__text\">Datenschutzerklärung</span></a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
     "privacyError": "Bitte akzeptiere die Datenschutzerklärung."
   },
   "footer": {

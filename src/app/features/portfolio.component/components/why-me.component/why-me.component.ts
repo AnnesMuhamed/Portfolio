@@ -92,4 +92,9 @@ export class WhyMeComponent implements OnInit, OnDestroy {
       this.typeLoop();
     }, speed);
   }
+
+  scrollToContact() {
+    if (!this.isBrowser) return;
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

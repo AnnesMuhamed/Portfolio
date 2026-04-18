@@ -20,6 +20,7 @@ h1 {
     text-align: center;
     margin-block-start: 0;
     margin-block-end: 0;
+    margin-bottom: 12px;
     color: #89BCD9;
 }
 
@@ -31,13 +32,23 @@ h1 {
     gap: 79px;
 }
 
+.skill-section__cta {
+    display: none;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    line-height: 120%;
+}
+
 .skills {
     display: flex;
     flex-wrap: wrap;
     min-height: 404px;
     gap: 40px;
     color: #89BCD9;
-
 }
 
 .skill-item {
@@ -63,32 +74,172 @@ h1 {
     height: 60px;
 }
 
-.currently-learning {
+/* ========== Desktop >1024px (Screenshot: alles zentriert im Kreis) ========== */
+/* Skaliert mit der Viewport-Breite (1025px … sehr groß), gleiches Layout */
+.currently-learning-desktop {
     position: relative;
-    width: 375px;
-    height: 391px;
-    background-image: url('/images/ellipse25.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 0.5s ease-in-out;
-
-        &:hover {
-            background-image: url('/images/property-1hover.png');
-        }
+    width: clamp(280px, 32vw, 375px);
+    max-width: 100%;
+    flex-shrink: 0;
 }
 
-.currently-learning-img-wrapper {
+.currently-learning-desktop .currently-learning-inner {
     position: relative;
-    width: min(520px, 100%);
-    height: 391px;
+    width: 100%;
+    height: clamp(300px, 34.5vw, 391px);
+    overflow: visible;
+}
+
+.currently-learning-desktop .learning-img-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.currently-learning-desktop .base-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.currently-learning-desktop .hover-img {
+    opacity: 0;
+    position: absolute;
+    top: -34px;
+    left: -45px;
+    z-index: 0;
+    object-fit: cover;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.currently-learning-desktop:hover .hover-img {
+    opacity: 1;
+}
+
+.currently-learning-desktop:hover .base-img {
+    opacity: 0;
+}
+
+/* Titel → Icons → Text, vertikal zentriert im Ellipsen-Raum */
+.currently-learning-desktop .learning-desktop-stack {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2.5vw, 18px);
+    padding: clamp(18px, 6%, 32px);
+    box-sizing: border-box;
+    text-align: center;
+    pointer-events: none;
+}
+
+.currently-learning-desktop .learning-desktop-stack .learning-icons-container {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+/* Keine eigenen Styles für .learning-skills im Desktop-Stack — nur Wrapper um .learning-motivation */
+
+.currently-learning-desktop .learning-desktop-stack .skill-name {
+    color: #89bcd9;
+}
+
+/* ========== Gemeinsame Hilfsklassen (Icon-Zeile) ========== */
+.learning-icons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.learning-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 96px;
+    min-height: 0;
+}
+
+.skill-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    line-height: 120%;
+    color: #89bcd9;
+    text-align: center;
+}
+
+.learning-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.learning-motivation {
+    display: block;
+    width: 100%;
+    min-height: 105px;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+}
+
+/* ========== Schmal ≤1024px: Screenshot (Überschrift, dann Text | Kreis) ========== */
+.currently-learning-inner {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.learning-img-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.currently-learning-img-wrapper .learning-img-layer .learning-icons-container {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 18%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .base-img {
     position: absolute;
     top: 0;
     left: 0;
-    object-fit: cover;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
     transition: opacity 0.3s;
     pointer-events: none;
 }
@@ -98,9 +249,14 @@ h1 {
     position: absolute;
     top: -34px;
     left: -45px;
+    z-index: 0;
     object-fit: cover;
     transition: opacity 0.3s;
     pointer-events: none;
+}
+
+.learning-ellipse-mobile {
+    display: none;
 }
 
 .currently-learning-img-wrapper:hover .hover-img {
@@ -111,99 +267,297 @@ h1 {
     opacity: 0;
 }
 
-.learning-skills-span {
-    width: 194px;
-    height: 23px;
-    top: 81px;
-    left: 91px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-
-}
-
-.learning-skills {
-    position: absolute;
-    left: 36px;
-    top: 90px;
-    display: flex;
-    flex-direction: column;
-    color: #F8F5EC;
-    align-items: center;
-    gap: 20px;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-.learning-contents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.learning-icons-container {
-    display: flex;
-    width: 96px;
-    gap: 24px;
-} 
-
-.learning-icons {
-    width: 96px;
-    height: 54px;
-    left: 135px;
-    gap: 24px;
-}
-
-.learning-icon {
-    display: flex;
-    width: 32px;
-    height: 32px;
-}
-
-.learning-motivation-container {
-    width: 307px;
-    height: 105px;
-    display: flex;
-}
-
-.learning-motivation {
-    font-size: 18px;
-    line-height: 120%;
-    text-align: center;
-}
-
 @media (max-width: 1024px) {
-  .skill-contents {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
+    .skill-section {
+        gap: 40px;
+    }
 
-  .skills {
-    justify-content: center;
-    gap: 24px;
-  }
+    .skill-contents {
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(40px, 8vw, 56px);
+        min-height: 0;
+    }
+
+    .skills {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 456px;
+        min-height: 0;
+        margin-inline: auto;
+    }
+
+    .skill-item {
+        box-sizing: border-box;
+    }
+
+    .skill-item:nth-child(-n + 6) {
+        flex: 0 0 calc((100% - 2 * var(--skills-gap-x)) / 3);
+        max-width: calc((100% - 2 * var(--skills-gap-x)) / 3);
+    }
+
+    .skill-item:nth-child(n + 7) {
+        flex: 0 0 calc((100% - var(--skills-gap-x)) / 2);
+        max-width: calc((100% - var(--skills-gap-x)) / 2);
+    }
+
+    .currently-learning-img-wrapper {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin-inline: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: clamp(14px, 3vw, 20px);
+        padding-inline: clamp(4px, 2vw, 8px);
+        padding-bottom: 0;
+        box-sizing: border-box;
+    }
+
+    .currently-learning-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(22px, 5.5vw, 36px);
+        width: 100%;
+        min-height: 0;
+        height: auto;
+    }
+
+    /* Textspalte links — muss spezifischer sein als alte absolute-Regeln; im Flex-Zeilenfluss */
+    .currently-learning-img-wrapper .currently-learning-inner > .learning-skills {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        align-self: center;
+        gap: clamp(12px, 2.5vw, 18px);
+        width: 100%;
+        max-width: min(307px, 48%);
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0;
+        min-height: 0;
+        margin: 0;
+        pointer-events: auto;
+        box-sizing: border-box;
+        color: #f8f5ec;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .currently-learning-img-wrapper .currently-learning-inner > .learning-skills .learning-motivation {
+        pointer-events: auto;
+    }
+
+    /* Nur Mobile-Zweig — höhere Spezifität, überschreibt keine Desktop-Regel */
+    .currently-learning-img-wrapper > .learning-skills-span {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        margin: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 600;
+        font-size: clamp(17px, 3.6vw, 22px);
+        line-height: 130%;
+        color: #89bcd9;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .learning-motivation {
+        display: block;
+        width: 100%;
+        min-height: 0;
+        text-align: left;
+        font-size: clamp(13px, 2.6vw, 16px);
+        line-height: 140%;
+        color: #f8f5ec;
+    }
+
+    .learning-img-layer {
+        position: relative;
+        flex: 0 0 auto;
+        width: clamp(96px, 26vw, 132px);
+        aspect-ratio: 1;
+        max-width: none;
+        z-index: 1;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        pointer-events: none;
+    }
+
+    .currently-learning-img-wrapper .base-img,
+    .currently-learning-img-wrapper .hover-img {
+        display: none;
+    }
+
+    .currently-learning-img-wrapper .learning-ellipse-mobile {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        margin: 0;
+        transform: none;
+        object-fit: contain;
+        object-position: center;
+        pointer-events: none;
+    }
+
+    .currently-learning-img-wrapper .learning-img-layer .learning-icons-container {
+        position: absolute;
+        inset: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(6px, 1.8vw, 12px);
+        gap: clamp(4px, 1.5vw, 10px);
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+
+    .currently-learning-img-wrapper .skill-name {
+        color: #f8f5ec;
+        font-size: clamp(9px, 2vw, 11px);
+    }
+
+    .learning-icons {
+        width: auto;
+        min-width: 0;
+        min-height: 0;
+        height: auto;
+    }
+
+    .learning-icon {
+        width: clamp(22px, 5vw, 28px);
+        height: clamp(22px, 5vw, 28px);
+    }
 }
 
 @media (max-width: 768px) {
-  .skill-section {
-    padding: 32px 12px 0;
-  }
+    .skill-section {
+        padding: 32px 12px clamp(28px, 7vw, 40px);
+    }
 
-  h1 {
-    font-size: 42px;
-  }
+    h1 {
+        font-size: 42px;
+    }
 
-  .skill-item span {
-    font-size: 16px;
-  }
+    /* Skill-Grid unverändert; nur Items, Icons und Beschriftung skalieren mit der Breite */
+    .skill-item {
+        gap: clamp(6px, 1.8vw, 10px);
+    }
 
-  .learning-skills {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    .skill-item .icons {
+        width: clamp(44px, calc(44px + (100vw - 320px) * 0.035714), 60px);
+        height: clamp(44px, calc(44px + (100vw - 320px) * 0.035714), 60px);
+        flex-shrink: 0;
+    }
 
-  .learning-motivation-container {
-    width: 260px;
-  }
+    .skill-item span {
+        font-size: clamp(12px, calc(12px + (100vw - 320px) * 0.008929), 16px);
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+
+    .skill-section__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: clamp(8px, 2vw, 16px);
+        min-width: 134px;
+        min-height: 48px;
+        padding: 13px 30px;
+        border-radius: 30px;
+        background-color: #89bcd9;
+        color: #262e34;
+        transition: background-color 0.2s ease, filter 0.2s ease;
+    }
+
+    .skill-section__cta:hover {
+        filter: brightness(1.06);
+    }
+
+    .skill-section__cta:focus-visible {
+        outline: 2px solid #f8f5ec;
+        outline-offset: 3px;
+    }
+
+    /* Text + Kreis gemeinsam kleiner (nicht nur Schrift); Überschrift liegt außerhalb .currently-learning-inner */
+    .currently-learning-img-wrapper .currently-learning-inner {
+        transform: scale(clamp(0.82, calc(0.82 + (100vw - 360px) * 0.00025), 0.92));
+        transform-origin: center center;
+    }
+}
+
+/* =============================================================================
+   Desktop (≥1025px): gleiches Erscheinungsbild wie auf großen Screens, nur proportional
+   kleiner Richtung 1024px — keine festen Breiten/Höhen in px für Überschrift/Fließtext.
+   Mobile: .currently-learning-img-wrapper > .learning-skills-span / .learning-motivation.
+   ============================================================================= */
+@media (min-width: 1025px) {
+    .currently-learning-desktop .learning-desktop-stack > .learning-skills-span {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 400;
+        font-size: clamp(14px, 1.15vw, 18px);
+        line-height: 120%;
+        text-align: center;
+        color: #fffdfd;
+        pointer-events: auto;
+    }
+
+    .currently-learning-desktop .learning-desktop-stack > .learning-skills > .learning-motivation {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 400;
+        font-size: clamp(14px, 1.05vw, 18px);
+        line-height: 120%;
+        text-align: center;
+        color: #f8f5ec;
+        pointer-events: auto;
+    }
 }

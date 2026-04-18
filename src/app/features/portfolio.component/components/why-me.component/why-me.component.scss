@@ -24,23 +24,27 @@
 .information-container {
   display: flex;
   align-items: flex-start;
-  width: 100%;
-  max-width: 949px;
-  min-height: 176px;
-  opacity: 1;
   justify-content: center;
+  width: 949px;
+  max-width: 100%;
+  min-height: 176px;
+  box-sizing: border-box;
+  gap: 24px;
+  opacity: 1;
 }
 
 .location-web {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-width: 527px;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
 }
 
-img {
+.location-web img {
   width: 74.42605590820312px;
   height: 63.2833251953125px;
+  flex-shrink: 0;
 }
 
 .im {
@@ -50,6 +54,7 @@ img {
   font-size: 30px;
   line-height: 120%;
   color: #89BCD9;
+  flex-shrink: 0;
 }
 
 .lic {
@@ -59,6 +64,11 @@ img {
   font-size: 30px;
   line-height: 120%;
   color: #F8F5EC;
+  flex: 0 0 320px;
+  width: 320px;
+  min-width: 320px;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .cursor {
@@ -76,6 +86,10 @@ img {
   flex-direction: column;
   align-items: flex-end;
   gap: 24px;
+  flex: 0 0 398px;
+  width: 398px;
+  max-width: 398px;
+  box-sizing: border-box;
 }
 
 .about-me {
@@ -108,20 +122,44 @@ button {
       }
 }
 
+@media (min-width: 1025px) {
+  .location-web {
+    flex: 0 0 527px;
+    width: 527px;
+    max-width: 527px;
+  }
+}
+
 @media (max-width: 1024px) {
   .information-container {
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    width: 100%;
+    max-width: 949px;
   }
 
   .location-web {
     justify-content: center;
-    text-align: center;
+    width: 100%;
+    max-width: min(527px, 100%);
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .lic {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .about-me-container {
     align-items: center;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 527px;
   }
 
   .about-me {
@@ -135,11 +173,30 @@ button {
   }
 
   .headline {
-    font-size: 42px;
+    font-size: clamp(32px, 8vw, 42px);
   }
 
   .im,
   .lic {
-    font-size: 24px;
+    font-size: clamp(18px, 4.5vw, 24px);
+  }
+
+  .location-web {
+    flex-wrap: wrap;
+  }
+}
+
+/* 320–400px (und schmaler): Location-Zeile untereinander, ohne Layoutwechsel darüber */
+@media (max-width: 400px) {
+  .location-web {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .location-web .lic {
+    text-align: center;
   }
 }

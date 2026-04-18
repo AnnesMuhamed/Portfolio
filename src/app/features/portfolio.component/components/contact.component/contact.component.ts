@@ -1,10 +1,9 @@
-import { Component, Inject, inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
 
-/** Nach dem Upload: gleiche Domain wie die Seite, Datei aus /public → Webroot. */
 const CONTACT_ENDPOINT = '/contact.php';
 
 type ContactApiResponse = { ok: boolean; error?: string };
@@ -16,12 +15,37 @@ type ContactApiResponse = { ok: boolean; error?: string };
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit, OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly isBrowser: boolean;
+  private placeholderMq?: MediaQueryList;
+  private placeholderMqListener?: () => void;
+
+  /** Platzhalter nur bei max. 768px Breite (sichtbar); darüber nur Labels. */
+  showPlaceholders = false;
 
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+  ngOnInit(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+    const mq = window.matchMedia('(max-width: 768px)');
+    const update = () => {
+      this.showPlaceholders = mq.matches;
+    };
+    update();
+    mq.addEventListener('change', update);
+    this.placeholderMq = mq;
+    this.placeholderMqListener = update;
+  }
+
+  ngOnDestroy(): void {
+    if (this.placeholderMq && this.placeholderMqListener) {
+      this.placeholderMq.removeEventListener('change', this.placeholderMqListener);
+    }
   }
 
   scrollToHero() {
