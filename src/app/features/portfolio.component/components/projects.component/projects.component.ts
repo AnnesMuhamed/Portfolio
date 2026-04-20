@@ -2,13 +2,18 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
-/** `title` immer setzen (Strict Templates); `titleKey` optional für übersetzten Tab-Titel. */
+/**
+ * Tab metadata for the projects section (optional i18n key for the title).
+ */
 export interface ProjectTab {
   id: string;
   title: string;
   titleKey?: string;
 }
 
+/**
+ * Projects section with selectable tabs and detail panels.
+ */
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -26,7 +31,11 @@ export class ProjectsComponent {
     { id: 'Ongoing Project', title: 'Ongoing Project', titleKey: 'projects.tabs.ongoing' },
   ];
 
-  setActiveProject(id: string) {
+  /**
+   * Sets which project tab is active.
+   * @param id - Project tab id
+   */
+  setActiveProject(id: string): void {
     this.activeProjectId = id;
   }
 }

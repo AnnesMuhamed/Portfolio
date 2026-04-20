@@ -186,7 +186,6 @@ button {
   }
 }
 
-/* 320–400px (und schmaler): Location-Zeile untereinander, ohne Layoutwechsel darüber */
 @media (max-width: 400px) {
   .location-web {
     flex-direction: column;

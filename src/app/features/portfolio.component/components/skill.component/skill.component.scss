@@ -74,8 +74,6 @@ h1 {
     height: 60px;
 }
 
-/* ========== Desktop >1024px (Screenshot: alles zentriert im Kreis) ========== */
-/* Skaliert mit der Viewport-Breite (1025px … sehr groß), gleiches Layout */
 .currently-learning-desktop {
     position: relative;
     width: clamp(280px, 32vw, 375px);
@@ -130,7 +128,6 @@ h1 {
     opacity: 0;
 }
 
-/* Titel → Icons → Text, vertikal zentriert im Ellipsen-Raum */
 .currently-learning-desktop .learning-desktop-stack {
     position: absolute;
     inset: 0;
@@ -156,13 +153,10 @@ h1 {
     flex-shrink: 0;
 }
 
-/* Keine eigenen Styles für .learning-skills im Desktop-Stack — nur Wrapper um .learning-motivation */
-
 .currently-learning-desktop .learning-desktop-stack .skill-name {
     color: #89bcd9;
 }
 
-/* ========== Gemeinsame Hilfsklassen (Icon-Zeile) ========== */
 .learning-icons-container {
     display: flex;
     flex-direction: row;
@@ -203,7 +197,6 @@ h1 {
     text-align: center;
 }
 
-/* ========== Schmal ≤1024px: Screenshot (Überschrift, dann Text | Kreis) ========== */
 .currently-learning-inner {
     position: relative;
     width: 100%;
@@ -328,7 +321,6 @@ h1 {
         height: auto;
     }
 
-    /* Textspalte links — muss spezifischer sein als alte absolute-Regeln; im Flex-Zeilenfluss */
     .currently-learning-img-wrapper .currently-learning-inner > .learning-skills {
         position: relative;
         left: auto;
@@ -359,7 +351,6 @@ h1 {
         pointer-events: auto;
     }
 
-    /* Nur Mobile-Zweig — höhere Spezifität, überschreibt keine Desktop-Regel */
     .currently-learning-img-wrapper > .learning-skills-span {
         position: static;
         width: 100%;
@@ -469,7 +460,6 @@ h1 {
         font-size: 42px;
     }
 
-    /* Skill-Grid unverändert; nur Items, Icons und Beschriftung skalieren mit der Breite */
     .skill-item {
         gap: clamp(6px, 1.8vw, 10px);
     }
@@ -511,18 +501,12 @@ h1 {
         outline-offset: 3px;
     }
 
-    /* Text + Kreis gemeinsam kleiner (nicht nur Schrift); Überschrift liegt außerhalb .currently-learning-inner */
     .currently-learning-img-wrapper .currently-learning-inner {
         transform: scale(clamp(0.82, calc(0.82 + (100vw - 360px) * 0.00025), 0.92));
         transform-origin: center center;
     }
 }
 
-/* =============================================================================
-   Desktop (≥1025px): gleiches Erscheinungsbild wie auf großen Screens, nur proportional
-   kleiner Richtung 1024px — keine festen Breiten/Höhen in px für Überschrift/Fließtext.
-   Mobile: .currently-learning-img-wrapper > .learning-skills-span / .learning-motivation.
-   ============================================================================= */
 @media (min-width: 1025px) {
     .currently-learning-desktop .learning-desktop-stack > .learning-skills-span {
         width: 100%;

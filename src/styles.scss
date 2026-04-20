@@ -48,7 +48,63 @@ app-root {
     min-width: 0;
 }
 
-/* Per [innerHTML] eingefügte Knoten haben keine Angular-Encapsulation — Komponenten-SCSS greift dort nicht */
+app-legal-notice .legal-page,
+app-privacy-policy .legal-page {
+    color: #d1d1d1;
+}
+
+app-legal-notice .legal-page__main,
+app-privacy-policy .legal-page__main {
+    color: #d1d1d1;
+}
+
+app-legal-notice .legal-page__main p,
+app-privacy-policy .legal-page__main p,
+app-legal-notice .legal-page__main li,
+app-privacy-policy .legal-page__main li {
+    color: #d1d1d1;
+}
+
+app-legal-notice .legal-page__accent,
+app-privacy-policy .legal-page__accent {
+    color: #89bcd9 !important;
+    font-weight: inherit;
+}
+
+app-legal-notice .legal-page__main h1.legal-page__title,
+app-privacy-policy .legal-page__main h1.legal-page__title,
+app-legal-notice .legal-page__main > h2,
+app-privacy-policy .legal-page__main > h2 {
+    color: #89bcd9;
+}
+
+app-legal-notice .legal-page__main a,
+app-privacy-policy .legal-page__main a,
+app-legal-notice .legal-page__main a:visited,
+app-privacy-policy .legal-page__main a:visited,
+app-legal-notice .legal-page__main a:hover,
+app-privacy-policy .legal-page__main a:hover,
+app-legal-notice .legal-page__main a:active,
+app-privacy-policy .legal-page__main a:active {
+    color: #89bcd9;
+}
+
+app-legal-notice .legal-page__meta,
+app-privacy-policy .legal-page__meta {
+    color: #89bcd9;
+}
+
+app-legal-notice .legal-page__main ul li::marker,
+app-privacy-policy .legal-page__main ul li::marker {
+    color: #89bcd9;
+}
+
+app-legal-notice .legal-page__contact-link:focus-visible,
+app-privacy-policy .legal-page__contact-link:focus-visible {
+    outline: 2px solid #89bcd9;
+    outline-offset: 2px;
+}
+
 app-contact a.privacy-policy-link {
     cursor: pointer;
     text-decoration: none !important;

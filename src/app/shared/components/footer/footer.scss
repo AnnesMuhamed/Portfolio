@@ -61,7 +61,17 @@
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    width: 106px;
+    width: auto;
+}
+
+.legal-notice-container__sep {
+    color: inherit;
+    opacity: 0.55;
+    user-select: none;
+    padding: 0 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    line-height: 120%;
 }
 
 a:hover .legal-notice-link {

@@ -4,12 +4,13 @@ import { Header } from '../../shared/components/header/header';
 import { WhyMeComponent } from './components/why-me.component/why-me.component';
 import { ProjectsComponent } from './components/projects.component/projects.component';
 import { SkillComponent } from "./components/skill.component/skill.component";
-import { ReferencesComponent } from "./components/references/references"; 
+import { ReferencesComponent } from "./components/references/references";
 import { ContactComponent } from "./components/contact.component/contact.component";
 import { Footer } from "../../shared/components/footer/footer";
 
-
-
+/**
+ * One-page portfolio shell composing hero, sections, contact, and footer.
+ */
 @Component({
   selector: 'app-portfolio',
   standalone: true,

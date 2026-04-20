@@ -4,11 +4,17 @@ import { isPlatformBrowser } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
+/**
+ * Single about item shown in the typewriter rotation.
+ */
 interface AboutItem {
   icon: string;
   textKey: string;
 }
 
+/**
+ * "Why me" section with a typewriter animation over translated strings.
+ */
 @Component({
   selector: 'app-why-me',
   standalone: true,
@@ -32,6 +38,10 @@ export class WhyMeComponent implements OnInit, OnDestroy {
   isDeleting = false;
   charIndex = 0;
 
+  /**
+   * @param platformId - Angular platform id
+   * @param translate - Translation service for typewriter strings
+   */
   constructor(
     @Inject(PLATFORM_ID) platformId: object,
     private readonly translate: TranslateService,
@@ -39,18 +49,27 @@ export class WhyMeComponent implements OnInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit() {
+  /**
+   * Starts the typewriter loop and subscribes to language changes (browser only).
+   */
+  ngOnInit(): void {
     if (this.isBrowser) {
       this.langSub = this.translate.onLangChange.subscribe(() => this.resetTypewriter());
       this.typeLoop();
     }
   }
 
-  ngOnDestroy() {
+  /**
+   * Unsubscribes from language changes.
+   */
+  ngOnDestroy(): void {
     this.langSub?.unsubscribe();
   }
 
-  private resetTypewriter() {
+  /**
+   * Invalidates in-flight timeouts and restarts the typewriter from the first item.
+   */
+  private resetTypewriter(): void {
     this.typeLoopGeneration++;
     this.currentIndex = 0;
     this.currentText = '';
@@ -59,7 +78,10 @@ export class WhyMeComponent implements OnInit, OnDestroy {
     this.typeLoop();
   }
 
-  typeLoop() {
+  /**
+   * Runs one typewriter step (type or delete) and schedules the next via `setTimeout`.
+   */
+  typeLoop(): void {
     const gen = this.typeLoopGeneration;
     const currentItem = this.items[this.currentIndex];
     const fullText = this.translate.instant(currentItem.textKey);
@@ -93,7 +115,10 @@ export class WhyMeComponent implements OnInit, OnDestroy {
     }, speed);
   }
 
-  scrollToContact() {
+  /**
+   * Smooth-scrolls to the contact section.
+   */
+  scrollToContact(): void {
     if (!this.isBrowser) return;
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }

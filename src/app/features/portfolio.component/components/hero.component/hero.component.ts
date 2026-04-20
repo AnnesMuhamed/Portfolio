@@ -3,6 +3,9 @@ import { Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
+/**
+ * Hero section with navigation, language switcher, and mobile menu (body scroll lock when open).
+ */
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -16,6 +19,10 @@ export class HeroComponent implements OnDestroy {
   private readonly isBrowser: boolean;
   private langSub?: Subscription;
 
+  /**
+   * @param platformId - Angular platform id (browser vs server)
+   * @param translate - ngx-translate service for language changes
+   */
   constructor(
     @Inject(PLATFORM_ID) platformId: object,
     private readonly translate: TranslateService,
@@ -27,29 +34,66 @@ export class HeroComponent implements OnDestroy {
     });
   }
 
+  /**
+   * Unsubscribes and releases menu scroll lock.
+   */
   ngOnDestroy(): void {
     this.langSub?.unsubscribe();
+    this.syncMenuBodyScrollLock(false);
   }
 
-  toggleMenu() {
+  /**
+   * Toggles the mobile menu and syncs body scroll lock.
+   */
+  toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+    this.syncMenuBodyScrollLock(this.menuOpen);
   }
 
-  onMobileMenuBackdropClick(event: MouseEvent) {
+  /**
+   * Closes the menu when the backdrop is clicked (not the menu panel).
+   * @param event - Mouse event from the backdrop
+   */
+  onMobileMenuBackdropClick(event: MouseEvent): void {
     if (event.target === event.currentTarget) {
       this.menuOpen = false;
+      this.syncMenuBodyScrollLock(false);
     }
   }
 
-  selectLanguage(lang: 'de' | 'en', event?: Event) {
+  /**
+   * Switches the active UI language.
+   * @param lang - Target language
+   * @param event - Optional event (stops propagation)
+   */
+  selectLanguage(lang: 'de' | 'en', event?: Event): void {
     event?.stopPropagation();
     this.translate.use(lang).subscribe();
   }
 
-  scrollTo(id: string, event?: Event) {
+  /**
+   * Smooth-scrolls to the element with `id`, closes the menu, and clears scroll lock.
+   * @param id - DOM id of the target element
+   * @param event - Optional link click (`preventDefault`)
+   */
+  scrollTo(id: string, event?: Event): void {
     event?.preventDefault();
     if (!this.isBrowser) return;
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     this.menuOpen = false;
+    this.syncMenuBodyScrollLock(false);
+  }
+
+  /**
+   * Sets `overflow` on `body` and `documentElement` to lock background scroll when the menu is open.
+   * @param locked - `true` to lock, `false` to restore
+   */
+  private syncMenuBodyScrollLock(locked: boolean): void {
+    if (!this.isBrowser) {
+      return;
+    }
+    const value = locked ? 'hidden' : '';
+    document.body.style.overflow = value;
+    document.documentElement.style.overflow = value;
   }
 }

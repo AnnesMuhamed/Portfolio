@@ -419,7 +419,7 @@
     inset: 0;
     z-index: 100;
     padding: calc(8px + env(safe-area-inset-top, 0px)) 16px 24px;
-    padding-top: calc(52px + env(safe-area-inset-top, 0px));
+    padding-top: calc(88px + env(safe-area-inset-top, 0px));
     box-sizing: border-box;
     background: rgba(26, 34, 40, 0.52);
     opacity: 0;
@@ -448,7 +448,7 @@
     justify-content: center;
     gap: clamp(16px, 4.5vmin, 28px);
     padding: clamp(20px, 5vmin, 32px);
-    margin-top: clamp(-28px, -4vh, -12px);
+    margin-top: clamp(-12px, -1.5vh, 8px);
     box-sizing: border-box;
     box-shadow: 0 16px 48px rgba(12, 18, 24, 0.35);
     flex-shrink: 0;
@@ -635,13 +635,14 @@
   }
 }
 
-/* 320–420px: gemeinsames Koordinatensystem, keine festen Stack/Profil-Pixel, kein scale() */
 @media (max-width: 420px) {
   .hero-img {
     height: auto;
     min-height: 0;
     width: 100%;
     max-width: min(654px, 100%);
+    padding-inline: clamp(12px, 4.5vw, 20px);
+    box-sizing: border-box;
   }
 
   .hero-visual {
@@ -688,7 +689,7 @@
   }
 
   .hero-shape-base {
-    transform: rotate(366deg);
+    transform: rotate(339deg);
   }
 
   .hero-shape-hover {
@@ -708,8 +709,9 @@
     max-height: none;
     min-width: 0;
     box-sizing: border-box;
-    padding: 10%;
+    padding: 0% 8% 4% 0%;
     pointer-events: auto;
+    transform: translateY(clamp(2px, 1.4vw, 11px));
   }
 
   .hero-profil .profil-picture {
@@ -719,7 +721,7 @@
     max-height: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    object-position: center 26%;
+    object-position: center 34%;
     border-radius: 50%;
   }
 }

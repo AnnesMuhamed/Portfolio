@@ -1,12 +1,4 @@
 <?php
-/**
- * Kontaktformular-Endpunkt für All-Inkl (oder anderes PHP-Hosting).
- *
- * Einrichtung:
- * 1. MAIL_TO = deine Empfänger-Adresse (wohin die Anfragen gehen).
- * 2. MAIL_FROM = eine bei All-Inkl angelegte E-Mail-Adresse (Absender, oft noreply@deine-domain.de).
- * 3. Datei liegt nach dem Build im Webroot (public/contact.php → mit ins Paket / per FTP hochladen).
- */
 
 declare(strict_types=1);
 
@@ -26,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// ——— Konfiguration anpassen ———
 const MAIL_TO   = 'aernnest89@gmail.com';
 const MAIL_FROM = 'noreply@DEINE-DOMAIN.de';
 const SITE_NAME = 'Portfolio Kontakt';
@@ -62,7 +53,6 @@ if (mb_strlen($message) < 10 || mb_strlen($message) > 10000) {
     exit;
 }
 
-// Mail-Header-Injection verhindern
 $nameSafe = str_replace(["\r", "\n", '%'], '', $name);
 $emailSafe = str_replace(["\r", "\n", ' '], '', $email);
 

@@ -1,1 +1,36 @@
-<p>privacy-policy.component works!</p>
+<div class="legal-page">
+  <app-header />
+  <main class="legal-page__main">
+    <h1 class="legal-page__title">{{ 'privacyPolicy.title' | translate }}</h1>
+
+    <h2>{{ 'privacyPolicy.introTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.introHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.controllerTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.controllerHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.dataTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.dataHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.purposeTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.purposeHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.legalBasisTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.legalBasisHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.retentionTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.retentionHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.rightsTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.rightsHtml' | translate"></p>
+
+    <h2>{{ 'privacyPolicy.cookiesTitle' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.cookiesHtml' | translate"></p>
+
+    <div class="legal-page__footer-note">
+      <p [innerHTML]="'privacyPolicy.contactFooterHtml' | translate"></p>
+      <p class="legal-page__meta">{{ 'privacyPolicy.dateLine' | translate }}</p>
+    </div>
+  </main>
+  <app-footer />
+</div>

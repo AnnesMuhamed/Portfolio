@@ -1,7 +1,9 @@
 <section class="footer">
    <div class="footer-content">
       <div class="legal-notice-container">
-         <a href="#"><span class="legal-notice-link">{{ 'footer.legal' | translate }}</span></a>
+         <a routerLink="/legal-notice"><span class="legal-notice-link">{{ 'footer.legal' | translate }}</span></a>
+         <span class="legal-notice-container__sep" aria-hidden="true">·</span>
+         <a routerLink="/privacy-policy"><span class="legal-notice-link">{{ 'footer.privacy' | translate }}</span></a>
          <span>{{ 'footer.copyright' | translate }}</span>
       </div>
 
@@ -12,15 +14,28 @@
       </div>
 
       <div class="social-media"> 
-         <a href="#" aria-label="GitHub" class="icon-btn">
+         <a
+            href="https://github.com/AnnesMuhamed"
+            class="icon-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub">
             <img class="icon-default" src="/images/github-gray-button.png" alt="GitHub">
             <img class="icon-hover" src="/images/github-white-button.png" alt="GitHub Hover">
          </a>
-         <a href="#" aria-label="Email" class="icon-btn">
+         <a
+            href="mailto:aernnest89@gmail.com"
+            class="icon-btn"
+            aria-label="E-Mail an aernnest89@gmail.com">
             <img class="icon-default" src="/images/email-gray-button.png" alt="Email">
             <img class="icon-hover" src="/images/email-white-button.png" alt="Email Hover">
          </a>
-         <a href="#" aria-label="LinkedIn" class="icon-btn">
+         <a
+            href="https://www.linkedin.com/in/annes-muhamed-637642233"
+            class="icon-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn">
             <img class="icon-default" src="/images/linkedin-gray-button.png" alt="LinkedIn">
             <img class="icon-hover" src="/images/linkedin-white-button.png" alt="LinkedIn Hover">
          </a>

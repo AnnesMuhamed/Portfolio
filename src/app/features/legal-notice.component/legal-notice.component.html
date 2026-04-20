@@ -1,1 +1,40 @@
-<p>legal-notice.component works!</p>
+<div class="legal-page">
+  <app-header />
+  <main class="legal-page__main">
+    <h1 class="legal-page__title">{{ 'legalNotice.title' | translate }}</h1>
+
+    <h2>{{ 'legalNotice.imprint' | translate }}</h2>
+    <ul>
+      <li>{{ 'legalNotice.imprintStudents' | translate }}</li>
+      <li>{{ 'legalNotice.imprintAddress' | translate }}</li>
+      <li>{{ 'legalNotice.imprintCity' | translate }}</li>
+    </ul>
+
+    <h2>{{ 'legalNotice.board' | translate }}</h2>
+    <p>{{ 'legalNotice.boardEmail' | translate }}</p>
+
+    <h2>{{ 'legalNotice.acceptanceTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.acceptanceHtml' | translate"></p>
+
+    <h2>{{ 'legalNotice.scopeTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.scopeHtml' | translate"></p>
+
+    <h2>{{ 'legalNotice.proprietaryTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.proprietaryHtml' | translate"></p>
+
+    <h2>{{ 'legalNotice.useTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.useHtml' | translate"></p>
+
+    <h2>{{ 'legalNotice.disclaimerTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.disclaimerHtml' | translate"></p>
+
+    <h2>{{ 'legalNotice.indemnityTitle' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.indemnityHtml' | translate"></p>
+
+    <div class="legal-page__footer-note">
+      <p [innerHTML]="'legalNotice.contactFooterHtml' | translate"></p>
+      <p class="legal-page__meta">{{ 'legalNotice.dateLine' | translate }}</p>
+    </div>
+  </main>
+  <app-footer />
+</div>

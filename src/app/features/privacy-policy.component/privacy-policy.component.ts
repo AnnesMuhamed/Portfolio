@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Footer } from '../../shared/components/footer/footer';
+import { Header } from '../../shared/components/header/header';
 
+/**
+ * Privacy policy page with shared header and footer.
+ */
 @Component({
-  selector: 'app-privacy-policy.component',
+  selector: 'app-privacy-policy',
   standalone: true,
-  imports: [],
+  imports: [Header, Footer, TranslatePipe],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.scss',
+  styleUrl: '../legal-pages.shared.scss',
 })
-export class PrivacyPolicyComponent {
-
-}
+export class PrivacyPolicyComponent {}

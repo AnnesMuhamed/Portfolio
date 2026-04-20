@@ -4,7 +4,7 @@ import {
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
-import express from 'express';
+import express, { type NextFunction, type Request, type Response } from 'express';
 import { join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -12,21 +12,6 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-/**
- * Serve static files from /browser
- */
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
@@ -36,33 +21,40 @@ app.use(
 );
 
 /**
- * Handle all other requests by rendering the Angular application.
+ * Forwards the request to the Angular SSR engine or calls Express `next` if unhandled.
+ * @param req - Incoming HTTP request
+ * @param res - HTTP response
+ * @param next - Express `next` when no SSR response is produced
  */
-app.use((req, res, next) => {
+function angularSsrHandler(req: Request, res: Response, next: NextFunction): void {
   angularApp
     .handle(req)
     .then((response) =>
       response ? writeResponseToNodeResponse(response, res) : next(),
     )
     .catch(next);
-});
+}
+
+app.use(angularSsrHandler);
 
 /**
- * Start the server if this module is the main entry point, or it is ran via PM2.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * `app.listen` callback: throws on error; otherwise logs the listening URL.
+ * @param port - Port the server listens on
+ * @param error - Optional error from the listen callback
  */
+function onServerListen(port: string | number, error?: Error): void {
+  if (error) {
+    throw error;
+  }
+  console.log(`Node Express server listening on http://localhost:${port}`);
+}
+
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  app.listen(port, (err) => onServerListen(port, err));
 }
 
 /**
- * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
+ * Node request handler for hosting integrations (e.g. serverless adapters).
  */
 export const reqHandler = createNodeRequestHandler(app);
