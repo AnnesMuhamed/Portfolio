@@ -37,7 +37,7 @@
   line-height: 120%;
 }
 
-nav {
+.header__nav-desktop {
   display: flex;
   gap: 2rem;
 
@@ -49,7 +49,7 @@ nav {
     font-size: 1.65rem;
     line-height: 120%;
     text-align: center;
-    color: #262E34; 
+    color: #262E34;
     padding: 12px 16px;
     transition: color 0.3s ease;
 
@@ -58,17 +58,17 @@ nav {
     }
   }
 
-a.active-link {
+  a.active-link {
     background-image: url('/images/nav-active-bg.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    color: #F8F5EC;
     background-size: 83px 56px;
+    color: #F8F5EC;
   }
 }
 
-nav a, .language-switcher .lang-btn {
+.header__nav-desktop a,
+.language-switcher .lang-btn {
   display: inline-block;
 }
 
@@ -104,10 +104,6 @@ nav a, .language-switcher .lang-btn {
   }
 }
 
-nav a, .language-switcher .lang-btn {
-  display: inline-block;
-}
-
 .burger-button {
   display: none;
   background: transparent;
@@ -125,16 +121,20 @@ nav a, .language-switcher .lang-btn {
   background: #262E34;
 }
 
+.mobile-menu {
+  display: none;
+}
+
 @media (max-width: 1280px) {
   .header {
     padding: 16px 48px;
   }
 
-  nav {
+  .header__nav-desktop {
     gap: 1rem;
   }
 
-  nav a {
+  .header__nav-desktop a {
     padding: 8px 10px;
     font-size: 1.4rem;
   }
@@ -147,43 +147,123 @@ nav a, .language-switcher .lang-btn {
     padding: 10px 16px;
   }
 
+  .header__nav-desktop,
+  .header__lang-desktop {
+    display: none !important;
+  }
+
   .burger-button {
     display: flex;
+    z-index: 10001;
   }
 
-  nav {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    width: 100%;
-    background: #89BCD9;
-    display: none;
+  .burger-button span {
+    background: #f8f5ec;
+    transition:
+      transform 0.22s ease,
+      opacity 0.18s ease;
+  }
+
+  .burger-button--open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger-button--open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-button--open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px 0;
-    gap: 6px;
+    justify-content: flex-start;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 16px 24px;
+    padding-top: calc(88px + env(safe-area-inset-top, 0px));
+    box-sizing: border-box;
+    background: rgba(26, 34, 40, 0.52);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
   }
 
-  nav.open {
+  .mobile-menu--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-menu__circle {
+    width: min(92vmin, 420px);
+    height: min(92vmin, 420px);
+    max-height: min(92vmin, 78vh);
+    border-radius: 50%;
+    background: #89bcd9;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 4.5vmin, 28px);
+    padding: clamp(20px, 5vmin, 32px);
+    margin-top: clamp(-12px, -1.5vh, 8px);
+    box-sizing: border-box;
+    box-shadow: 0 16px 48px rgba(12, 18, 24, 0.35);
+    flex-shrink: 0;
   }
 
-  nav a {
-    width: 100%;
+  .mobile-menu__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(14px, 3.8vmin, 22px);
+  }
+
+  .mobile-menu__nav a {
+    padding: 4px 12px;
+    text-decoration: none;
+    color: #1a2228;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.05rem, 4vmin, 1.55rem);
+    line-height: 120%;
     text-align: center;
   }
 
-  .language-switcher {
-    display: none;
+  .mobile-menu__lang {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: clamp(8px, 2vmin, 16px);
   }
 
-  .language-switcher.open {
-    display: flex;
-    position: absolute;
-    top: 290px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #89BCD9;
-    padding-bottom: 12px;
+  .mobile-menu__lang-btn {
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 120%;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: #262e34;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .mobile-menu__lang-btn--active {
+    color: #f8f5ec;
+    background-color: rgba(38, 46, 52, 0.28);
   }
 }

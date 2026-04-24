@@ -1,7 +1,7 @@
 <div class="legal-page">
   <app-header />
   <main class="legal-page__main">
-    <h1 class="legal-page__title">{{ 'privacyPolicy.title' | translate }}</h1>
+    <app-legal-page-masthead>{{ 'privacyPolicy.title' | translate }}</app-legal-page-masthead>
 
     <h2>{{ 'privacyPolicy.introTitle' | translate }}</h2>
     <p [innerHTML]="'privacyPolicy.introHtml' | translate"></p>

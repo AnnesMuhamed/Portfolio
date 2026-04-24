@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -13,7 +13,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
 })
-export class Header {
+export class Header implements OnDestroy {
   currentLang = 'en';
   activeSection = '';
   menuOpen = false;
@@ -31,9 +31,22 @@ export class Header {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.currentLang = this.translate.getCurrentLang() || 'en';
-    this.translate.onLangChange.subscribe((e) => {
-      this.currentLang = e.lang;
-    });
+    this.translate.onLangChange.subscribe((e) => this.onTranslateLangChange(e));
+  }
+
+  /**
+   * Keeps `currentLang` in sync with ngx-translate.
+   * @param e - Language change event from ngx-translate
+   */
+  private onTranslateLangChange(e: { lang: string }): void {
+    this.currentLang = e.lang;
+  }
+
+  /**
+   * Releases body scroll lock when the component is destroyed.
+   */
+  ngOnDestroy(): void {
+    this.syncMenuBodyScrollLock(false);
   }
 
   /**
@@ -56,6 +69,7 @@ export class Header {
     if (!this.isBrowser) return;
     this.activeSection = id;
     this.menuOpen = false;
+    this.syncMenuBodyScrollLock(false);
     const scroll = () => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     const path = this.router.url.split('#')[0];
     if (path === '/home' || path === '/') {
@@ -68,10 +82,21 @@ export class Header {
   }
 
   /**
-   * Toggles the mobile menu open state.
+   * Toggles the mobile overlay menu (same interaction model as the hero burger).
    */
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+    this.syncMenuBodyScrollLock(this.menuOpen);
+  }
+
+  /**
+   * Closes the menu when tapping the dimmed backdrop.
+   */
+  onMobileMenuBackdropClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.menuOpen = false;
+      this.syncMenuBodyScrollLock(false);
+    }
   }
 
   /**
@@ -79,5 +104,19 @@ export class Header {
    */
   closeMenu(): void {
     this.menuOpen = false;
+    this.syncMenuBodyScrollLock(false);
+  }
+
+  /**
+   * Toggles `overflow` on `body` and `documentElement` while the mobile menu is open.
+   * @param locked - When `true`, hides overflow; when `false`, restores default scrolling
+   */
+  private syncMenuBodyScrollLock(locked: boolean): void {
+    if (!this.isBrowser) {
+      return;
+    }
+    const value = locked ? 'hidden' : '';
+    document.body.style.overflow = value;
+    document.documentElement.style.overflow = value;
   }
 }

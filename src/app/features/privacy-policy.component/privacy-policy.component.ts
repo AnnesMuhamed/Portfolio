@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Footer } from '../../shared/components/footer/footer';
 import { Header } from '../../shared/components/header/header';
+import { LegalPageMastheadComponent } from '../../shared/components/legal-page-masthead/legal-page-masthead.component';
 
 /**
  * Privacy policy page with shared header and footer.
@@ -9,7 +10,7 @@ import { Header } from '../../shared/components/header/header';
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [Header, Footer, TranslatePipe],
+  imports: [Header, Footer, LegalPageMastheadComponent, TranslatePipe],
   templateUrl: './privacy-policy.component.html',
   styleUrl: '../legal-pages.shared.scss',
 })

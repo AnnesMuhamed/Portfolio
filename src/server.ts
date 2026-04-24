@@ -51,7 +51,16 @@ function onServerListen(port: string | number, error?: Error): void {
 
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, (err) => onServerListen(port, err));
+
+  /**
+   * Express `listen` callback; forwards to {@link onServerListen}.
+   * @param err - Optional listen error
+   */
+  function handleListen(err?: Error): void {
+    onServerListen(port, err);
+  }
+
+  app.listen(port, handleListen);
 }
 
 /**

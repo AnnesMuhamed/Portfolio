@@ -1,0 +1,12 @@
+<header class="legal-page__masthead">
+  <h1 class="legal-page__title">
+    <ng-content />
+  </h1>
+  <button
+    type="button"
+    class="legal-page__back"
+    (click)="goBack()"
+    [attr.aria-label]="'aria.legalBack' | translate">
+    <img src="/images/arrow-left.png" alt="" width="24" height="24" />
+  </button>
+</header>

@@ -33,12 +33,19 @@ function initializeI18n(): Promise<unknown> {
   translate.setTranslation('de', de as TranslationObject);
   translate.addLangs(['en', 'de']);
   translate.setFallbackLang('en');
-  translate.onLangChange.subscribe((e) => {
+
+  /**
+   * Syncs `document.documentElement.lang` and optional `localStorage` with the active language.
+   * @param e - ngx-translate language change event
+   */
+  function onTranslateLangChange(e: { lang: string }): void {
     doc.documentElement.lang = e.lang;
     if (isPlatformBrowser(platformId)) {
       localStorage.setItem(LANG_STORAGE_KEY, e.lang);
     }
-  });
+  }
+
+  translate.onLangChange.subscribe(onTranslateLangChange);
   let lang: 'en' | 'de' = 'en';
   if (isPlatformBrowser(platformId)) {
     const saved = localStorage.getItem(LANG_STORAGE_KEY);

@@ -64,11 +64,6 @@ h1 {
   max-width: 429px;
 }
 
-.contact-content__links {
-  order: 2;
-  flex-shrink: 0;
-}
-
 .contact-intro {
   width: 100%;
   max-width: 429px;
@@ -84,6 +79,15 @@ h1 {
 
 .contact-form-lead {
   display: none;
+}
+
+.contact-content__links {
+  order: 2;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .contact-links {

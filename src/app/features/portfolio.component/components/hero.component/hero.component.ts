@@ -29,9 +29,15 @@ export class HeroComponent implements OnDestroy {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.currentLang = this.translate.getCurrentLang() || 'en';
-    this.langSub = this.translate.onLangChange.subscribe((e) => {
-      this.currentLang = e.lang;
-    });
+    this.langSub = this.translate.onLangChange.subscribe((e) => this.onTranslateLangChange(e));
+  }
+
+  /**
+   * Updates the displayed language when ngx-translate switches locale.
+   * @param e - Language change event from ngx-translate
+   */
+  private onTranslateLangChange(e: { lang: string }): void {
+    this.currentLang = e.lang;
   }
 
   /**

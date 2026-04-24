@@ -6,7 +6,8 @@
     "contact": "Kontakt"
   },
   "aria": {
-    "toggleNav": "Navigation umschalten"
+    "toggleNav": "Navigation umschalten",
+    "legalBack": "Zurück zur vorherigen Seite"
   },
   "brand": {
     "developer": "Entwickler"
@@ -65,17 +66,17 @@
     }
   },
   "references": {
-    "title": "Suchst du eine Teamplayerin? Das sagen Kolleginnen und Kollegen",
+    "title": "Suchst du einen Teamplayer? Das sagen Kollegen",
     "project": "Projekt",
     "linkedIn": "LinkedIn-Profil",
     "bubble": {
-      "quote": "„Claudia musste Inhalte gemeinsam mit dem Team entwickeln, formatieren und ausliefern. Sie ist zuverlässig und freundlich.“"
+      "quote": "„Annes musste Inhalte gemeinsam mit dem Team entwickeln, formatieren und ausliefern. Er ist zuverlässig und freundlich.“"
     },
     "join": {
-      "quote": "„Claudia ist zuverlässig und freundlich. Sie arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin.“"
+      "quote": "„Annes ist zuverlässig und freundlich. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle ihn als Kollegen.“"
     },
     "pollo": {
-      "quote": "„Sie ist eine vertrauenswürdige Teamplayerin und kann mit Deadline-Stress umgehen. Strukturierte Arbeit und klarer Code.“"
+      "quote": "„Er ist ein vertrauenswürdiger Teamplayer und kann mit Deadline-Stress umgehen. Strukturierte Arbeit und klarer Code.“"
     }
   },
   "contact": {
@@ -104,11 +105,11 @@
   "legalNotice": {
     "title": "Impressum & rechtliche Hinweise",
     "imprint": "Impressum",
-    "imprintStudents": "[Namen der Studierenden]",
-    "imprintAddress": "[Adresse des JOIN-Operators]",
-    "imprintCity": "[PLZ und Ort]",
+    "imprintStudents": "Annes Muhamed",
+    "imprintAddress": "Klein herl 11",
+    "imprintCity": "51067 Köln",
     "board": "Ansprechpartner",
-    "boardEmail": "E-Mail: [E-Mail]",
+    "boardEmail": "E-Mail: aernnesto89@gmail.com",
     "acceptanceTitle": "Annahme der Bedingungen",
     "acceptanceHtml": "Mit dem Zugriff auf und der Nutzung dieses <span class=\"legal-page__accent\">Portfolio</span> erklärst du dich damit einverstanden, diese Bedingungen gelesen zu haben, sie verstanden zu haben und an sie gebunden zu sein. Wenn du nicht einverstanden bist, stell die Nutzung des <span class=\"legal-page__accent\">Portfolio</span> bitte ein.",
     "scopeTitle": "Geltungsbereich und Eigentum am Produkt",
@@ -121,7 +122,7 @@
     "disclaimerHtml": "Das <span class=\"legal-page__accent\">Portfolio</span> wird „wie besehen“ zu Demonstrationszwecken bereitgestellt. Soweit gesetzlich zulässig, übernimmt die <span class=\"legal-page__accent\">Developer Akademie</span> keine Gewähr und haftet nicht für mittelbare oder Folgeschäden aus der Nutzung des <span class=\"legal-page__accent\">Portfolio</span>.",
     "indemnityTitle": "Freistellung",
     "indemnityHtml": "Du stellst die <span class=\"legal-page__accent\">Developer Akademie</span> von Ansprüchen frei, die aus Missbrauch deines <span class=\"legal-page__accent\">Portfolio</span> oder aus der Verletzung dieser Bedingungen entstehen, soweit gesetzlich zulässig.",
-    "contactFooterHtml": "Bei Fragen oder Hinweisen erreichst du uns unter <a class=\"legal-page__contact-link\" href=\"mailto:aernnest89@gmail.com\">aernnest89@gmail.com</a>.",
+    "contactFooterHtml": "Bei Fragen oder Hinweisen erreichst du mich unter <a class=\"legal-page__contact-link\" href=\"tel:+491632216668\">+49 (0) 163 221 6668</a>.",
     "dateLine": "Stand: 2. April 2026"
   },
   "privacyPolicy": {

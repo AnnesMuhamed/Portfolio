@@ -6,7 +6,8 @@
     "contact": "Contact"
   },
   "aria": {
-    "toggleNav": "Toggle navigation"
+    "toggleNav": "Toggle navigation",
+    "legalBack": "Back to previous page"
   },
   "brand": {
     "developer": "developer"
@@ -69,13 +70,13 @@
     "project": "Project",
     "linkedIn": "Linked In Profile",
     "bubble": {
-      "quote": "‘’Claudia had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person.’’"
+      "quote": "‘’Annes had to develop, format and deliver content in collaboration with the team members. He is a reliable and friendly person.’’"
     },
     "join": {
-      "quote": "‘’Claudia is a reliable and friendly person. Works in a structured way and write a clear code. I recommend her as a colleague.’’"
+      "quote": "‘’Annes is a reliable and friendly person. Works in a structured way and write a clear code. I recommend him as a colleague.’’"
     },
     "pollo": {
-      "quote": "‘’ She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code. ‘’"
+      "quote": "‘’He is a trustworthy team player and can cope with the stress of deadlines. Structured work and clear code.’’"
     }
   },
   "contact": {
@@ -104,11 +105,11 @@
   "legalNotice": {
     "title": "Legal Notice",
     "imprint": "Imprint",
-    "imprintStudents": "[Student Names List]",
-    "imprintAddress": "[Address of the JOIN operator]",
-    "imprintCity": "[Postcode and city]",
-    "board": "Exploring the Board",
-    "boardEmail": "Email: [Email]",
+    "imprintStudents": "Annes Muhamed",
+    "imprintAddress": "Klein herl 11",
+    "imprintCity": "51067 Köln",
+    "board": "Contact person",
+    "boardEmail": "Email: aernnesto89@gmail.com",
     "acceptanceTitle": "Acceptance of terms",
     "acceptanceHtml": "By accessing and using this <span class=\"legal-page__accent\">Portfolio</span>, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree, please discontinue use of the <span class=\"legal-page__accent\">Portfolio</span>.",
     "scopeTitle": "Scope and ownership of the product",
@@ -121,7 +122,7 @@
     "disclaimerHtml": "The <span class=\"legal-page__accent\">Portfolio</span> is provided &ldquo;as is&rdquo; for demonstration purposes. To the fullest extent permitted by law, <span class=\"legal-page__accent\">Developer Akademie</span> disclaims all warranties and shall not be liable for any indirect or consequential loss arising from use of the <span class=\"legal-page__accent\">Portfolio</span>.",
     "indemnityTitle": "Indemnity",
     "indemnityHtml": "You agree to indemnify <span class=\"legal-page__accent\">Developer Akademie</span> against claims arising from misuse of your <span class=\"legal-page__accent\">Portfolio</span> or breach of these terms, except where such liability cannot be excluded under mandatory law.",
-    "contactFooterHtml": "For any questions or notices, please contact us at <a class=\"legal-page__contact-link\" href=\"mailto:aernnest89@gmail.com\">aernnest89@gmail.com</a>.",
+    "contactFooterHtml": "For questions or notices, you can reach me at <a class=\"legal-page__contact-link\" href=\"tel:+491632216668\">+49 (0) 163 221 6668</a>.",
     "dateLine": "Date: April 2, 2026"
   },
   "privacyPolicy": {
