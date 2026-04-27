@@ -1,15 +1,14 @@
 import { Component, Inject, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
 
-const CONTACT_ENDPOINT = '/contact.php';
-
-type ContactApiResponse = { ok: boolean; error?: string };
+/** Must match `name` on the hidden form in `index.html` and Netlify form settings. */
+const NETLIFY_FORM_NAME = 'portfolio-contact';
 
 /**
- * Contact form with responsive placeholders and POST to `contact.php`.
+ * Contact form with responsive placeholders; submits to Netlify Forms when hosted on Netlify.
  */
 @Component({
   selector: 'app-contact',
@@ -84,6 +83,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     agree: false
   };
 
+  /** Netlify honeypot; must stay empty for humans. */
+  netlifyHoneypot = '';
+
   /**
    * Validates the form and posts payload to the contact endpoint.
    * @param form - Template `NgForm` instance
@@ -97,28 +99,34 @@ export class ContactComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const payload = {
-      name: this.contactData.name.trim(),
-      email: this.contactData.email.trim(),
-      message: this.contactData.message.trim(),
-    };
+    const body = new HttpParams()
+      .set('form-name', NETLIFY_FORM_NAME)
+      .set('name', this.contactData.name.trim())
+      .set('email', this.contactData.email.trim())
+      .set('message', this.contactData.message.trim())
+      .set('agree', 'on')
+      .set('bot-field', this.netlifyHoneypot.trim());
 
     this.submitting = true;
 
-    this.http.post<ContactApiResponse>(CONTACT_ENDPOINT, payload).subscribe({
-      next: (res) => this.onContactSubmitNext(res, form),
-      error: () => this.onContactSubmitError(),
-    });
+    this.http
+      .post('/', body.toString(), {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        responseType: 'text',
+        observe: 'response',
+      })
+      .subscribe({
+        next: (res) => this.onNetlifySubmitNext(res.status, form),
+        error: () => this.onContactSubmitError(),
+      });
   }
 
   /**
-   * Handles a successful HTTP response from the contact endpoint.
-   * @param res - API response body
-   * @param form - Form to reset on success
+   * Handles Netlify Forms POST: 2xx is treated as success.
    */
-  private onContactSubmitNext(res: ContactApiResponse, form: NgForm): void {
+  private onNetlifySubmitNext(status: number, form: NgForm): void {
     this.submitting = false;
-    if (res?.ok) {
+    if (status >= 200 && status < 300) {
       this.submitSuccess = true;
       this.submitAttempted = false;
       this.contactData = {
@@ -127,6 +135,7 @@ export class ContactComponent implements OnInit, OnDestroy {
         message: '',
         agree: false
       };
+      this.netlifyHoneypot = '';
       form.resetForm({
         name: '',
         email: '',

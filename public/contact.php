@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-const MAIL_TO   = 'aernnest89@gmail.com';
-const MAIL_FROM = 'noreply@DEINE-DOMAIN.de';
+const MAIL_TO   = 'contact@annes-portfolio.com';
+const MAIL_FROM = 'noreply@annes-portfolio.com';
 const SITE_NAME = 'Portfolio Kontakt';
 
 $raw = file_get_contents('php://input');
