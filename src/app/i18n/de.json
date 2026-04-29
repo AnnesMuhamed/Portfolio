@@ -83,7 +83,7 @@
     "title": "Kontakt",
     "formLead": "Lass uns zusammenarbeiten!",
     "intro": "Lade Besucher ein, dich zu kontaktieren, und beschreibe, welche Rolle du suchst. Zeige, dass du Projekte durch deine Arbeit bereicherst. Beispiel: Melde dich gern bei Jobangeboten oder Chancen wie …",
-    "emailLine": "E-Mail contact@annes-portfolio.com",
+    "emailLine": "E-Mail contact@annes-portfolio.de",
     "phoneLine": "Tel.: +49 163 221 6668",
     "success": "Vielen Dank! Deine Nachricht wurde übermittelt.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es später erneut oder nutze den E-Mail-Link oben.",
@@ -109,7 +109,7 @@
     "imprintAddress": "Klein herl 11",
     "imprintCity": "51067 Köln",
     "board": "Ansprechpartner",
-    "boardEmail": "E-Mail: contact@annes-portfolio.com",
+    "boardEmail": "E-Mail: contact@annes-portfolio.de",
     "acceptanceTitle": "Annahme der Bedingungen",
     "acceptanceHtml": "Mit dem Zugriff auf und der Nutzung dieses <span class=\"legal-page__accent\">Portfolio</span> erklärst du dich damit einverstanden, diese Bedingungen gelesen zu haben, sie verstanden zu haben und an sie gebunden zu sein. Wenn du nicht einverstanden bist, stell die Nutzung des <span class=\"legal-page__accent\">Portfolio</span> bitte ein.",
     "scopeTitle": "Geltungsbereich und Eigentum am Produkt",
@@ -143,7 +143,7 @@
     "rightsHtml": "Du hast nach Maßgabe der DSGVO Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Du kannst dich außerdem bei einer Aufsichtsbehörde beschweren. Ansprechpartnerin ist die im <span class=\"legal-page__accent\">Portfolio</span> genannte verantwortliche Stelle.",
     "cookiesTitle": "Cookies & lokale Daten",
     "cookiesHtml": "Diese Website kann technisch notwendige Cookies oder lokale Speicherung (z. B. für die Sprachwahl) verwenden. Eine Einwilligung ist nur erforderlich, wenn nicht notwendige Cookies eingesetzt werden.",
-    "contactFooterHtml": "Fragen zum Datenschutz: <a class=\"legal-page__contact-link\" href=\"mailto:contact@annes-portfolio.com\">contact@annes-portfolio.com</a>",
+    "contactFooterHtml": "Fragen zum Datenschutz: <a class=\"legal-page__contact-link\" href=\"mailto:contact@annes-portfolio.de\">contact@annes-portfolio.de</a>",
     "dateLine": "Stand: 2. April 2026"
   }
 }

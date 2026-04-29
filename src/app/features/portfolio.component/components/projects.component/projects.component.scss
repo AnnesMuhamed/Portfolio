@@ -153,6 +153,11 @@ h1 {
   font-size: 18px;
   line-height: 120%;
   cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-action-button {

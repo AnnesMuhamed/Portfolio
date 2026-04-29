@@ -1,15 +1,16 @@
 import { Component, Inject, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
 
-/** Must match `name` on the hidden form in `index.html` and Netlify form settings. */
-const NETLIFY_FORM_NAME = 'portfolio-contact';
+/** Deploy `public/contact.php` to the site root next to `index.html` (e.g. All-Inkl). */
+const CONTACT_ENDPOINT = '/contact.php';
 
-/**
- * Contact form with responsive placeholders; submits to Netlify Forms when hosted on Netlify.
- */
+type ContactPhpResponse = { ok: boolean; error?: string };
+
+const SUCCESS_MESSAGE_HIDE_MS = 4000;
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -22,19 +23,15 @@ export class ContactComponent implements OnInit, OnDestroy {
   private readonly isBrowser: boolean;
   private placeholderMq?: MediaQueryList;
   private placeholderMqListener?: () => void;
+  /** Clears the auto-hide for the success banner. */
+  private successHideTimerId?: number;
 
   showPlaceholders = false;
 
-  /**
-   * @param platformId - Platform id (SSR vs browser)
-   */
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  /**
-   * Registers a media query for placeholder visibility at max-width 768px.
-   */
   ngOnInit(): void {
     if (!this.isBrowser) {
       return;
@@ -46,26 +43,35 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.placeholderMq = mq;
   }
 
-  /**
-   * Removes the media query listener.
-   */
   ngOnDestroy(): void {
     if (this.placeholderMq && this.placeholderMqListener) {
       this.placeholderMq.removeEventListener('change', this.placeholderMqListener);
     }
+    this.clearSuccessHideTimer();
   }
 
-  /**
-   * Copies `matches` from the media query into `showPlaceholders`.
-   * @param mq - Mobile layout media query
-   */
+  private clearSuccessHideTimer(): void {
+    if (this.successHideTimerId !== undefined) {
+      window.clearTimeout(this.successHideTimerId);
+      this.successHideTimerId = undefined;
+    }
+  }
+
+  private scheduleSuccessMessageHide(): void {
+    this.clearSuccessHideTimer();
+    if (!this.isBrowser) {
+      return;
+    }
+    this.successHideTimerId = window.setTimeout(() => {
+      this.submitSuccess = false;
+      this.successHideTimerId = undefined;
+    }, SUCCESS_MESSAGE_HIDE_MS);
+  }
+
   private syncPlaceholdersFromMediaQuery(mq: MediaQueryList): void {
     this.showPlaceholders = mq.matches;
   }
 
-  /**
-   * Smooth-scrolls to the hero section.
-   */
   scrollToHero(): void {
     if (!this.isBrowser) return;
     document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
@@ -83,76 +89,56 @@ export class ContactComponent implements OnInit, OnDestroy {
     agree: false
   };
 
-  /** Netlify honeypot; must stay empty for humans. */
-  netlifyHoneypot = '';
-
-  /**
-   * Validates the form and posts payload to the contact endpoint.
-   * @param form - Template `NgForm` instance
-   */
+  /** POST JSON `name`, `email`, `message` — same shape as `/api/contact` examples. */
   submitForm(form: NgForm): void {
     this.submitAttempted = true;
     this.submitSuccess = false;
     this.submitError = false;
+    this.clearSuccessHideTimer();
 
     if (!form.valid) {
       return;
     }
 
-    const body = new HttpParams()
-      .set('form-name', NETLIFY_FORM_NAME)
-      .set('name', this.contactData.name.trim())
-      .set('email', this.contactData.email.trim())
-      .set('message', this.contactData.message.trim())
-      .set('agree', 'on')
-      .set('bot-field', this.netlifyHoneypot.trim());
+    if (!this.isBrowser) {
+      return;
+    }
+
+    const payload = {
+      name: this.contactData.name.trim(),
+      email: this.contactData.email.trim(),
+      message: this.contactData.message.trim(),
+    };
 
     this.submitting = true;
 
-    this.http
-      .post('/', body.toString(), {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        responseType: 'text',
-        observe: 'response',
-      })
-      .subscribe({
-        next: (res) => this.onNetlifySubmitNext(res.status, form),
-        error: () => this.onContactSubmitError(),
-      });
+    this.http.post<ContactPhpResponse>(CONTACT_ENDPOINT, payload).subscribe({
+      next: (res) => {
+        this.submitting = false;
+        if (res?.ok) {
+          this.submitSuccess = true;
+          this.submitAttempted = false;
+          this.contactData = {
+            name: '',
+            email: '',
+            message: '',
+            agree: false
+          };
+          form.resetForm({
+            name: '',
+            email: '',
+            message: '',
+            agree: false
+          });
+          this.scheduleSuccessMessageHide();
+        } else {
+          this.submitError = true;
+        }
+      },
+      error: () => {
+        this.submitting = false;
+        this.submitError = true;
+      },
+    });
   }
-
-  /**
-   * Handles Netlify Forms POST: 2xx is treated as success.
-   */
-  private onNetlifySubmitNext(status: number, form: NgForm): void {
-    this.submitting = false;
-    if (status >= 200 && status < 300) {
-      this.submitSuccess = true;
-      this.submitAttempted = false;
-      this.contactData = {
-        name: '',
-        email: '',
-        message: '',
-        agree: false
-      };
-      this.netlifyHoneypot = '';
-      form.resetForm({
-        name: '',
-        email: '',
-        message: '',
-        agree: false
-      });
-    } else {
-      this.submitError = true;
-    }
-  }
-
-  /**
-   * Sets error state after a failed or invalid request.
-   */
-  private onContactSubmitError(): void {
-    this.submitting = false;
-    this.submitError = true;
-  }
-
 }

@@ -83,7 +83,7 @@
     "title": "Contact me",
     "formLead": "Let us work together!",
     "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work. Example: Feel free to get in touch with job offers or opportunities such as: ...",
-    "emailLine": "E-mail contact@annes-portfolio.com",
+    "emailLine": "E-mail contact@annes-portfolio.de",
     "phoneLine": "Tel: +49 163 221 6668",
     "success": "Thank you! Your message has been submitted.",
     "error": "Something went wrong. Please try again later or use the email link above.",
@@ -109,7 +109,7 @@
     "imprintAddress": "Klein herl 11",
     "imprintCity": "51067 Köln",
     "board": "Contact person",
-    "boardEmail": "Email: contact@annes-portfolio.com",
+    "boardEmail": "Email: contact@annes-portfolio.de",
     "acceptanceTitle": "Acceptance of terms",
     "acceptanceHtml": "By accessing and using this <span class=\"legal-page__accent\">Portfolio</span>, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree, please discontinue use of the <span class=\"legal-page__accent\">Portfolio</span>.",
     "scopeTitle": "Scope and ownership of the product",
@@ -143,7 +143,7 @@
     "rightsHtml": "Subject to applicable law, you have rights of access, rectification, erasure, restriction, data portability, and objection. You may also lodge a complaint with a supervisory authority. The controller named in the <span class=\"legal-page__accent\">Portfolio</span> is your primary contact.",
     "cookiesTitle": "Cookies & local storage",
     "cookiesHtml": "This site may use technically necessary cookies or local storage (for example for language preference). Consent is only required for non-essential cookies.",
-    "contactFooterHtml": "Privacy enquiries: <a class=\"legal-page__contact-link\" href=\"mailto:contact@annes-portfolio.com\">contact@annes-portfolio.com</a>",
+    "contactFooterHtml": "Privacy enquiries: <a class=\"legal-page__contact-link\" href=\"mailto:contact@annes-portfolio.de\">contact@annes-portfolio.de</a>",
     "dateLine": "Date: April 2, 2026"
   }
 }

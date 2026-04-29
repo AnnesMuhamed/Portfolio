@@ -133,34 +133,11 @@ h1 {
 }
 
 .contact-form {
-  position: relative;
   width: 100%;
   max-width: 911px;
   display: flex;
   flex-direction: column;
   margin-top: 28px;
-}
-
-/* Netlify honeypot: hidden from view, not tab-focusable */
-.contact-form__hp {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-  pointer-events: none;
-}
-
-.contact-form__hp-label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
 }
 
 .contact-form-feedback {

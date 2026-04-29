@@ -12,7 +12,7 @@
             <img src="/images/phone.png" alt="" class="icon" aria-hidden="true">
             {{ 'contact.phoneLine' | translate }}
           </a>
-          <a href="mailto:contact@annes-portfolio.com">
+          <a href="mailto:contact@annes-portfolio.de">
             <img src="/images/email.png" alt="" class="icon" aria-hidden="true">
             {{ 'contact.emailLine' | translate }}
           </a>
@@ -39,18 +39,6 @@
       }
 
       <form novalidate (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
-        <input type="hidden" name="form-name" value="portfolio-contact" />
-        <div class="contact-form__hp" aria-hidden="true">
-          <label>
-            <span class="contact-form__hp-label">Do not fill</span>
-            <input
-              type="text"
-              name="bot-field"
-              [(ngModel)]="netlifyHoneypot"
-              tabindex="-1"
-              autocomplete="off" />
-          </label>
-        </div>
 
         <div class="contact-form-row contact-form-row--fields">
 
