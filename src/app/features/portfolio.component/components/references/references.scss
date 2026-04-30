@@ -88,7 +88,7 @@ h1 {
   width: 100%;
   color: #f8f5ec;
   font-weight: 400;
-  font-size: clamp(15px, 2.2vw, 18px);
+  font-size: clamp(16px, 2.2vw, 18px);
   line-height: 140%;
   letter-spacing: 0;
   text-align: left;
@@ -103,7 +103,7 @@ h1 {
   margin: 0;
   opacity: 1;
   font-weight: 400;
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: clamp(16px, 2vw, 18px);
   line-height: 140%;
   text-align: left;
   color: #f8f5ec;
@@ -112,7 +112,7 @@ h1 {
 .reference--overlay a {
   display: inline-block;
   font-weight: 400;
-  font-size: clamp(15px, 2vw, 16px);
+  font-size: clamp(16px, 2vw, 16px);
   line-height: 140%;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -190,14 +190,14 @@ h1 {
   }
 
   .project-name {
-    font-size: clamp(14px, 3.6vw, 17px);
+    font-size: clamp(16px, 3.6vw, 17px);
   }
 
   .reference--overlay p {
-    font-size: clamp(13px, 3.4vw, 16px);
+    font-size: clamp(16px, 3.4vw, 16px);
   }
 
   .reference--overlay a {
-    font-size: clamp(13px, 3.2vw, 15px);
+    font-size: clamp(16px, 3.2vw, 16px);
   }
 }

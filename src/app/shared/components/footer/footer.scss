@@ -1,6 +1,11 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .footer {
     width: 100%;
-    max-width: 1920px;
+    max-width: none;
     min-height: 214px;
     background: #89BCD9;
     display: flex;
@@ -8,8 +13,6 @@
     align-items: center;
     padding: 20px 24px;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .footer-content {
@@ -156,7 +159,7 @@ a:hover .legal-notice-link {
   }
 
   .legal-notice-container span {
-    font-size: clamp(14px, 3.5vw, 18px);
+    font-size: clamp(16px, 3.5vw, 18px);
     text-align: right;
   }
 }
