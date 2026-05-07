@@ -162,9 +162,14 @@ h1 {
   border: 1px solid rgba(228, 76, 54, 0.35);
 }
 
+.contact-form__inner {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact-form-row--fields {
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
 }
 
 .contact-form-row--message {
@@ -175,20 +180,51 @@ h1 {
   opacity: 0.9;
 }
 
-.contact-form-row--fields label,
-.contact-form-row--message label {
+label.contact-field-label {
   display: flex;
   flex-direction: column;
+  gap: clamp(4px, 1.2vw, 8px);
   font-family: 'Josefin Sans', sans-serif;
   width: 100%;
-  color: #89BCD9;
+  color: #89bcd9;
   font-weight: 400;
   font-size: 16px;
-  line-height: 120%;
+  line-height: 1.35;
   margin-top: 3px;
   margin-left: 27px;
   text-indent: 27px;
-  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.contact-field-caption {
+  display: block;
+  text-indent: 0;
+  margin: 0;
+}
+
+.contact-field-error-slot {
+  flex-shrink: 0;
+  width: calc(100% - 54px);
+  align-self: flex-end;
+  height: 19.2px;
+  max-height: 43.2px;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: 0;
+  font-size: 16px;
+  line-height: 1.35;
+  overflow-y: auto;
+}
+
+.contact-field-error-slot--privacy {
+  width: 100%;
+  padding-left: 40px;
+  align-self: stretch;
+}
+
+.contact-field-error-slot .error-message {
+  margin-top: 0;
+  display: block;
 }
 
 .contact-form-row input[type="text"],
@@ -241,7 +277,7 @@ h1 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 6px;
+  gap: clamp(4px, 1.2vw, 8px);
   flex: 1;
   min-width: 0;
   font-size: 16px;
@@ -299,7 +335,7 @@ h1 {
 .contact-form-row {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
 .contact-form-row--submit {
@@ -316,15 +352,12 @@ h1 {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  gap: 12px;
+  gap: 8px;
 }
 
 .contact-form-row--submit-agree-error {
   margin-top: 0;
-  padding-left: 40px;
-  align-self: stretch;
-  width: 100%;
-  box-sizing: border-box;
+  padding-left: 0;
 }
 
 .send {
@@ -401,6 +434,10 @@ textarea {
   margin-top: 5px;
   font-weight: 400;
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.contact-form .contact-field-error-slot .error-message {
+  margin-top: 0;
 }
 
 .arrow-button {
@@ -521,34 +558,45 @@ textarea {
     max-width: 100%;
   }
 
-  .contact-form form {
+  .contact-form form,
+  .contact-form__inner {
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 4vw, 22px);
   }
 
   .contact-form-row--fields {
     flex-direction: column;
-    gap: clamp(14px, 3.5vw, 18px);
+    gap: 8px;
   }
 
-  .contact-form-row--fields label,
-  .contact-form-row--message label {
+  label.contact-field-label {
     margin-left: 0;
     text-indent: 0;
     margin-top: 0;
-    margin-bottom: 0;
-    gap: 0;
-    font-size: 0;
-    line-height: 0;
-    color: transparent;
-  }
-
-  .contact-form-row--fields label .error-message,
-  .contact-form-row--message label .error-message {
+    gap: clamp(4px, 1.2vw, 8px);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     line-height: 1.35;
-    margin-top: 6px;
+    color: #89bcd9;
+    font-weight: 400;
+  }
+
+  .contact-field-error-slot {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .contact-field-error-slot--privacy {
+    padding-left: 0;
+  }
+
+  .contact-form-row label .error-message,
+  .contact-form-row--submit .error-message {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 0;
   }
 
   .contact-form-row input[type='text'],
@@ -580,13 +628,13 @@ textarea {
     gap: 0;
     min-height: auto;
     padding-left: 0;
-    margin-top: clamp(4px, 1vw, 8px);
+    margin-top: 0;
   }
 
   .contact-form-row--submit-main {
     flex-direction: column;
     align-items: stretch;
-    gap: clamp(14px, 3.5vw, 20px);
+    gap: clamp(4px, 1.5vw, 8px);
   }
 
   .contact-form-row--submit-label-row {

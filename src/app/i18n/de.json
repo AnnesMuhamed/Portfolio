@@ -88,14 +88,17 @@
     "success": "Vielen Dank! Deine Nachricht wurde übermittelt.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es später erneut oder nutze den E-Mail-Link oben.",
     "nameLabel": "Dein Name",
-    "nameError": "Name ist erforderlich",
+    "nameError": "Name ist erforderlich *",
+    "nameMinLength": "Bitte mindestens 2 Zeichen eingeben *",
     "emailLabel": "Deine E-Mail",
-    "emailRequired": "E-Mail ist erforderlich",
-    "emailInvalid": "Die E-Mail-Adresse sieht ungültig aus. Prüfe @ und eine Domain-Endung (z. B. .com, .de).",
+    "emailRequired": "E-Mail ist erforderlich *",
+    "emailInvalid": "Die E-Mail-Adresse sieht ungültig aus. Prüfe @ und eine Domain-Endung (z. B. .com, .de). *",
     "messageLabel": "Deine Nachricht",
-    "messageError": "Die Nachricht muss mindestens 10 Zeichen lang sein",
-    "privacyCheckbox": "Ich habe die <a class=\"privacy-policy-link\" href=\"/privacy-policy\"><span class=\"privacy-policy-link__text\">Datenschutzerklärung</span></a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
-    "privacyError": "Bitte akzeptiere die Datenschutzerklärung."
+    "messageError": "Die Nachricht muss mindestens 10 Zeichen lang sein *",
+    "privacyCheckboxBefore": "Ich habe die ",
+    "privacyCheckboxLink": "Datenschutzerklärung",
+    "privacyCheckboxAfter": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+    "privacyError": "Bitte akzeptiere die Datenschutzerklärung *"
   },
   "footer": {
     "legal": "Impressum",

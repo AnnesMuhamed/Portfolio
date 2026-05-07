@@ -1,8 +1,9 @@
-import { Component, Inject, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 /** Deploy `public/contact.php` to the site root next to `index.html` (e.g. All-Inkl). */
 const CONTACT_ENDPOINT = '/contact.php';
@@ -10,44 +11,33 @@ const CONTACT_ENDPOINT = '/contact.php';
 type ContactPhpResponse = { ok: boolean; error?: string };
 
 const SUCCESS_MESSAGE_HIDE_MS = 4000;
+const ERROR_MESSAGE_HIDE_MS = 3000;
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, TranslatePipe, RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactComponent implements OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly isBrowser: boolean;
-  private placeholderMq?: MediaQueryList;
-  private placeholderMqListener?: () => void;
   /** Clears the auto-hide for the success banner. */
   private successHideTimerId?: number;
+  /** Clears the auto-hide for the server error banner. */
+  private errorHideTimerId?: number;
 
+  /** Sichtbare Label (≥16px); keine Platzhalter-Doppelung zur gleichen Anschrift. */
   showPlaceholders = false;
 
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  ngOnInit(): void {
-    if (!this.isBrowser) {
-      return;
-    }
-    const mq = window.matchMedia('(max-width: 768px)');
-    this.placeholderMqListener = () => this.syncPlaceholdersFromMediaQuery(mq);
-    this.syncPlaceholdersFromMediaQuery(mq);
-    mq.addEventListener('change', this.placeholderMqListener);
-    this.placeholderMq = mq;
-  }
-
   ngOnDestroy(): void {
-    if (this.placeholderMq && this.placeholderMqListener) {
-      this.placeholderMq.removeEventListener('change', this.placeholderMqListener);
-    }
     this.clearSuccessHideTimer();
+    this.clearErrorHideTimer();
   }
 
   private clearSuccessHideTimer(): void {
@@ -68,8 +58,22 @@ export class ContactComponent implements OnInit, OnDestroy {
     }, SUCCESS_MESSAGE_HIDE_MS);
   }
 
-  private syncPlaceholdersFromMediaQuery(mq: MediaQueryList): void {
-    this.showPlaceholders = mq.matches;
+  private clearErrorHideTimer(): void {
+    if (this.errorHideTimerId !== undefined) {
+      window.clearTimeout(this.errorHideTimerId);
+      this.errorHideTimerId = undefined;
+    }
+  }
+
+  private scheduleErrorMessageHide(): void {
+    this.clearErrorHideTimer();
+    if (!this.isBrowser) {
+      return;
+    }
+    this.errorHideTimerId = window.setTimeout(() => {
+      this.submitError = false;
+      this.errorHideTimerId = undefined;
+    }, ERROR_MESSAGE_HIDE_MS);
   }
 
   scrollToHero(): void {
@@ -89,12 +93,24 @@ export class ContactComponent implements OnInit, OnDestroy {
     agree: false
   };
 
+  /**
+   * Keine führenden Leerzeichen (Leertasten/Zeilenumbrüche) vor dem ersten sichtbaren Zeichen –
+   * reine Spaces zählen damit auch nicht als „ausgefüllt“ bei der Validierung.
+   */
+  stripLeadingWhitespace(field: 'name' | 'email' | 'message', value: string): void {
+    const next = value.trimStart();
+    if (next !== value) {
+      this.contactData[field] = next;
+    }
+  }
+
   /** POST JSON `name`, `email`, `message` — same shape as `/api/contact` examples. */
   submitForm(form: NgForm): void {
     this.submitAttempted = true;
     this.submitSuccess = false;
     this.submitError = false;
     this.clearSuccessHideTimer();
+    this.clearErrorHideTimer();
 
     if (!form.valid) {
       return;
@@ -133,11 +149,13 @@ export class ContactComponent implements OnInit, OnDestroy {
           this.scheduleSuccessMessageHide();
         } else {
           this.submitError = true;
+          this.scheduleErrorMessageHide();
         }
       },
       error: () => {
         this.submitting = false;
         this.submitError = true;
+        this.scheduleErrorMessageHide();
       },
     });
   }

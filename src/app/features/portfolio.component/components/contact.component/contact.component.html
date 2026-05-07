@@ -38,59 +38,80 @@
         </p>
       }
 
-      <form novalidate (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+      <form
+        class="contact-form__inner"
+        novalidate
+        (ngSubmit)="submitForm(contactForm)"
+        #contactForm="ngForm">
 
         <div class="contact-form-row contact-form-row--fields">
 
-          <label for="name">
-            {{ 'contact.nameLabel' | translate }}
+          <label class="contact-field-label" for="name">
+            <span class="contact-field-caption">{{ 'contact.nameLabel' | translate }}</span>
             <input
               type="text"
               id="name"
               name="name"
               [(ngModel)]="contactData.name"
+              (ngModelChange)="stripLeadingWhitespace('name', $event)"
               [attr.placeholder]="showPlaceholders ? ('contact.nameLabel' | translate) : null"
-              required>
-            @if (submitAttempted && contactForm.controls['name']?.invalid) {
-              <span class="error-message">{{ 'contact.nameError' | translate }}</span>
-            }
+              required
+              minlength="2"
+              #nameNg="ngModel">
+            <div class="contact-field-error-slot" aria-live="polite">
+              @if ((nameNg.touched || submitAttempted) && nameNg.invalid) {
+                @if (nameNg.errors?.['required']) {
+                  <span class="error-message">{{ 'contact.nameError' | translate }}</span>
+                } @else if (nameNg.errors?.['minlength']) {
+                  <span class="error-message">{{ 'contact.nameMinLength' | translate }}</span>
+                }
+              }
+            </div>
           </label>
 
-          <label for="email">
-            {{ 'contact.emailLabel' | translate }}
+          <label class="contact-field-label" for="email">
+            <span class="contact-field-caption">{{ 'contact.emailLabel' | translate }}</span>
             <input
               type="email"
               id="email"
               name="email"
               [(ngModel)]="contactData.email"
+              (ngModelChange)="stripLeadingWhitespace('email', $event)"
               [attr.placeholder]="showPlaceholders ? ('contact.emailLabel' | translate) : null"
               required
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
-            @if (submitAttempted && contactForm.controls['email']?.invalid) {
-              @if (contactForm.controls['email']?.errors?.['required']) {
-                <span class="error-message">{{ 'contact.emailRequired' | translate }}</span>
-              } @else {
-                <span class="error-message">{{ 'contact.emailInvalid' | translate }}</span>
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+              #emailNg="ngModel">
+            <div class="contact-field-error-slot" aria-live="polite">
+              @if ((emailNg.touched || submitAttempted) && emailNg.invalid) {
+                @if (emailNg.errors?.['required']) {
+                  <span class="error-message">{{ 'contact.emailRequired' | translate }}</span>
+                } @else {
+                  <span class="error-message">{{ 'contact.emailInvalid' | translate }}</span>
+                }
               }
-            }
+            </div>
           </label>
 
         </div>
 
         <div class="contact-form-row contact-form-row--message">
 
-          <label for="message">
-            {{ 'contact.messageLabel' | translate }}
+          <label class="contact-field-label" for="message">
+            <span class="contact-field-caption">{{ 'contact.messageLabel' | translate }}</span>
             <textarea
               id="message"
               minlength="10"
               name="message"
               [(ngModel)]="contactData.message"
+              (ngModelChange)="stripLeadingWhitespace('message', $event)"
               [attr.placeholder]="showPlaceholders ? ('contact.messageLabel' | translate) : null"
-              required></textarea>
-            @if (submitAttempted && contactForm.controls['message']?.invalid) {
-              <span class="error-message">{{ 'contact.messageError' | translate }}</span>
-            }
+              required
+              #messageNg="ngModel"></textarea>
+            <div class="contact-field-error-slot" aria-live="polite">
+              @if ((messageNg.touched || submitAttempted) && messageNg.invalid) {
+                <span class="error-message">{{ 'contact.messageError' | translate }}</span>
+              }
+            </div>
           </label>
 
         </div>
@@ -106,21 +127,29 @@
                   name="agree"
                   [(ngModel)]="contactData.agree"
                   required
-                  [class.checkbox-error]="submitAttempted && contactForm.controls['agree']?.invalid">
+                  #agreeNg="ngModel"
+                  [class.checkbox-error]="(agreeNg.touched || submitAttempted) && agreeNg.invalid">
 
-                <span class="contact-form-row--submit-label-text" [innerHTML]="'contact.privacyCheckbox' | translate">
+                <span class="contact-form-row--submit-label-text">
+                  {{ 'contact.privacyCheckboxBefore' | translate }}<a
+                    routerLink="/privacy-policy"
+                    class="privacy-policy-link"><span class="privacy-policy-link__text">{{
+                      'contact.privacyCheckboxLink' | translate
+                    }}</span></a>{{ 'contact.privacyCheckboxAfter' | translate }}
                 </span>
               </span>
 
-              @if (submitAttempted && contactForm.controls['agree']?.invalid) {
-                <span class="error-message contact-form-row--submit-agree-error">{{ 'contact.privacyError' | translate }}</span>
-              }
+              <div class="contact-field-error-slot contact-field-error-slot--privacy" aria-live="polite">
+                @if ((agreeNg.touched || submitAttempted) && agreeNg.invalid) {
+                  <span class="error-message contact-form-row--submit-agree-error">{{ 'contact.privacyError' | translate }}</span>
+                }
+              </div>
             </label>
 
             <button
               class="send"
               type="submit"
-              [disabled]="submitting">
+              [disabled]="submitting || contactForm.invalid">
               {{ submitting ? 'Sending…' : 'Send' }}
             </button>
           </div>

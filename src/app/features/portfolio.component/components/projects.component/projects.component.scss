@@ -155,6 +155,10 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background-color: #f8f5ec;
+  }
 }
 
 .project-action-button {

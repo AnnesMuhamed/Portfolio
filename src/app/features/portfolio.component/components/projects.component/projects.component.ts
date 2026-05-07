@@ -22,13 +22,13 @@ export interface ProjectTab {
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  activeProjectId = 'Da Bubble';
+  activeProjectId = 'El Pollo Loco';
 
   projects: ProjectTab[] = [
-    { id: 'Da Bubble', title: 'Da Bubble' },
+    // { id: 'Da Bubble', title: 'Da Bubble' },
     { id: 'El Pollo Loco', title: 'El Pollo Loco' },
     { id: 'Join', title: 'Join' },
-    { id: 'Ongoing Project', title: 'Ongoing Project', titleKey: 'projects.tabs.ongoing' },
+    // { id: 'Ongoing Project', title: 'Ongoing Project', titleKey: 'projects.tabs.ongoing' },
   ];
 
   /**

@@ -88,14 +88,17 @@
     "success": "Thank you! Your message has been submitted.",
     "error": "Something went wrong. Please try again later or use the email link above.",
     "nameLabel": "Your name",
-    "nameError": "Your name is required",
+    "nameError": "Your name is required *",
+    "nameMinLength": "Please enter at least 2 characters *",
     "emailLabel": "Your Email",
-    "emailRequired": "Your email is required",
-    "emailInvalid": "Your email looks invalid. Check that @ and a domain ending (e.g. .com, .de) are present.",
+    "emailRequired": "Your email is required *",
+    "emailInvalid": "Your email looks invalid. Check that @ and a domain ending (e.g. .com, .de) are present. *",
     "messageLabel": "Your Message",
-    "messageError": "Message must be at least 10 characters long",
-    "privacyCheckbox": "I've read the <a class=\"privacy-policy-link\" href=\"/privacy-policy\"><span class=\"privacy-policy-link__text\">privacy policy</span></a> and agree to the processing of my data as outlined.",
-    "privacyError": "Please accept the privacy policy."
+    "messageError": "Message must be at least 10 characters long *",
+    "privacyCheckboxBefore": "I've read the ",
+    "privacyCheckboxLink": "privacy policy",
+    "privacyCheckboxAfter": " and agree to the processing of my data as outlined.",
+    "privacyError": "Please accept the privacy policy *"
   },
   "footer": {
     "legal": "Legal notice",

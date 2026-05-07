@@ -29,6 +29,8 @@ html {
     overflow-x: clip;
     max-width: 100%;
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -40,6 +42,13 @@ body {
     position: relative;
     background-color: #262E34;
     font-size: 16px;
+}
+
+/* Mindestens 16px für Eingaben (auch wenn Eltern-Element kleineres em setzt). */
+input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="range"]),
+textarea,
+select {
+    font-size: max(16px, 1rem);
 }
 
 app-root {

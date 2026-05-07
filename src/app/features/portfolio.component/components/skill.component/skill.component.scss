@@ -43,12 +43,13 @@ h1 {
     line-height: 120%;
 }
 
-.skills {
+/* Desktop (>1024px): klassisches Wrap-Layout wie zuvor, Abstand 40px zwischen den Icons. */
+.skills.skills-grid {
     display: flex;
     flex-wrap: wrap;
     min-height: 404px;
     gap: 40px;
-    color: #89BCD9;
+    color: #89bcd9;
 }
 
 .skill-item {
@@ -57,6 +58,17 @@ h1 {
     align-items: center;
     gap: 10px;
     text-align: center;
+    cursor: default;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.skill-item:hover .icons {
+    transform: scale(1.085);
+}
+
+.skill-item:active .icons {
+    transform: scale(1.04);
 }
 
 .skill-item span {
@@ -70,8 +82,22 @@ h1 {
 }
 
 .icons {
+    display: block;
     width: 59.945430755615234px;
     height: 60px;
+    transition: transform 0.22s ease;
+    transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .icons {
+        transition: none;
+    }
+
+    .skill-item:hover .icons,
+    .skill-item:active .icons {
+        transform: none;
+    }
 }
 
 .currently-learning-desktop {
@@ -272,27 +298,27 @@ h1 {
         min-height: 0;
     }
 
-    .skills {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        max-width: 456px;
-        min-height: 0;
-        margin-inline: auto;
-    }
-
-    .skill-item {
+    /* 1024px–320px: feste Grid-Formation 4 | 4 | 2 (mittig); gleicher Icon-Abstand 40px. */
+    .skills.skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 40px;
+        row-gap: 28px;
+        justify-items: center;
+        align-items: start;
         box-sizing: border-box;
+        margin-inline: auto;
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
     }
 
-    .skill-item:nth-child(-n + 6) {
-        flex: 0 0 calc((100% - 2 * var(--skills-gap-x)) / 3);
-        max-width: calc((100% - 2 * var(--skills-gap-x)) / 3);
+    .skills.skills-grid .skill-item:nth-child(9) {
+        grid-column: 2;
     }
 
-    .skill-item:nth-child(n + 7) {
-        flex: 0 0 calc((100% - var(--skills-gap-x)) / 2);
-        max-width: calc((100% - var(--skills-gap-x)) / 2);
+    .skills.skills-grid .skill-item:nth-child(10) {
+        grid-column: 3;
     }
 
     .currently-learning-img-wrapper {
@@ -464,18 +490,14 @@ h1 {
         gap: clamp(6px, 1.8vw, 10px);
     }
 
+    .skills.skills-grid .skill-item span {
+        display: none;
+    }
+
     .skill-item .icons {
         width: clamp(44px, calc(44px + (100vw - 320px) * 0.035714), 60px);
         height: clamp(44px, calc(44px + (100vw - 320px) * 0.035714), 60px);
         flex-shrink: 0;
-    }
-
-    .skill-item span {
-        font-size: clamp(16px, calc(16px + (100vw - 320px) * 0.008929), 18px);
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        min-height: 0;
     }
 
     .skill-section__cta {
