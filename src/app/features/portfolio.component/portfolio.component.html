@@ -1,8 +1,14 @@
-<app-hero class="component"></app-hero>
-<app-header></app-header>
-<app-why-me></app-why-me>
-<app-skill></app-skill>
-<app-projects></app-projects>
-<app-references class="component"></app-references>
-<app-contact></app-contact>
-<app-footer></app-footer>
+<div class="portfolio-root" #portfolioRoot>
+  <div class="portfolio-above-fold">
+    <div class="portfolio-intro-viewport">
+      <app-hero class="component"></app-hero>
+    </div>
+  </div>
+  <app-header #siteHeader></app-header>
+  <app-why-me></app-why-me>
+  <app-skill></app-skill>
+  <app-projects></app-projects>
+  <app-references class="component"></app-references>
+  <app-contact></app-contact>
+  <app-footer></app-footer>
+</div>

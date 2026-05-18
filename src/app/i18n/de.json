@@ -7,7 +7,8 @@
   },
   "aria": {
     "toggleNav": "Navigation umschalten",
-    "legalBack": "Zurück zur vorherigen Seite"
+    "legalBack": "Zurück zur vorherigen Seite",
+    "logoHero": "Zum Hero / Seitenanfang"
   },
   "brand": {
     "developer": "Entwickler"
@@ -18,8 +19,7 @@
   "whyMe": {
     "title": "Warum ich",
     "iAm": "Ich bin",
-    "about": "Warum brennst du für Programmierung? Du kannst Eigenschaften nennen wie analytisches Denken, Kreativität, Durchhaltevermögen und Teamarbeit. Eine lösungsorientierte Denkweise ist immer hilfreich.",
-    "cta": "Lass uns sprechen",
+    "about": "Programmierung begeistert mich, weil analytisches Denken, Kreativität, Durchhaltevermögen und Zusammenarbeit mir helfen, Probleme strukturiert zu lösen und mich kontinuierlich weiterzuentwickeln sowie bessere Lösungen zu schaffen.",
     "typing": {
       "location": "ansässig in Köln...",
       "remote": "offen für Remote-Arbeit...",
@@ -30,7 +30,7 @@
     "title": "Meine Skills",
     "learning": "Aktuell lerne ich",
     "learningNarrow": "Was ich aktuell lerne",
-    "motivation": "Zeige, dass du motiviert bist, deine Fähigkeiten kontinuierlich zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten.",
+    "motivation": "Ich lerne derzeit React und Vue.js und vertiefe kontinuierlich meine Kenntnisse, um innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten.",
     "materialDesign": "Material<br>Design"
   },
   "projects": {
@@ -41,7 +41,7 @@
     "subtitle": {
       "about": "Über das Projekt",
       "process": "Wie ich meinen Arbeitsprozess organisiert habe",
-      "group": "Meine Erfahrung in der Gruppenarbeit"
+      "group": "Meine Arbeitserfahrung"
     },
     "technologies": "Technologien",
     "github": "GitHub",
@@ -52,13 +52,13 @@
     },
     "pollo": {
       "about": "Ein einfaches Jump-and-Run-Spiel mit objektorientiertem Ansatz. Hilf Pepe, Münzen und Giftflaschen zu finden, um gegen das Killer-Huhn zu kämpfen.",
-      "process": "Wie hältst du Code sauber und wartbar? Hast du das Projekt in wiederverwendbare Module oder Komponenten zerlegt? Achte auf Dokumentation, Namen von Dateien, Variablen, Klassen und Tests.",
-      "group": "Wenn du immer neue Technologien lernen willst, kann dieses Projekt spannend sein, weil du tief in eine Technologie einsteigen konntest. Nenne Details wie Framework oder Programmiersprache."
+      "process": "Ich organisiere meinen Arbeitsablauf strukturiert, indem ich Projekte in wiederverwendbare Komponenten und Module zerlege und dabei klare Namenskonventionen für Dateien, Variablen und Klassen einhalte, um den Code sauber und wartbar zu halten. Außerdem lege ich Wert auf eine klare Dokumentation, damit die Struktur jederzeit gut nachvollziehbar bleibt, und ich arbeite schrittweise, um Fehler frühzeitig zu erkennen und zu vermeiden.",
+      "group": "Durch meine Projekte habe ich gelernt, strukturiert und lösungsorientiert zu arbeiten und mich schnell in neue Technologien einzuarbeiten. Dabei konnte ich verschiedene Frameworks und Programmiersprachen praktisch anwenden und mein Verständnis für moderne Webentwicklung kontinuierlich vertiefen. Besonders wichtig waren mir eine saubere Umsetzung, eine klare Struktur und die ständige Verbesserung meiner Fähigkeiten durch echte Projektarbeit."
     },
     "join": {
       "about": "Aufgabenmanager inspiriert vom Kanban-System. Aufgaben per Drag-and-Drop erstellen und sortieren, Nutzer und Kategorien zuweisen.",
-      "process": "Wie hältst du Code sauber und wartbar? Hast du das Projekt in wiederverwendbare Module oder Komponenten zerlegt? Achte auf Dokumentation, Namen von Dateien, Variablen, Klassen und Tests.",
-      "group": "Wie viele Personen waren im Team und welche Rolle hattest du? Beschreibe deine Aufgaben in 1–2 Sätzen, z. B.: Login-Formular, Dashboard oder Chat. Welche Technologien hast du genutzt? Gute Zusammenarbeit zu erwähnen ist immer sinnvoll."
+      "process": "Ich organisiere meinen Arbeitsablauf strukturiert, indem ich Projekte in wiederverwendbare Komponenten und Module zerlege und dabei klare Namenskonventionen für Dateien, Variablen und Klassen einhalte, um den Code sauber und wartbar zu halten. Außerdem lege ich Wert auf eine klare Dokumentation, damit die Struktur jederzeit gut nachvollziehbar bleibt, und ich arbeite schrittweise, um Fehler frühzeitig zu erkennen und zu vermeiden.",
+      "group": "Meine Erfahrung mit Gruppenarbeit hat gezeigt, dass ich gerne mit anderen zusammenarbeite, um gemeinsam Lösungen zu entwickeln. Dabei konnte ich die Stärken und Schwächen des Teams besser erkennen und meine eigenen Fähigkeiten realistischer einschätzen. So haben wir uns gegenseitig unterstützt und weitergebracht und unsere Arbeitsabläufe Schritt für Schritt verbessert."
     },
     "ongoing": {
       "about": "Woran arbeitest du gerade und welche Features implementierst du? Was ist der Schlüssel zum Erfolg in deinen Projekten? Du kannst gute Planung, Code-Qualität und Umsetzung nennen.",
@@ -68,21 +68,20 @@
   "references": {
     "title": "Suchst du einen Teamplayer? Das sagen Kollegen",
     "project": "Projekt",
-    "linkedIn": "LinkedIn-Profil",
     "bubble": {
-      "quote": "„Annes musste Inhalte gemeinsam mit dem Team entwickeln, formatieren und ausliefern. Er ist zuverlässig und freundlich.“"
+      "quote": "„Annes hat mit dem Team Inhalte entwickelt, strukturiert und umgesetzt. Er ist zuverlässig, hilfsbereit und eine angenehme Person in der Zusammenarbeit.“"
     },
     "join": {
-      "quote": "„Annes ist zuverlässig und freundlich. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle ihn als Kollegen.“"
+      "quote": "„Annes ist zuverlässig und freundlich, organisiert seine Aufgaben effizient und schreibt gut verständlichen Code. Ich empfehle ihn sehr als Kollegen.“"
     },
     "pollo": {
-      "quote": "„Er ist ein vertrauenswürdiger Teamplayer und kann mit Deadline-Stress umgehen. Strukturierte Arbeit und klarer Code.“"
+      "quote": "„Er ist ein zuverlässiger Teamplayer, der auch unter Zeitdruck ruhig und fokussiert bleibt. Seine Arbeit ist gut organisiert, und sein Code ist klar und leicht nachvollziehbar.“"
     }
   },
   "contact": {
     "title": "Kontakt",
     "formLead": "Lass uns zusammenarbeiten!",
-    "intro": "Lade Besucher ein, dich zu kontaktieren, und beschreibe, welche Rolle du suchst. Zeige, dass du Projekte durch deine Arbeit bereicherst. Beispiel: Melde dich gern bei Jobangeboten oder Chancen wie …",
+    "intro": "Du kannst dich gern bei mir melden für Jobangebote oder wenn du zusammenarbeiten möchtest. Ich bin immer offen für neue Projekte, in denen ich einbringen, lernen und mich als Entwickler weiterentwickeln kann. Ich möchte durch sauberen, strukturierten Code und eine lösungsorientierte Denkweise Mehrwert schaffen und dabei helfen, Ideen Wirklichkeit werden zu lassen.",
     "emailLine": "E-Mail contact@annes-portfolio.de",
     "phoneLine": "Tel.: +49 163 221 6668",
     "success": "Vielen Dank! Deine Nachricht wurde übermittelt.",

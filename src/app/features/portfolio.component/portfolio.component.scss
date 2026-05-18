@@ -1,3 +1,44 @@
+.portfolio-root {
+  display: block;
+  --portfolio-header-h: 104px;
+}
+
+.portfolio-above-fold {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+
+  @media (min-width: 769px) {
+    min-height: calc(100vh - var(--portfolio-header-h));
+    min-height: calc(100dvh - var(--portfolio-header-h));
+    min-height: calc(100svh - var(--portfolio-header-h));
+    height: calc(100vh - var(--portfolio-header-h));
+    height: calc(100dvh - var(--portfolio-header-h));
+    height: calc(100svh - var(--portfolio-header-h));
+  }
+}
+
+.portfolio-intro-viewport {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
+
+  @media (min-width: 769px) {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
+.portfolio-intro-viewport > app-hero {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 app-contact {
   margin-bottom: 80px;
 }
@@ -13,12 +54,17 @@ app-contact {
 }
 
 @media (max-width: 768px) {
-  app-hero {
-    display: block;
-  }
-
   app-header {
     display: none;
+  }
+
+  .portfolio-above-fold {
+    height: auto;
+    min-height: 0;
+  }
+
+  .portfolio-intro-viewport {
+    flex: unset;
   }
 
   app-contact {

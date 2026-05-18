@@ -54,6 +54,8 @@ h1 {
   align-items: flex-start;
   min-height: 0;
   gap: 36px;
+  width: 860px;
+  max-width: 100%;
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -176,7 +178,7 @@ h1 {
   width: 100%;
 }
 
-.contact-form-row--submit button:hover {
+.contact-form-row--submit button:hover:not(:disabled) {
   opacity: 0.9;
 }
 
@@ -381,7 +383,7 @@ label.contact-field-label {
   line-height: 120%;
 
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: #3f454a;
     }
 

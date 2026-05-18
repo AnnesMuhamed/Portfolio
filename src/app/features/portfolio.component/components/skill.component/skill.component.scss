@@ -39,11 +39,11 @@ h1 {
     border: none;
     cursor: pointer;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
+    font-size: max(16px, 1rem);
     line-height: 120%;
 }
 
-/* Desktop (>1024px): klassisches Wrap-Layout wie zuvor, Abstand 40px zwischen den Icons. */
+
 .skills.skills-grid {
     display: flex;
     flex-wrap: wrap;
@@ -298,7 +298,6 @@ h1 {
         min-height: 0;
     }
 
-    /* 1024px–320px: feste Grid-Formation 4 | 4 | 2 (mittig); gleicher Icon-Abstand 40px. */
     .skills.skills-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));

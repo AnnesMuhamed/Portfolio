@@ -1,9 +1,10 @@
 import { Component, Inject, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { trimmedEmail, trimmedMinLength } from './contact-validators';
 
 /** Deploy `public/contact.php` to the site root next to `index.html` (e.g. All-Inkl). */
 const CONTACT_ENDPOINT = '/contact.php';
@@ -16,12 +17,13 @@ const ERROR_MESSAGE_HIDE_MS = 3000;
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe, RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements OnDestroy {
   private readonly http = inject(HttpClient);
+  private readonly fb = inject(FormBuilder);
   private readonly isBrowser: boolean;
   /** Clears the auto-hide for the success banner. */
   private successHideTimerId?: number;
@@ -30,6 +32,14 @@ export class ContactComponent implements OnDestroy {
 
   /** Sichtbare Label (≥16px); keine Platzhalter-Doppelung zur gleichen Anschrift. */
   showPlaceholders = false;
+
+  /** Alle Textvalidierungen nutzen intern trim(); Checkbox mit requiredTrue. */
+  readonly contactForm = this.fb.nonNullable.group({
+    name: ['', [trimmedMinLength(2)]],
+    email: ['', [trimmedEmail()]],
+    message: ['', [trimmedMinLength(10)]],
+    agree: [false, [Validators.requiredTrue]],
+  });
 
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -86,33 +96,46 @@ export class ContactComponent implements OnDestroy {
   submitSuccess = false;
   submitError = false;
 
-  contactData = {
-    name: '',
-    email: '',
-    message: '',
-    agree: false
-  };
-
-  /**
-   * Keine führenden Leerzeichen (Leertasten/Zeilenumbrüche) vor dem ersten sichtbaren Zeichen –
-   * reine Spaces zählen damit auch nicht als „ausgefüllt“ bei der Validierung.
-   */
-  stripLeadingWhitespace(field: 'name' | 'email' | 'message', value: string): void {
-    const next = value.trimStart();
-    if (next !== value) {
-      this.contactData[field] = next;
+  /** Nach blur: Control-Wert an trim() angleichen (einheitliche Normalisierung). */
+  trimFieldBlur(field: 'name' | 'email' | 'message'): void {
+    const c = this.contactForm.get(field);
+    if (!c) return;
+    const trimmed = String(c.value ?? '').trim();
+    if (c.value !== trimmed) {
+      c.setValue(trimmed);
     }
+    c.markAsTouched({ onlySelf: true });
+    c.updateValueAndValidity({ emitEvent: false });
+  }
+
+  /** Vor Submit & Payload: alle Textfelder trimmen, dann erst Validität prüfen. */
+  private normalizeFormValues(): void {
+    const v = this.contactForm.getRawValue();
+    this.contactForm.patchValue(
+      {
+        name: v.name.trim(),
+        email: v.email.trim(),
+        message: v.message.trim(),
+      },
+      { emitEvent: false },
+    );
+    this.contactForm.controls.name.updateValueAndValidity({ emitEvent: false });
+    this.contactForm.controls.email.updateValueAndValidity({ emitEvent: false });
+    this.contactForm.controls.message.updateValueAndValidity({ emitEvent: false });
   }
 
   /** POST JSON `name`, `email`, `message` — same shape as `/api/contact` examples. */
-  submitForm(form: NgForm): void {
+  submitForm(): void {
     this.submitAttempted = true;
     this.submitSuccess = false;
     this.submitError = false;
     this.clearSuccessHideTimer();
     this.clearErrorHideTimer();
 
-    if (!form.valid) {
+    this.normalizeFormValues();
+
+    if (!this.contactForm.valid) {
+      this.contactForm.markAllAsTouched();
       return;
     }
 
@@ -120,10 +143,11 @@ export class ContactComponent implements OnDestroy {
       return;
     }
 
+    const v = this.contactForm.getRawValue();
     const payload = {
-      name: this.contactData.name.trim(),
-      email: this.contactData.email.trim(),
-      message: this.contactData.message.trim(),
+      name: v.name,
+      email: v.email,
+      message: v.message,
     };
 
     this.submitting = true;
@@ -134,17 +158,11 @@ export class ContactComponent implements OnDestroy {
         if (res?.ok) {
           this.submitSuccess = true;
           this.submitAttempted = false;
-          this.contactData = {
+          this.contactForm.reset({
             name: '',
             email: '',
             message: '',
-            agree: false
-          };
-          form.resetForm({
-            name: '',
-            email: '',
-            message: '',
-            agree: false
+            agree: false,
           });
           this.scheduleSuccessMessageHide();
         } else {

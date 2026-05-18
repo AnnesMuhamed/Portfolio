@@ -25,8 +25,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  width: 949px;
-  max-width: 100%;
+  width: min(1180px, 100%);
+  max-width: 1180px;
   min-height: 176px;
   box-sizing: border-box;
   gap: 24px;
@@ -114,6 +114,8 @@ button {
   border: 1px solid #89BCD9;
   color: #89BCD9;
   font-family: 'Josefin Sans', sans-serif;
+  font-size: max(16px, 1rem);
+  line-height: 120%;
   background-color: #262E34;
   cursor: pointer;
 
@@ -124,9 +126,19 @@ button {
 
 @media (min-width: 1025px) {
   .location-web {
-    flex: 0 0 527px;
-    width: 527px;
-    max-width: 527px;
+    flex: 1 1 520px;
+    min-width: min(520px, 52%);
+    max-width: 720px;
+    width: auto;
+  }
+
+  .lic {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    box-sizing: border-box;
   }
 }
 
@@ -136,7 +148,7 @@ button {
     align-items: center;
     gap: 24px;
     width: 100%;
-    max-width: 949px;
+    max-width: min(1180px, 100%);
   }
 
   .location-web {

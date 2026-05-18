@@ -7,7 +7,8 @@
   },
   "aria": {
     "toggleNav": "Toggle navigation",
-    "legalBack": "Back to previous page"
+    "legalBack": "Back to previous page",
+    "logoHero": "Go to hero / start of page"
   },
   "brand": {
     "developer": "developer"
@@ -18,8 +19,7 @@
   "whyMe": {
     "title": "Why me",
     "iAm": "I am",
-    "about": "Why are you passionate about coding? You can include some key traits like: analytical thinking, creativity, persistence and collaboration. A problem-solving mindset is always nice to have.",
-    "cta": "Let´s talk",
+    "about": "I am passionate about programming because analytical thinking, creativity, perseverance, and collaboration help me solve problems in a structured way and continuously develop and create better solutions.",
     "typing": {
       "location": "located in Cologne...",
       "remote": "open to work remote...",
@@ -30,7 +30,7 @@
     "title": "My Skills",
     "learning": "I am currently learning",
     "learningNarrow": "What I am currently learning",
-    "motivation": "Show that you are motivated to continually improve your skills, implement innovative solutions and stay abreast of new technologies.",
+    "motivation": "I am currently learning React and Vue.js and am constantly honing my skills to implement innovative solutions and keep up with new technologies",
     "materialDesign": "Material<br>Design"
   },
   "projects": {
@@ -41,7 +41,7 @@
     "subtitle": {
       "about": "About the project",
       "process": "How I have organised my work process",
-      "group": "My group work experience"
+      "group": "My work experience"
     },
     "technologies": "Technologies",
     "github": "GitHub",
@@ -52,13 +52,13 @@
     },
     "pollo": {
       "about": "A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and poison bottles to fight against the killer Chicken.",
-      "process": "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules or components? Focus on documentation, naming files, variables, classes and testing.",
-      "group": "As someone who is always trying to learn new technologies, you may have enjoyed working on this project because it allowed you to delve deep into a particular technology. Give details, such as the name of the framework or language you mean."
+      "process": "I organize my workflow in a structured manner by breaking projects down into reusable components and modules, while adhering to clear naming conventions for files, variables, and classes to keep the code clean and maintainable. I also prioritize clear documentation to ensure the structure remains easy to follow at all times, and I work incrementally to identify and prevent errors early on.",
+      "group": "Through my projects, I have learned to work in a structured and solution-oriented manner and to quickly familiarize myself with new technologies. In the process, I have been able to apply various frameworks and programming languages in practice and continuously deepen my understanding of modern web development. Clean implementation, clear structure, and the constant improvement of my skills through real-world project work were particularly important to me."
     },
     "join": {
       "about": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
-      "process": "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules or components? Focus on documentation, naming files, variables, classes and testing.",
-      "group": "How many people were in the team and what was your role? Describe your tasks in 1-2 sentences, for example: login form, dashboard or chat functionality. What technologies did you use? It is nice to mention good teamwork and cooperation."
+      "process": "I organize my workflow in a structured manner by breaking projects down into reusable components and modules, while adhering to clear naming conventions for files, variables, and classes to keep the code clean and maintainable. I also prioritize clear documentation to ensure the structure remains easy to follow at all times, and I work incrementally to identify and prevent errors early on.",
+      "group": "My experience with group work has shown that I enjoy collaborating with others to develop solutions together. In doing so, I've been able to better identify the team's strengths and weaknesses and assess my own abilities more realistically. As a result, we've supported and helped each other grow, and we've improved our work processes step by step."
     },
     "ongoing": {
       "about": "What are you currently working on and what features are you implementing? What is the key to success in your projects? You can mention good planning, code quality and execution.",
@@ -68,21 +68,20 @@
   "references": {
     "title": "Need a teamplayer? Here what my colleagues said about me",
     "project": "Project",
-    "linkedIn": "Linked In Profile",
     "bubble": {
-      "quote": "‘’Annes had to develop, format and deliver content in collaboration with the team members. He is a reliable and friendly person.’’"
+      "quote": "Annes worked with the team to develop, organize, and implement content. He is reliable, helpful, and a pleasure to work with."
     },
     "join": {
-      "quote": "‘’Annes is a reliable and friendly person. Works in a structured way and write a clear code. I recommend him as a colleague.’’"
+      "quote": "Annes is reliable and friendly, organizes his tasks efficiently, and writes code that's easy to understand. I highly recommend him as a colleague."
     },
     "pollo": {
-      "quote": "‘’He is a trustworthy team player and can cope with the stress of deadlines. Structured work and clear code.’’"
+      "quote": "He is a reliable team player who remains calm and focused even under time pressure. His work is well-organized, and his code is clear and easy to follow."
     }
   },
   "contact": {
     "title": "Contact me",
     "formLead": "Let us work together!",
-    "intro": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work. Example: Feel free to get in touch with job offers or opportunities such as: ...",
+    "intro": "Feel free to get in touch with me for job opportunities or collaboration requests. I'm always open to new projects where I can contribute, learn, and grow as a developer. I aim to add value through clean, structured code and a problem-solving mindset that helps bring ideas to life.",
     "emailLine": "E-mail contact@annes-portfolio.de",
     "phoneLine": "Tel: +49 163 221 6668",
     "success": "Thank you! Your message has been submitted.",

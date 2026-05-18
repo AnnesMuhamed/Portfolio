@@ -1,24 +1,37 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
 }
 
 .hero {
   display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
   max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 24px;
   padding: 24px 16px 0;
   box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
+
+  @media (min-width: 1025px) {
+    position: relative;
+  }
 }
 
 .mobile-topbar {
   display: none;
   width: 100%;
+}
+
+.hero-aside {
+  display: contents;
 }
 
 .hero-img {
@@ -108,9 +121,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 36px;
   margin-right: 0;
-  padding-bottom: 24px;
+  padding-block: 24px;
 }
 
 .logo-container {
@@ -119,11 +133,22 @@
   align-items: center;
 }
 
+.hero-brand-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .logo-container img {
   width: 56px;
   height: auto;
   transition: transform 0.3s ease;
   display: block;
+}
+
+.hero .logo-container img {
+  cursor: default;
 }
 
 .logo-container img:hover {
@@ -247,75 +272,165 @@
 }
 
 @media (min-width: 1025px) {
+  .hero-aside {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    align-self: stretch;
+    justify-content: flex-end;
+    min-width: 0;
+    min-height: 0;
+    max-width: min(800px, 60vw);
+    box-sizing: border-box;
+    padding-inline: clamp(4px, 1.25vw, 16px);
+  }
+
   .hero {
-    min-height: 100vh;
     flex-wrap: nowrap;
-    align-items: flex-end;
+    align-items: stretch;
     justify-content: center;
-    gap: clamp(12px, 2vw, 24px);
-    padding-inline: clamp(16px, 5vw, 109px);
+    gap: clamp(20px, 2.8vw, 56px);
+    padding-inline: clamp(12px, 3vw, 72px);
+    padding-top: clamp(4px, 1.2dvh, 18px);
+    padding-bottom: 0;
   }
 
   .hero-img {
-    width: min(654px, 46vw);
-    flex: 0 1 auto;
+    flex: 1 1 0;
+    align-self: stretch;
+    width: auto;
+    max-width: min(960px, 66vw);
+    min-width: 0;
+    min-height: 0;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    max-height: 100%;
+    min-height: clamp(520px, 62dvh, 920px);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
   }
 
   .hero-shape-stack {
-    max-width: min(654px, 46vw);
-    min-height: clamp(420px, 52vw, 733px);
-    top: clamp(-30px, -3vw, -50px);
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: min(900px, 122%);
+    width: clamp(620px, 62vw, 900px);
+    min-height: 0;
+    height: calc(100% + clamp(56px, 7dvh, 100px));
   }
 
   .hero-shape-base,
   .hero-shape-hover {
-    top: clamp(96px, 11vw, 168px);
-    height: clamp(360px, 44vw, 616px);
+    left: 50%;
+    top: auto;
+    bottom: clamp(42px, 6dvh, 120px);
+    width: clamp(620px, 58vw, 860px);
+    height: clamp(460px, min(52dvh, 62vw), 760px);
+    max-width: none;
+    transform-origin: center center;
+    transform: translateX(-50%) rotate(312deg);
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .hero-shape-hover {
+    transform: translate(calc(-50% + clamp(14px, 2vw, 24px)), -5px)
+      rotate(298deg);
   }
 
   .profil-picture {
-    width: min(535px, min(100%, 40vw));
+    width: auto;
+    max-width: min(820px, 64vw, 100%);
+    height: auto;
+    max-height: 90dvh;
+    aspect-ratio: 535 / 683;
+    object-fit: cover;
+    object-position: center bottom;
   }
 
-  .hero-name {
+  .hero-aside > .hero-name {
     flex: 0 1 auto;
     min-width: 0;
-    gap: clamp(20px, 3vw, 36px);
+    min-height: 0;
+    justify-content: center;
+    gap: clamp(26px, 3.6vw, 48px);
+    padding-block: clamp(8px, 1.5dvh, 28px);
   }
 
   .logo-container img {
-    width: clamp(44px, 4vw, 56px);
+    width: clamp(52px, 4.8vw, 72px);
   }
 
   .a-name,
   .developer {
-    font-size: 16px;
+    font-size: clamp(16px, 1.15vw, 19px);
   }
 
   .fullname {
-    font-size: clamp(36px, 6vw, 120px);
+    font-size: clamp(44px, 7.2vw, 140px);
   }
 
   .f-developer {
-    font-size: clamp(18px, 2.4vw, 40px);
+    font-size: clamp(22px, 2.85vw, 48px);
   }
 
-  .arrow-button {
-    width: clamp(32px, 3vw, 38px);
-    height: clamp(72px, 7vw, 89px);
+  .hero-brand-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: flex-start;
+    width: 100%;
+    column-gap: clamp(12px, 2vw, 28px);
+  }
+
+  .hero-brand-row .logo-container {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .hero-brand-row .socialmedia {
+    grid-column: 3;
+    justify-self: end;
+    align-self: flex-start;
+    position: relative;
+    bottom: 70px;
+    top: auto;
+    right: unset;
+    flex-direction: column;
+    width: clamp(30px, 2.8vw, 38px);
+    gap: clamp(16px, 2vh, 22px);
+    z-index: 2;
+    height: auto;
+    margin: 0;
     padding: 0;
   }
 
-  .socialmedia {
-    flex-shrink: 0;
-    top: clamp(32px, 5vw, 80px);
-    right: clamp(12px, 4vw, 60px);
-    width: clamp(26px, 2.5vw, 30px);
+  .hero-brand-row .socialmedia a {
+    width: clamp(30px, 2.8vw, 38px);
+    height: clamp(30px, 2.8vw, 38px);
   }
 
-  .socialmedia a {
-    width: clamp(26px, 2.5vw, 30px);
-    height: clamp(26px, 2.5vw, 30px);
+  .arrow-button {
+    width: clamp(38px, 3.4vw, 46px);
+    height: clamp(84px, 8vw, 104px);
+    padding: 0;
+  }
+}
+
+@media (min-width: 1480px) {
+  .hero .hero-brand-row .logo-container {
+    width: 200px;
+    box-sizing: border-box;
   }
 }
 
@@ -323,7 +438,7 @@
   .hero {
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     text-align: center;
   }
 
@@ -510,7 +625,7 @@
     background-color: rgba(38, 46, 52, 0.28);
   }
 
-  .hero-name > .logo-container {
+  .hero-name > .hero-brand-row {
     display: none;
   }
 

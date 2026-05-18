@@ -60,6 +60,38 @@ export class Header implements OnDestroy {
   }
 
   /**
+   * Zur Landing / Hero: gleiche Route-Logik wie `scrollTo`, Section-Highlight zurücksetzen.
+   * @param event - Klick auf das Logo-Bild
+   */
+  goToHero(event: Event): void {
+    event.preventDefault();
+    if (!this.isBrowser) return;
+    this.activeSection = '';
+    this.menuOpen = false;
+    this.syncMenuBodyScrollLock(false);
+    const scroll = () =>
+      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+    const path = this.router.url.split('#')[0];
+    if (path === '/home' || path === '/') {
+      scroll();
+      return;
+    }
+    void this.router.navigate(['/home'], { fragment: 'hero' }).then(() => {
+      setTimeout(scroll, 80);
+    });
+  }
+
+  /**
+   * Tastaturaktivierung für Logo (Enter / Space).
+   * @param event - KeyboardEvent
+   */
+  onLogoKeydown(event: KeyboardEvent): void {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    this.goToHero(event);
+  }
+
+  /**
    * Navigates to `/home` if needed, then scrolls to the section `id`.
    * @param id - Section id on the home page
    * @param event - Link click event (`preventDefault`)

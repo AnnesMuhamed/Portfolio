@@ -41,8 +41,8 @@
       <form
         class="contact-form__inner"
         novalidate
-        (ngSubmit)="submitForm(contactForm)"
-        #contactForm="ngForm">
+        [formGroup]="contactForm"
+        (ngSubmit)="submitForm()">
 
         <div class="contact-form-row contact-form-row--fields">
 
@@ -51,18 +51,19 @@
             <input
               type="text"
               id="name"
-              name="name"
-              [(ngModel)]="contactData.name"
-              (ngModelChange)="stripLeadingWhitespace('name', $event)"
-              [attr.placeholder]="showPlaceholders ? ('contact.nameLabel' | translate) : null"
-              required
-              minlength="2"
-              #nameNg="ngModel">
+              formControlName="name"
+              (blur)="trimFieldBlur('name')"
+              [attr.placeholder]="showPlaceholders ? ('contact.nameLabel' | translate) : null">
             <div class="contact-field-error-slot" aria-live="polite">
-              @if ((nameNg.touched || submitAttempted) && nameNg.invalid) {
-                @if (nameNg.errors?.['required']) {
+              @if (
+                (contactForm.controls.name.touched ||
+                  contactForm.controls.name.dirty ||
+                  submitAttempted) &&
+                contactForm.controls.name.invalid
+              ) {
+                @if (contactForm.controls.name.errors?.['required']) {
                   <span class="error-message">{{ 'contact.nameError' | translate }}</span>
-                } @else if (nameNg.errors?.['minlength']) {
+                } @else if (contactForm.controls.name.errors?.['minlength']) {
                   <span class="error-message">{{ 'contact.nameMinLength' | translate }}</span>
                 }
               }
@@ -74,18 +75,19 @@
             <input
               type="email"
               id="email"
-              name="email"
-              [(ngModel)]="contactData.email"
-              (ngModelChange)="stripLeadingWhitespace('email', $event)"
-              [attr.placeholder]="showPlaceholders ? ('contact.emailLabel' | translate) : null"
-              required
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-              #emailNg="ngModel">
+              formControlName="email"
+              (blur)="trimFieldBlur('email')"
+              [attr.placeholder]="showPlaceholders ? ('contact.emailLabel' | translate) : null">
             <div class="contact-field-error-slot" aria-live="polite">
-              @if ((emailNg.touched || submitAttempted) && emailNg.invalid) {
-                @if (emailNg.errors?.['required']) {
+              @if (
+                (contactForm.controls.email.touched ||
+                  contactForm.controls.email.dirty ||
+                  submitAttempted) &&
+                contactForm.controls.email.invalid
+              ) {
+                @if (contactForm.controls.email.errors?.['required']) {
                   <span class="error-message">{{ 'contact.emailRequired' | translate }}</span>
-                } @else {
+                } @else if (contactForm.controls.email.errors?.['email']) {
                   <span class="error-message">{{ 'contact.emailInvalid' | translate }}</span>
                 }
               }
@@ -100,16 +102,21 @@
             <span class="contact-field-caption">{{ 'contact.messageLabel' | translate }}</span>
             <textarea
               id="message"
-              minlength="10"
-              name="message"
-              [(ngModel)]="contactData.message"
-              (ngModelChange)="stripLeadingWhitespace('message', $event)"
-              [attr.placeholder]="showPlaceholders ? ('contact.messageLabel' | translate) : null"
-              required
-              #messageNg="ngModel"></textarea>
+              formControlName="message"
+              (blur)="trimFieldBlur('message')"
+              [attr.placeholder]="showPlaceholders ? ('contact.messageLabel' | translate) : null"></textarea>
             <div class="contact-field-error-slot" aria-live="polite">
-              @if ((messageNg.touched || submitAttempted) && messageNg.invalid) {
-                <span class="error-message">{{ 'contact.messageError' | translate }}</span>
+              @if (
+                (contactForm.controls.message.touched ||
+                  contactForm.controls.message.dirty ||
+                  submitAttempted) &&
+                contactForm.controls.message.invalid
+              ) {
+                @if (contactForm.controls.message.errors?.['required']) {
+                  <span class="error-message">{{ 'contact.messageError' | translate }}</span>
+                } @else if (contactForm.controls.message.errors?.['minlength']) {
+                  <span class="error-message">{{ 'contact.messageError' | translate }}</span>
+                }
               }
             </div>
           </label>
@@ -124,11 +131,11 @@
                 <input
                   type="checkbox"
                   id="agree"
-                  name="agree"
-                  [(ngModel)]="contactData.agree"
-                  required
-                  #agreeNg="ngModel"
-                  [class.checkbox-error]="(agreeNg.touched || submitAttempted) && agreeNg.invalid">
+                  formControlName="agree"
+                  [class.checkbox-error]="
+                    (contactForm.controls.agree.touched || submitAttempted) &&
+                    contactForm.controls.agree.invalid
+                  ">
 
                 <span class="contact-form-row--submit-label-text">
                   {{ 'contact.privacyCheckboxBefore' | translate }}<a
@@ -140,8 +147,13 @@
               </span>
 
               <div class="contact-field-error-slot contact-field-error-slot--privacy" aria-live="polite">
-                @if ((agreeNg.touched || submitAttempted) && agreeNg.invalid) {
-                  <span class="error-message contact-form-row--submit-agree-error">{{ 'contact.privacyError' | translate }}</span>
+                @if (
+                  (contactForm.controls.agree.touched || submitAttempted) &&
+                  contactForm.controls.agree.invalid
+                ) {
+                  <span class="error-message contact-form-row--submit-agree-error">{{
+                    'contact.privacyError' | translate
+                  }}</span>
                 }
               </div>
             </label>
