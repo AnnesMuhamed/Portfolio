@@ -1,6 +1,5 @@
 .contact {
   width: 100%;
-  max-width: 1920px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -11,8 +10,6 @@
   margin-bottom: 80px;
   padding: 0 clamp(16px, 5vw, 48px);
   box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .arrow-container {
@@ -455,6 +452,13 @@ textarea {
     &:hover {
       background-color: #3f454a;
     }
+}
+
+@media (min-width: 1025px) {
+  .contact-wrapper {
+    position: relative;
+    left: 38px;
+  }
 }
 
 @media (max-width: 1024px) {

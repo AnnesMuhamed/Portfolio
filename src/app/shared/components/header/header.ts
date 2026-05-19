@@ -3,9 +3,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
-/**
- * Global header: logo, section navigation, language switcher, and mobile menu.
- */
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -20,9 +17,10 @@ export class Header implements OnDestroy {
   private readonly isBrowser: boolean;
 
   /**
-   * @param platformId - Angular platform id
-   * @param translate - Translation service
-   * @param router - Router for navigating to home with a fragment
+   * Creates the header component and syncs the current language.
+   * @param platformId Angular platform identifier.
+   * @param translate Translation service instance.
+   * @param router Angular router instance.
    */
   constructor(
     @Inject(PLATFORM_ID) platformId: object,
@@ -35,24 +33,24 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Keeps `currentLang` in sync with ngx-translate.
-   * @param e - Language change event from ngx-translate
+   * Updates the local language state after a translation change.
+   * @param e Language change event.
    */
   private onTranslateLangChange(e: { lang: string }): void {
     this.currentLang = e.lang;
   }
 
   /**
-   * Releases body scroll lock when the component is destroyed.
+   * Cleans up body scroll locking on destroy.
    */
   ngOnDestroy(): void {
     this.syncMenuBodyScrollLock(false);
   }
 
   /**
-   * Changes the active translation.
-   * @param lang - Target language
-   * @param event - Optional event (stopPropagation)
+   * Switches the active UI language.
+   * @param lang Target language code.
+   * @param event Optional source event.
    */
   selectLanguage(lang: 'de' | 'en', event?: Event): void {
     event?.stopPropagation();
@@ -60,8 +58,8 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Zur Landing / Hero: gleiche Route-Logik wie `scrollTo`, Section-Highlight zurücksetzen.
-   * @param event - Klick auf das Logo-Bild
+   * Navigates to the hero section, including cross-route handling.
+   * @param event Source click event.
    */
   goToHero(event: Event): void {
     event.preventDefault();
@@ -82,8 +80,8 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Tastaturaktivierung für Logo (Enter / Space).
-   * @param event - KeyboardEvent
+   * Triggers hero navigation for keyboard activation.
+   * @param event Keyboard event on the logo.
    */
   onLogoKeydown(event: KeyboardEvent): void {
     if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -92,9 +90,9 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Navigates to `/home` if needed, then scrolls to the section `id`.
-   * @param id - Section id on the home page
-   * @param event - Link click event (`preventDefault`)
+   * Navigates to a section and performs smooth scrolling.
+   * @param id Target section id.
+   * @param event Source click event.
    */
   scrollTo(id: string, event: Event): void {
     event.preventDefault();
@@ -114,7 +112,7 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Toggles the mobile overlay menu (same interaction model as the hero burger).
+   * Toggles the mobile menu state and body scroll lock.
    */
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -122,7 +120,8 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Closes the menu when tapping the dimmed backdrop.
+   * Closes the mobile menu when the backdrop is clicked.
+   * @param event Mouse event from the overlay.
    */
   onMobileMenuBackdropClick(event: MouseEvent): void {
     if (event.target === event.currentTarget) {
@@ -132,7 +131,7 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Closes the mobile menu.
+   * Closes the mobile menu and resets body scroll lock.
    */
   closeMenu(): void {
     this.menuOpen = false;
@@ -140,8 +139,8 @@ export class Header implements OnDestroy {
   }
 
   /**
-   * Toggles `overflow` on `body` and `documentElement` while the mobile menu is open.
-   * @param locked - When `true`, hides overflow; when `false`, restores default scrolling
+   * Applies or clears global scroll lock for the mobile menu.
+   * @param locked Whether the page should be scroll-locked.
    */
   private syncMenuBodyScrollLock(locked: boolean): void {
     if (!this.isBrowser) {

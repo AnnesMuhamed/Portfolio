@@ -6,7 +6,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { trimmedEmail, trimmedMinLength } from './contact-validators';
 
-/** Deploy `public/contact.php` to the site root next to `index.html` (e.g. All-Inkl). */
 const CONTACT_ENDPOINT = '/contact.php';
 
 type ContactPhpResponse = { ok: boolean; error?: string };
@@ -25,15 +24,11 @@ export class ContactComponent implements OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly fb = inject(FormBuilder);
   private readonly isBrowser: boolean;
-  /** Clears the auto-hide for the success banner. */
   private successHideTimerId?: number;
-  /** Clears the auto-hide for the server error banner. */
   private errorHideTimerId?: number;
 
-  /** Sichtbare Label (≥16px); keine Platzhalter-Doppelung zur gleichen Anschrift. */
   showPlaceholders = false;
 
-  /** Alle Textvalidierungen nutzen intern trim(); Checkbox mit requiredTrue. */
   readonly contactForm = this.fb.nonNullable.group({
     name: ['', [trimmedMinLength(2)]],
     email: ['', [trimmedEmail()]],
@@ -41,15 +36,25 @@ export class ContactComponent implements OnDestroy {
     agree: [false, [Validators.requiredTrue]],
   });
 
+  /**
+   * Creates the contact component and detects browser runtime.
+   * @param platformId Angular platform identifier.
+   */
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
+  /**
+   * Clears running timers during component teardown.
+   */
   ngOnDestroy(): void {
     this.clearSuccessHideTimer();
     this.clearErrorHideTimer();
   }
 
+  /**
+   * Clears the success banner auto-hide timer.
+   */
   private clearSuccessHideTimer(): void {
     if (this.successHideTimerId !== undefined) {
       window.clearTimeout(this.successHideTimerId);
@@ -57,6 +62,9 @@ export class ContactComponent implements OnDestroy {
     }
   }
 
+  /**
+   * Schedules automatic hiding of the success banner.
+   */
   private scheduleSuccessMessageHide(): void {
     this.clearSuccessHideTimer();
     if (!this.isBrowser) {
@@ -68,6 +76,9 @@ export class ContactComponent implements OnDestroy {
     }, SUCCESS_MESSAGE_HIDE_MS);
   }
 
+  /**
+   * Clears the error banner auto-hide timer.
+   */
   private clearErrorHideTimer(): void {
     if (this.errorHideTimerId !== undefined) {
       window.clearTimeout(this.errorHideTimerId);
@@ -75,6 +86,9 @@ export class ContactComponent implements OnDestroy {
     }
   }
 
+  /**
+   * Schedules automatic hiding of the error banner.
+   */
   private scheduleErrorMessageHide(): void {
     this.clearErrorHideTimer();
     if (!this.isBrowser) {
@@ -86,6 +100,9 @@ export class ContactComponent implements OnDestroy {
     }, ERROR_MESSAGE_HIDE_MS);
   }
 
+  /**
+   * Smooth-scrolls to the hero section.
+   */
   scrollToHero(): void {
     if (!this.isBrowser) return;
     document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
@@ -96,7 +113,10 @@ export class ContactComponent implements OnDestroy {
   submitSuccess = false;
   submitError = false;
 
-  /** Nach blur: Control-Wert an trim() angleichen (einheitliche Normalisierung). */
+  /**
+   * Trims and normalizes a field value when it loses focus.
+   * @param field Form field name.
+   */
   trimFieldBlur(field: 'name' | 'email' | 'message'): void {
     const c = this.contactForm.get(field);
     if (!c) return;
@@ -108,7 +128,9 @@ export class ContactComponent implements OnDestroy {
     c.updateValueAndValidity({ emitEvent: false });
   }
 
-  /** Vor Submit & Payload: alle Textfelder trimmen, dann erst Validität prüfen. */
+  /**
+   * Normalizes all text fields before validation and submit.
+   */
   private normalizeFormValues(): void {
     const v = this.contactForm.getRawValue();
     this.contactForm.patchValue(
@@ -124,7 +146,9 @@ export class ContactComponent implements OnDestroy {
     this.contactForm.controls.message.updateValueAndValidity({ emitEvent: false });
   }
 
-  /** POST JSON `name`, `email`, `message` — same shape as `/api/contact` examples. */
+  /**
+   * Submits the contact payload and updates UI feedback state.
+   */
   submitForm(): void {
     this.submitAttempted = true;
     this.submitSuccess = false;

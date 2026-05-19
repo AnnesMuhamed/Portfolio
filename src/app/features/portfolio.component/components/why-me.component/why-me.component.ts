@@ -4,17 +4,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-/**
- * Single about item shown in the typewriter rotation.
- */
 interface AboutItem {
   icon: string;
   textKey: string;
 }
 
-/**
- * "Why me" section with a typewriter animation over translated strings.
- */
 @Component({
   selector: 'app-why-me',
   standalone: true,

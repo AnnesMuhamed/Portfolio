@@ -10,9 +10,6 @@ import {
 } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
-/**
- * Skills section with a responsive layout signal (narrow "learning" layout at max-width 1024px).
- */
 @Component({
   selector: 'app-skill',
   standalone: true,

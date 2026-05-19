@@ -54,9 +54,6 @@ function initializeI18n(): Promise<unknown> {
   return firstValueFrom(translate.use(lang));
 }
 
-/**
- * Central browser application configuration (router, hydration, HTTP, i18n).
- */
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),

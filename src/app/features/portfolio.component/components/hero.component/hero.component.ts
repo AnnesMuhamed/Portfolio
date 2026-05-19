@@ -3,9 +3,6 @@ import { Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-/**
- * Hero section with navigation, language switcher, and mobile menu (body scroll lock when open).
- */
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -20,8 +17,9 @@ export class HeroComponent implements OnDestroy {
   private langSub?: Subscription;
 
   /**
-   * @param platformId - Angular platform id (browser vs server)
-   * @param translate - ngx-translate service for language changes
+   * Creates the hero component and subscribes to language changes.
+   * @param platformId Angular platform identifier.
+   * @param translate Translation service instance.
    */
   constructor(
     @Inject(PLATFORM_ID) platformId: object,
@@ -33,15 +31,15 @@ export class HeroComponent implements OnDestroy {
   }
 
   /**
-   * Updates the displayed language when ngx-translate switches locale.
-   * @param e - Language change event from ngx-translate
+   * Updates the local language state after a translation change.
+   * @param e Language change event.
    */
   private onTranslateLangChange(e: { lang: string }): void {
     this.currentLang = e.lang;
   }
 
   /**
-   * Unsubscribes and releases menu scroll lock.
+   * Cleans up subscriptions and resets body scroll locking.
    */
   ngOnDestroy(): void {
     this.langSub?.unsubscribe();
@@ -49,7 +47,7 @@ export class HeroComponent implements OnDestroy {
   }
 
   /**
-   * Toggles the mobile menu and syncs body scroll lock.
+   * Toggles the mobile menu state and body scroll lock.
    */
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -57,8 +55,8 @@ export class HeroComponent implements OnDestroy {
   }
 
   /**
-   * Closes the menu when the backdrop is clicked (not the menu panel).
-   * @param event - Mouse event from the backdrop
+   * Closes the mobile menu when the backdrop is clicked.
+   * @param event Mouse event from the overlay.
    */
   onMobileMenuBackdropClick(event: MouseEvent): void {
     if (event.target === event.currentTarget) {
@@ -69,8 +67,8 @@ export class HeroComponent implements OnDestroy {
 
   /**
    * Switches the active UI language.
-   * @param lang - Target language
-   * @param event - Optional event (stops propagation)
+   * @param lang Target language code.
+   * @param event Optional source event.
    */
   selectLanguage(lang: 'de' | 'en', event?: Event): void {
     event?.stopPropagation();
@@ -78,9 +76,9 @@ export class HeroComponent implements OnDestroy {
   }
 
   /**
-   * Smooth-scrolls to the element with `id`, closes the menu, and clears scroll lock.
-   * @param id - DOM id of the target element
-   * @param event - Optional link click (`preventDefault`)
+   * Smooth-scrolls to a section and closes the mobile menu.
+   * @param id Target element id.
+   * @param event Optional source event.
    */
   scrollTo(id: string, event?: Event): void {
     event?.preventDefault();
@@ -91,8 +89,8 @@ export class HeroComponent implements OnDestroy {
   }
 
   /**
-   * Sets `overflow` on `body` and `documentElement` to lock background scroll when the menu is open.
-   * @param locked - `true` to lock, `false` to restore
+   * Applies or clears global scroll lock for the mobile menu.
+   * @param locked Whether the page should be scroll-locked.
    */
   private syncMenuBodyScrollLock(locked: boolean): void {
     if (!this.isBrowser) {

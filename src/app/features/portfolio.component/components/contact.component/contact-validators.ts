@@ -1,8 +1,9 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 /**
- * Pflichtfeld nach trim(): Nur-Leerzeichen / leer → required.
- * Danach Mindestlänge auf trim()-Ergebnis (nie Rohdaten).
+ * Validates a required trimmed value with a minimum length.
+ * @param min Minimum number of characters.
+ * @returns Angular validator function.
  */
 export function trimmedMinLength(min: number): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -18,7 +19,8 @@ export function trimmedMinLength(min: number): ValidatorFn {
 }
 
 /**
- * Pflicht + E-Mail-Format nach trim(): mind. local@domain.tld (Domain mit Punkt).
+ * Validates a required trimmed email value.
+ * @returns Angular validator function.
  */
 export function trimmedEmail(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

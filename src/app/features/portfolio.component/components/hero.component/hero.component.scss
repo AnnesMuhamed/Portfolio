@@ -8,21 +8,31 @@
 
 .hero {
   display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: flex-start;
+  align-items: stretch;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @media (min-width: 1025px) {
+    position: relative;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  align-self: center;
   justify-content: center;
   align-items: center;
   gap: 24px;
   padding: 24px 16px 0;
   box-sizing: border-box;
-
-  @media (min-width: 1025px) {
-    position: relative;
-  }
 }
 
 .mobile-topbar {
@@ -181,7 +191,7 @@
   color: #F8F5EC;
   font-family: 'Anta', sans-serif;
   font-weight: 400;
-  font-size: clamp(44px, 9vw, 120px);
+  font-size: max(16px, min(96px, 5vw));
   line-height: 120%;
   text-align: center;
 }
@@ -190,15 +200,12 @@
   color: #F8F5EC;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
-  font-size: clamp(20px, 3.5vw, 40px);
+  font-size: max(16px, min(32px, 2.8vw));
   line-height: 120%;
   text-align: center;
 }
 
 .socialmedia {
-  position: relative;
-  top: 80px;
-  right: 60px;
   display: flex;
   flex-direction: column;
   width: 30px;
@@ -272,38 +279,41 @@
 }
 
 @media (min-width: 1025px) {
+  .hero-aside-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    height: 616px;
+  }
+
   .hero-aside {
     display: flex;
     flex-direction: column;
-    flex: 1 1 0;
-    align-self: stretch;
-    justify-content: flex-end;
-    min-width: 0;
-    min-height: 0;
-    max-width: min(800px, 60vw);
+    flex: 1 1 auto;
+    align-self: center;
+    justify-content: center;
     box-sizing: border-box;
-    padding-inline: clamp(4px, 1.25vw, 16px);
+    margin-left: 40px;
+    padding-inline: 0;
   }
 
-  .hero {
+  .hero-content {
     flex-wrap: nowrap;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
-    gap: clamp(20px, 2.8vw, 56px);
-    padding-inline: clamp(12px, 3vw, 72px);
-    padding-top: clamp(4px, 1.2dvh, 18px);
-    padding-bottom: 0;
+    gap: clamp(20px, 2.4vw, 56px);
+    padding-inline: clamp(20px, 4vw, 90px);
+    padding-top: clamp(8px, 1.4vw, 24px);
+    padding-bottom: clamp(6px, 1vw, 18px);
   }
 
   .hero-img {
-    flex: 1 1 0;
-    align-self: stretch;
-    width: auto;
-    max-width: min(960px, 66vw);
+    flex: 0 1 clamp(640px, 50vw, 1020px);
+    align-self: flex-end;
+    max-width: clamp(640px, 50vw, 1020px);
     min-width: 0;
-    min-height: 0;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .hero-visual {
@@ -311,86 +321,90 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 100%;
-    max-height: 100%;
-    min-height: clamp(520px, 62dvh, 920px);
     width: 100%;
+    aspect-ratio: 699 / 763;
+    min-height: 0;
     box-sizing: border-box;
     overflow: visible;
   }
 
   .hero-shape-stack {
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: min(900px, 122%);
-    width: clamp(620px, 62vw, 900px);
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    max-width: none;
+    width: 100%;
     min-height: 0;
-    height: calc(100% + clamp(56px, 7dvh, 100px));
+    height: 100%;
   }
 
   .hero-shape-base,
   .hero-shape-hover {
     left: 50%;
-    top: auto;
-    bottom: clamp(42px, 6dvh, 120px);
-    width: clamp(620px, 58vw, 860px);
-    height: clamp(460px, min(52dvh, 62vw), 760px);
+    top: 52%;
+    bottom: auto;
+    width: 96%;
+    height: 122%;
     max-width: none;
     transform-origin: center center;
-    transform: translateX(-50%) rotate(312deg);
+    transform: translate(-50%, -50%) rotate(312deg);
     object-fit: contain;
     object-position: center center;
   }
 
   .hero-shape-hover {
-    transform: translate(calc(-50% + clamp(14px, 2vw, 24px)), -5px)
+    transform: translate(calc(-50% + clamp(8px, 0.9vw, 18px)), calc(-50% - 4px))
       rotate(298deg);
   }
 
   .profil-picture {
-    width: auto;
-    max-width: min(820px, 64vw, 100%);
+    width: min(100%, clamp(640px, 50vw, 1020px));
     height: auto;
-    max-height: 90dvh;
-    aspect-ratio: 535 / 683;
+    transform: none;
+    transform-origin: center bottom;
     object-fit: cover;
     object-position: center bottom;
   }
 
-  .hero-aside > .hero-name {
+  .hero-aside.hero-name {
     flex: 0 1 auto;
     min-width: 0;
     min-height: 0;
     justify-content: center;
-    gap: clamp(26px, 3.6vw, 48px);
-    padding-block: clamp(8px, 1.5dvh, 28px);
+    gap: 20px;
+    padding-block: 0;
   }
 
   .logo-container img {
-    width: clamp(52px, 4.8vw, 72px);
+    width: 70px;
   }
 
   .a-name,
   .developer {
-    font-size: clamp(16px, 1.15vw, 19px);
+    font-size: 18px;
   }
 
   .fullname {
-    font-size: clamp(44px, 7.2vw, 140px);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    line-height: 1.05;
+    white-space: normal;
   }
 
   .f-developer {
-    font-size: clamp(22px, 2.85vw, 48px);
+    font-size: max(16px, min(42px, 3.3vw));
+    letter-spacing: 3px;
+    font-weight: 300;
+    line-height: 1.05;
   }
 
   .hero-brand-row {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: flex-start;
-    width: 100%;
-    column-gap: clamp(12px, 2vw, 28px);
+    column-gap: 20px;
   }
 
   .hero-brand-row .logo-container {
@@ -398,44 +412,59 @@
     justify-self: center;
   }
 
-  .hero-brand-row .socialmedia {
-    grid-column: 3;
-    justify-self: end;
-    align-self: flex-start;
-    position: relative;
-    bottom: 70px;
-    top: auto;
-    right: unset;
+  .hero-aside-row .socialmedia {
+    display: flex;
     flex-direction: column;
-    width: clamp(30px, 2.8vw, 38px);
-    gap: clamp(16px, 2vh, 22px);
+    width: clamp(30px, 2.6vw, 48px);
+    gap: clamp(14px, 1.3vw, 25px);
     z-index: 2;
     height: auto;
-    margin: 0;
     padding: 0;
+    align-self: flex-start;
   }
 
-  .hero-brand-row .socialmedia a {
-    width: clamp(30px, 2.8vw, 38px);
-    height: clamp(30px, 2.8vw, 38px);
+  .hero-aside-row .socialmedia a {
+    width: clamp(30px, 2.6vw, 48px);
+    height: clamp(30px, 2.6vw, 48px);
   }
 
   .arrow-button {
-    width: clamp(38px, 3.4vw, 46px);
-    height: clamp(84px, 8vw, 104px);
+    width: clamp(38px, 2.8vw, 55px);
+    height: clamp(74px, 4.8vw, 90px);
     padding: 0;
+    margin-top: clamp(10px, 1.5vw, 28px);
   }
 }
 
-@media (min-width: 1480px) {
-  .hero .hero-brand-row .logo-container {
-    width: 200px;
-    box-sizing: border-box;
+@media (min-width: 1025px) and (max-width: 1785px) {
+  .hero-content {
+    align-items: flex-end;
+    padding-top: 0;
+  }
+
+  .hero-aside {
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+
+  .hero-aside-row {
+    align-items: flex-end;
+    height: auto;
+    min-height: 520px;
+  }
+
+  .hero-aside.hero-name {
+    justify-content: flex-end;
+    padding-bottom: 6px;
   }
 }
 
 @media (max-width: 1024px) {
   .hero {
+    min-height: 0;
+  }
+
+  .hero-content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -486,7 +515,7 @@
     margin-top: 24px;
   }
 
-  .hero {
+  .hero-content {
     padding: 0;
     gap: 0px;
     justify-content: flex-start;
@@ -570,9 +599,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(16px, 4.5vmin, 28px);
-    padding: clamp(20px, 5vmin, 32px);
-    margin-top: clamp(-12px, -1.5vh, 8px);
+    gap: 24px;
+    padding: 28px;
+    margin-top: -6px;
     box-sizing: border-box;
     box-shadow: 0 16px 48px rgba(12, 18, 24, 0.35);
     flex-shrink: 0;
@@ -582,7 +611,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(14px, 3.8vmin, 22px);
+    gap: 20px;
   }
 
   .mobile-menu__nav a {
@@ -591,7 +620,7 @@
     color: #1a2228;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
-    font-size: clamp(1.05rem, 4vmin, 1.55rem);
+    font-size: 1.4rem;
     line-height: 120%;
     text-align: center;
   }
@@ -602,7 +631,7 @@
     align-items: center;
     justify-content: center;
     gap: 14px;
-    margin-top: clamp(8px, 2vmin, 16px);
+    margin-top: 14px;
   }
 
   .mobile-menu__lang-btn {
@@ -765,7 +794,7 @@
     min-height: 0;
     width: 100%;
     max-width: min(654px, 100%);
-    padding-inline: clamp(12px, 4.5vw, 20px);
+    padding-inline: 16px;
     box-sizing: border-box;
   }
 
@@ -835,7 +864,7 @@
     box-sizing: border-box;
     padding: 0% 8% 4% 0%;
     pointer-events: auto;
-    transform: translateY(clamp(2px, 1.4vw, 11px));
+    transform: translateY(8px);
   }
 
   .hero-profil .profil-picture {

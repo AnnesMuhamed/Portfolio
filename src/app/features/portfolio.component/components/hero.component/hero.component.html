@@ -49,66 +49,66 @@
     </div>
   </div>
 
-  <div class="hero-img">
-    <div class="hero-visual">
-      <div class="hero-shape-stack" aria-hidden="true">
-        <img class="hero-shape-base" src="/images/bg-shape.png" alt="">
-        <img class="hero-shape-hover" src="/images/shape-hover.png" alt="">
-      </div>
-      <div class="hero-profil">
-        <img class="profil-picture" src="/images/profilbild.png" alt="">
+  <div class="hero-content">
+    <div class="hero-img">
+      <div class="hero-visual">
+        <div class="hero-shape-stack" aria-hidden="true">
+          <img class="hero-shape-base" src="/images/bg-shape.png" alt="">
+          <img class="hero-shape-hover" src="/images/shape-hover.png" alt="">
+        </div>
+        <div class="hero-profil">
+          <img class="profil-picture" src="/images/profilbild.png" alt="">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="hero-aside">
-    <div class="hero-name">
-    <div class="hero-brand-row">
-      <div class="logo-container">
-      <img src="/images/logo-icon.png" alt="Hero Icon">
-      <span class="a-name">A.Muhamed</span>
-      <span class="developer">{{ 'brand.developer' | translate }}</span>
+    <div class="hero-aside-row">
+      <div class="hero-aside hero-name">
+        <div class="hero-brand-row">
+          <div class="logo-container">
+          <img src="/images/logo-icon.png" alt="Hero Icon">
+          <span class="a-name">A.Muhamed</span>
+          <span class="developer">{{ 'brand.developer' | translate }}</span>
+          </div>
+        </div>
+        <div class="name-container">
+          <span class="fullname">Annes Muhamed</span>
+          <span class="f-developer">{{ 'hero.role' | translate }}</span>
+        </div>
+        <button class="arrow-button" type="button" (click)="scrollTo('contact', $event)" aria-label="Scroll to contact section">
+          <img src="/images/arrow-down.png" alt="">
+        </button>
       </div>
 
       <div class="socialmedia">
-      <a
-        href="mailto:contact@annes-portfolio.de"
-        class="icon-btn"
-        aria-label="E-Mail an contact@annes-portfolio.de">
-        <img class="icon-default" src="/images/email-button.png" alt="">
-        <img class="icon-hover" src="/images/email-button-hover.png" alt="">
-      </a>
+        <a
+          href="mailto:contact@annes-portfolio.de"
+          class="icon-btn"
+          aria-label="E-Mail an contact@annes-portfolio.de">
+          <img class="icon-default" src="/images/email-button.svg" alt="">
+          <img class="icon-hover" src="/images/email-button-hover.svg" alt="">
+        </a>
 
-      <a
-        href="https://github.com/AnnesMuhamed"
-        class="icon-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub">
-        <img class="icon-default" src="/images/github-button.png" alt="">
-        <img class="icon-hover" src="/images/github-button-hover.png" alt="">
-      </a>
+        <a
+          href="https://github.com/AnnesMuhamed"
+          class="icon-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub">
+          <img class="icon-default" src="/images/github-button.svg" alt="">
+          <img class="icon-hover" src="/images/github-buttom-hover.svg" alt="">
+        </a>
 
-      <a
-        href="https://www.linkedin.com/in/annes-muhamed-637642233"
-        class="icon-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn">
-        <img class="icon-default" src="/images/linkedin-button.png" alt="">
-        <img class="icon-hover" src="/images/linkedin-button-hover.png" alt="">
-      </a>
+        <a
+          href="https://www.linkedin.com/in/annes-muhamed-637642233"
+          class="icon-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn">
+          <img class="icon-default" src="/images/linkedin-button.svg" alt="">
+          <img class="icon-hover" src="/images/linkedin-button-hover.svg" alt="">
+        </a>
       </div>
-    </div>
-    <div class="name-container">
-      <span class="fullname">Annes Muhamed</span>
-      <span class="f-developer">{{ 'hero.role' | translate }}</span>
-    </div>
-    <div>
-      <button class="arrow-button" type="button" (click)="scrollTo('contact', $event)" aria-label="Scroll to contact section">
-        <img src="/images/arrow-down.png" alt="">
-      </button>
-    </div>
     </div>
   </div>
 

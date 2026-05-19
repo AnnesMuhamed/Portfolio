@@ -6,9 +6,6 @@ import { ContactComponent } from './features/portfolio.component/components/cont
 import { LegalNoticeComponent } from './features/legal-notice.component/legal-notice.component';
 import { PrivacyPolicyComponent } from './features/privacy-policy.component/privacy-policy.component';
 
-/**
- * SPA routes: home, sections, contact, legal notice, and privacy policy.
- */
 export const routes: Route[] = [
   { path: 'home', component: PortfolioComponent },
   { path: 'why-me', component: WhyMeComponent },

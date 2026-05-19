@@ -63,7 +63,4 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
   app.listen(port, handleListen);
 }
 
-/**
- * Node request handler for hosting integrations (e.g. serverless adapters).
- */
 export const reqHandler = createNodeRequestHandler(app);
